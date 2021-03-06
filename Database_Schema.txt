@@ -1,0 +1,21 @@
+Authors: Federico Berlfein (Database), Jasmyne Jean-Remy (Database), Shi Qiu (Home/display), Aichuk (TBD)
+
+Database Schema for product: AirStorage
+
+Tables:
+Name: Hosts 
+Columns: integer id, string name, string email, string password, string phone_number, string address, string city, integer zip_code
+
+Name: Users 
+Columns: integer id, string name, string email, string password string phone_number
+
+Name: Transactions
+Columns: integer id, integer host_id, integer user_id, float price, integer duration
+
+Name: Listings
+Columns: integer id, integer host_id, integer space, integer available_duration
+
+Associations:
+Listings - Hosts (is One to One)
+Hosts -> Transactions is (One to Many)
+Users -> Transactions is (One to Many)
