@@ -16,6 +16,6 @@ Name: Listings
 Columns: integer id, integer host_id, integer space, integer available_duration
 
 Associations:
-Listings - Hosts (is One to One)
+Hosts -> Listings (One to Many)
 Hosts -> Transactions is (One to Many)
 Users -> Transactions is (One to Many)
