@@ -21,4 +21,11 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* HomePage
+
+![screen shot](Home.png)
+
+* FAQ
+
+![screen shot](FAQ.png)
+
