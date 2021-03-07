@@ -91,6 +91,7 @@ GEM
     concurrent-ruby (1.1.8)
     crass (1.0.6)
     erubi (1.10.0)
+    execjs (2.7.0)
     faker (2.16.0)
       i18n (>= 1.6, < 2)
     execjs (2.7.0)

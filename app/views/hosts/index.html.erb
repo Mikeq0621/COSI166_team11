@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+    <head></head>
+    <body>
+        <h1>Hosts</h1>
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Host Id</th>
+                        <th scope="col">Host Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Street Address</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Zip Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @hosts.each do |h|%>
+                    <tr>
+                        <th scope="row"><%= h.id%></th>
+                        <td><%= h.name%></td>
+                        <td><%= h.email%></td>
+                        <td><%= h.password%></td>
+                        <td><%= h.phone_number%></td>
+                        <td><%= h.address%></td>
+                        <td><%= h.city%></td>
+                        <td><%= h.zip_code%></td>
+                       
+                    </tr>
+                    <%end%>
+                </tbody>
+            </table>
+        </div>
+    </body>
+
+</html>
