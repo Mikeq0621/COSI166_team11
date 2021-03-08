@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :transactions
+  resources :listings
   resources :users
   resources :hosts
   root 'static_page#home'

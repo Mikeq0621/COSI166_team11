@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head></head>
+    <body>
+        <h1>Transactions</h1>
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">User</th>
+                        <th scope="col">Host</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Duration (weeks)</th>
+    
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @transactions.each do |t|%>
+                    <tr>
+                        <td><%= Host.find(t.host_id).name%></td>
+                        <td><%= User.find(t.user_id).name%></td>
+                        <td><%= t.price%></td>
+                        <td><%= t.duration%></td>
+                       
+                    </tr>
+                    <%end%>
+                </tbody>
+            </table>
+        </div>
+    </body>
+
+</html>
