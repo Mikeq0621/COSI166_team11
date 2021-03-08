@@ -1,0 +1,36 @@
+<html>
+    <head></head>
+    <body>
+        <h1>Hosts Available in Area</h1>
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Host Id</th>
+                        <th scope="col">Host Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Street Address</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Zip Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @results.each do |r|%>
+                    <tr>
+                        <th scope="row"><%= r.id%></th>
+                        <td><%= r.name%></td>
+                        <td><%= r.email%></td>
+                        <td><%= r.phone_number%></td>
+                        <td><%= r.address%></td>
+                        <td><%= r.city%></td>
+                        <td><%= r.zip_code%></td>
+                       
+                    </tr>
+                    <%end%>
+                </tbody>
+            </table>
+        </div>
+    </body>
+
+</html>
