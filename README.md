@@ -20,6 +20,7 @@ Deploy to heroku: https://airstorage.herokuapp.com/
 <br>
 <br>
 
+
 ## Database creation
     Tables:
     
@@ -28,7 +29,7 @@ Deploy to heroku: https://airstorage.herokuapp.com/
     string city, integer zip_code
 
     Name: Users 
-    Columns: integer id, string name, string email, string password string phone_number
+    Columns: integer id, string name, string email, string password, string phone_number
 
     Name: Transactions
     Columns: integer id, integer host_id, integer user_id, float price, integer duration
@@ -43,7 +44,7 @@ Deploy to heroku: https://airstorage.herokuapp.com/
 <br>
 
 ## Hello World functionalities
-1. Nav bar _User_, _Hosts_ will display all users and hosts in database.
+1. Nav bar _User_, _Hosts_, _Listings_, _Transactions_ will display all users, hosts, listings, and transactions in database.
 2. Basic search functionality. Based on the user's input zipcode, will display a list of hosts that have the zip code.
 <br>
 
