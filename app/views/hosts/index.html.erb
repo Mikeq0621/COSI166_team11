@@ -22,7 +22,7 @@
                     <% @hosts.each do |h|%>
                     <tr>
                         <th scope="row"><%= h.id%></th>
-                        <td><%= h.name%></td>
+                        <td><%= link_to h.name,h%></td>
                         <td><%= h.email%></td>
                         <td><%= h.password%></td>
                         <td><%= h.phone_number%></td>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                      <div class="user-info">
+                        <h3><%= @user.name%></h3>
+                        <h3><%= @user.email%></h3>
+                        <h3><%= @user.phone_number%></h3>
+                    </div>
+                </div>
+
+               <div class="col-4">
+                    <div class="current-listings">
+                        <h3>Recent Transactions</h3>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Transaction Id</th>
+                                    <th scope="col">Duration</th>
+                                    <th scope="col">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% @transactions.each do |t|%>
+                                    <th scope="row"><%= t.id%></th>
+                                    <td><%= t.duration%></td>
+                                    <td><%= t.price%></td>
+                                <%end%>
+                            </tbody>
+                        </table>
+                    </div>
+               </div> 
+            </div>
+          
+        </div>
+    </body>
+</html>
