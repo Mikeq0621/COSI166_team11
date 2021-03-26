@@ -17,25 +17,39 @@ listings = Array.new
 transactions = Array.new
 (1..50).each do
     boston_zipcodes = ["02045","02108","02109","02110","02111","02136","02453"]
+    longitude_lst = [ "-70.958632", "-71.008632", "-71.058632", "-71.158632", "-71.258632", "-71.358632"]
+    lasitude_lst = ["42.258990", "42.358990", "42.458990", "42.558990", "42.668990"]
+
+    # Host info
     host_name = Faker::Name.name
-    user_name = Faker::Name.name
-    
     host_email = Faker::Internet.email
-    user_email = Faker::Internet.email
-    
     host_pass = Faker::Internet.password
-    user_pass = Faker::Internet.password
-
     host_pn = Faker::PhoneNumber.cell_phone
-    user_pn = Faker::PhoneNumber.cell_phone
-
     host_address = Faker::Address.street_address
     host_city = Faker::Address.city
     host_zip = boston_zipcodes.sample
+    host_state = Faker::Address.state
+    host_longitude = longitude_lst.sample
+    host_latitude = lasitude_lst.sample
+    # User Info
+    user_name = Faker::Name.name
+    user_email = Faker::Internet.email
+    user_pass = Faker::Internet.password
+    user_pn = Faker::PhoneNumber.cell_phone
+    user_address = Faker::Address.street_address
+    user_city = Faker::Address.city
+    user_zip = boston_zipcodes.sample
+    user_state = Faker::Address.state
+    user_longitude = longitude_lst.sample
+    user_latitude = lasitude_lst.sample
 
-    hosts << Host.new(name:host_name,email:host_email,password:host_pass,password_confirmation:host_pass,phone_number:host_pn,address:host_address,city:host_city,zip_code:host_zip)
-    users << User.new(name:user_name,email:user_email,password:user_pass,password_confirmation:user_pass,phone_number:user_pn)
-    
+    hosts << Host.new(name: host_name, email: host_email, password: host_pass, password_confirmation: host_pass,
+                      phone_number: host_pn, address: host_address, city: host_city, zip_code: host_zip, state: host_state, 
+                      longitude: host_longitude, latitude: host_latitude)
+
+    users << User.new(name: user_name, email: user_email, password: user_pass, password_confirmation: user_pass,
+                        phone_number: user_pn, address: user_address, city: user_city, zip_code: user_zip, state: user_state, 
+                        longitude: user_longitude, latitude: user_latitude)
 end
 
 Host.import hosts
@@ -48,6 +62,8 @@ end
 Listing.import listings
 
 15.times do
-    transactions << Transaction.new(host_id:Host.all.sample.id, user_id:User.all.sample.id, price:Faker::Commerce.price, duration: rand(2..26) )
+    h_id = Host.all.sample.id
+    u_id = User.all.sample.id
+    transactions << Transaction.new(host_id: h_id, user_id: u_id, price: Faker::Commerce.price, duration: rand(2..26) )
 end
 Transaction.import transactions
