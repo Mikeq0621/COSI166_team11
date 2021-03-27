@@ -60,4 +60,23 @@ footer {
     background-image: url("https://images.pexels.com/photos/242236/pexels-photo-242236.jpeg?cs=srgb&dl=pexels-lorenzo-242236.jpg&fm=jpg");
     background-size:cover
 }
+
+/* forms */
+
+
+@mixin box-sizing {
+  box-sizing: border-box;
+}
+
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
   
