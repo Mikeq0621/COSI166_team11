@@ -10,7 +10,7 @@ class ListingsController < ApplicationController
         @weeks = (1..10).to_a
     end
     def create
-        h_id = params[:listing][:host_id].to_i
+        h_id = current_host.id
         dur = params[:listing][:duration].to_i
         
         @listing = Listing.new(host_id:h_id,space:params[:listing][:space],duration:dur)

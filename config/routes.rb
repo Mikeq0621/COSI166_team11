@@ -18,5 +18,6 @@ Rails.application.routes.draw do
 
   get '/search' => 'searches#search', :as => 'search_page'
   delete '/listing/:id', to: 'listings#destroy'
+  post '/rent/:listing_id', to: 'transactions#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
