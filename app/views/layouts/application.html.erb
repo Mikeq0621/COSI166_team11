@@ -23,16 +23,24 @@
                 </div>
               </div>
             <% end %>
-            <% if logged_in? %>
-              <li><%= link_to "Profile",   "#" %></li>
+            <%# different layout for user_login and host_login and Non-login%>
+            <% if user_logged_in? %>
+              <li><%= link_to "Profile", userprofile_path %></li>
+              <li><%= link_to "Hosts",   hosts_path %></li>
+              <li><%= link_to "Listings",   listings_path %></li>
+              <li><%= link_to "Transactions",   transactions_path %></li>
+              <li><%= link_to "FAQs",   '/static_page/faq' %></li>
+              <li><%= link_to "Logout", logout_path, method: :delete %></li>
+            <% elsif host_logged_in? %>
+              <li><%= link_to "Profile", hostprofile_path %></li>
               <li><%= link_to "Users",   users_path %></li>
-              <li><%= link_to "Hosts",   '/hosts' %></li>
-              <li><%= link_to "Listings",   '/listings' %></li>
-              <li><%= link_to "Transactions",   '/transactions' %></li>
+              <li><%= link_to "Listings",   listings_path %></li>
+              <li><%= link_to "Transactions",   transactions_path %></li>
               <li><%= link_to "FAQs",   '/static_page/faq' %></li>
               <li><%= link_to "Logout", logout_path, method: :delete %></li>
             <% else %>
-              <li><%= link_to "Sign in",   login_path %></li>
+              <li><%= link_to "User Signin",   userlogin_path %></li>
+              <li><%= link_to "Host Signin",   hostlogin_path %></li>
               <li><%= link_to "FAQs",   '/static_page/faq' %></li>
             <% end %>
 
