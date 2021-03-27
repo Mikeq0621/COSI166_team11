@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-3">
+                    <h1>Post a Listing</h1>
+                    <%= form_with(model:@listing, local:true, method: :post) do |f|%>
+                        <%= f.label :host_id%>
+                        <%= f.text_field :host_id, class:"form-control"%>
+
+                        <%= f.label :space%>
+                        <%= f.select :space,[["1 Box",1],["2 Boxes",2],["3 Boxes",3],["4 Boxes",4],["5 Boxes",5]], class:"form-control"%>
+                        <br/>
+                        <%= f.label :duration%>
+                        
+                    <%end%>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

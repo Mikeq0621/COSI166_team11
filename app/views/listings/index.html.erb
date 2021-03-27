@@ -16,6 +16,7 @@
                         <th scope="col">Street Address</th>
                         <th scope="col">City</th>
                         <th scope="col">Zip Code</th>
+                        <th scope="col">See Listing</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,7 +30,7 @@
                         <td><%= Host.find(l.id).address%></td>
                         <td><%= Host.find(l.id).city%></td>
                         <td><%= Host.find(l.id).zip_code%></td>
-                       
+                        <td><%= link_to "See Listing", l%></td>
                     </tr>
                     <%end%>
                 </tbody>

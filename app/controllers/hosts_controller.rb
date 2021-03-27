@@ -8,4 +8,5 @@ class HostsController < ApplicationController
         @host = Host.find(params[:id])
         @listings = @host.listings
     end
+
 end

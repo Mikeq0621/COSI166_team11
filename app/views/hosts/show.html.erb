@@ -8,14 +8,15 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-4 user-info mx-auto">
-                    <h3>Host Information</h3>
+                <div class="col-md-4 user-info">
+                    <h3><strong>Host Information</strong></h3>
                     <h4><%= @host.name%></h4>
                     <h4><%= @host.email %></h4>
                     <h4><%= @host.address%>, <%= @host.city%>, <%= @host.zip_code%></h4>
                     <p class="lead"><%= @host.phone_number%></p>
                 </div>
-                <div class="col-4 current-listings">
+                <div class="col-md-4 current-listings">
+                    <%= link_to "Add New Listing", "/listings/new", class:"btn btn-primary"%>
                     <h3>Current Listings</h3>
                         <table class="table">
                             <thead>
@@ -29,7 +30,7 @@
                             <tbody>
                                 <% @listings.each do |l|%>
                                     <tr>    
-                                        <th scope="row"><%= l.id%></th>
+                                        <th scope="row"><%= link_to l.id, l%></th>
                                         <td><%= l.space%> Boxes</td>
                                         <td><%= l.duration%> Weeks</td>
                                     </tr>
