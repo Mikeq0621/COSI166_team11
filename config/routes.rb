@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   get '/signup', to: 'users#new'
   get '/search' => 'searches#search', :as => 'search_page'
-
+  delete '/listing/:id', to: 'listings#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

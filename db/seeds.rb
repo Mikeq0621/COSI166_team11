@@ -62,8 +62,8 @@ end
 Listing.import listings
 
 15.times do
-    h_id = Host.all.sample.id
+    listing = Listing.all.sample
     u_id = User.all.sample.id
-    transactions << Transaction.new(host_id: h_id, user_id: u_id, price: Faker::Commerce.price, duration: rand(2..26) )
+    transactions << Transaction.new(host_id:listing.host_id , user_id: u_id, price: Faker::Commerce.price, duration: rand(2..26),listing_id:listing.id )
 end
 Transaction.import transactions

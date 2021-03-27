@@ -19,7 +19,7 @@
                     <% @users.each do |u|%>
                         <tr>
                             <th scope="row"><%= u.id%> </th>
-                            <td><%= u.name%></td>
+                            <td><%= link_to u.name,u%></td>
                             <td><%= u.email%></td>
                             <td><%= u.password%></td>
                             <td><%= u.phone_number%></td>

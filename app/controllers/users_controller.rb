@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        @transactions = @user.transactions
     end
 
     def new
@@ -25,7 +26,6 @@ class UsersController < ApplicationController
     private
 
         def user_params
-        params.require(:user).permit(:name, :email, :phone_number, :password, :password_confirmation)
+            params.require(:user).permit(:name, :email, :phone_number, :password, :password_confirmation)
         end
-
 end

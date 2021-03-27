@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
     has_many :transactions
-    
+
     # Validates for a legal user signup format
     before_save { self.email = email.downcase }
     validates :name,  presence: true, length: { maximum: 50 }
