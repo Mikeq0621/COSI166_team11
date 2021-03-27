@@ -4,37 +4,39 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-4">
-                      <div class="user-info">
-                        <h3><%= @user.name%></h3>
-                        <h3><%= @user.email%></h3>
-                        <h3><%= @user.phone_number%></h3>
+                <div class="col-md-4 user-info">
+                    <h3><strong>User Info</strong></h3>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <h4><strong>Name:</strong></h4>
+                            <h4><strong>Email:</strong></h4>
+                        </div>
+                        <div class="col-xs-4">
+                            <h4><%= @user.name%></h4>
+                            <h4><%= @user.email%></h4>
+                        </div>
                     </div>
                 </div>
-
-               <div class="col-4">
-                    <div class="current-listings">
-                        <h3>Recent Transactions</h3>
-                        <table class="table">
-                            <thead>
+                <div class="col-md-4 transactions">
+                    <h3><strong>Recent transactions</strong></h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Date Rented</th>
+                                <th scope="col">Host Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @transactions.each do |t|%>
                                 <tr>
-                                    <th scope="col">Transaction Id</th>
-                                    <th scope="col">Duration</th>
-                                    <th scope="col">Price</th>
+                                    <td><%= t.created_at%></td>
+                                    <td><%= link_to t.host.name, t.host%></td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <% @transactions.each do |t|%>
-                                    <th scope="row"><%= t.id%></th>
-                                    <td><%= t.duration%></td>
-                                    <td><%= t.price%></td>
-                                <%end%>
-                            </tbody>
-                        </table>
-                    </div>
-               </div> 
+                            <%end%>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-          
         </div>
     </body>
 </html>
