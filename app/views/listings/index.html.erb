@@ -24,12 +24,12 @@
                     <tr>
                         <td><%= l.space%></td>
                         <td><%= l.duration%></td>
-                        <td><%= Host.find(l.id).name%></td>
-                        <td><%= Host.find(l.id).email%></td>
-                        <td><%= Host.find(l.id).phone_number%></td>
-                        <td><%= Host.find(l.id).address%></td>
-                        <td><%= Host.find(l.id).city%></td>
-                        <td><%= Host.find(l.id).zip_code%></td>
+                        <td><%= link_to l.host.name, l.host%></td>
+                        <td><%= l.host.email%></td>
+                        <td><%= l.host.phone_number%></td>
+                        <td><%= l.host.address%></td>
+                        <td><%= l.host.city%></td>
+                        <td><%= l.host.zip_code%></td>
                         <td><%= link_to "See Listing", l%></td>
                     </tr>
                     <%end%>
