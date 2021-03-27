@@ -39,6 +39,23 @@
                         </table>
                   
                 </div>
+                <div class="col-md-4 recent-transactions">
+                    <h3>Recent Transactions</h3>
+                    <table class="table">   
+                        <thead>
+                            <tr>
+                                <th scope="col">Listing ID</th>
+                                <th scope="col">Renter</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @transactions.each do |t|%>
+                                <th scope="row"><%= link_to t.listing_id,t.listing%></th>
+                                <td><%= t.user.name%></td>
+                            <%end%>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

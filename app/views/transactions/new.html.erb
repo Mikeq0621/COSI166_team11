@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-md-5 col-md-offset-3">
+                <h1>Rent a Storage Space</h1>
+
+                <%= form_with(model:@transaction,local:true,method: :post) do |f|%>
+                    <%= f.label :listing_id%>
+                    <%= f.text_field :listing_id, class:"form-control"%>
+
+                    <%= f.label :user_id%>
+                    <%= f.text_field :user_id, class:"form-control"%>
+
+                    <%= f.submit "Rent"%>
+                <%end%>
+            </div>
+        </div>
+    </body>
+</html>
