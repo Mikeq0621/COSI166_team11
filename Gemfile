@@ -61,5 +61,6 @@ gem 'activerecord-import'
 gem 'json'
 gem "better_errors"
 gem "pry-rails"
-gem 'bootstrap-sass', '3.4.1'
 gem 'bcrypt'
+
+gem "bootstrap", "~> 4.6"
