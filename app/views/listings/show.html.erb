@@ -9,6 +9,8 @@
                 <h4><strong>Host Name:</strong> <%= link_to @host.name, @host%> </h4>
                 <h4><strong>Space Available:</strong> <%= @listing.space%></h4>
                 <h4><strong>Max Duration:</strong> <%= @listing.duration%></h4>
+                <%= link_to "Rent Space", "#",class:"btn btn-primary"%>
+                <%= link_to "Delete Listing","/listing/#{@listing.id}",class:"btn btn-danger",method: :delete%>
            </div>  
         </div>
     </body>

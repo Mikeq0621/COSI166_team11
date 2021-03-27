@@ -16,8 +16,10 @@
                         <%= f.label :space%>
                         <%= f.select :space,[["1 Box",1],["2 Boxes",2],["3 Boxes",3],["4 Boxes",4],["5 Boxes",5]], class:"form-control"%>
                         <br/>
-                        <%= f.label :duration%>
-                        
+                        <%= f.label :duration,"Duration (in weeks)"%>
+                        <%= f.text_field :duration%>
+                        <br/>
+                        <%= f.submit "Post Listing", class:"btn btn-primary"%>
                     <%end%>
                 </div>
             </div>
