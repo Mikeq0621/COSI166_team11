@@ -23,13 +23,17 @@ body {
     and for users to connect and try to find storage space for their things.
   </h2>
 
+  </div>
+    <div class="col text-center">
+      <% if logged_in? %>
+        <%= link_to "Find a host near me", "#", class: "btn btn-lg btn-primary" %>
+      <% else %>
+        <%= link_to "Sign up as a User!", new_user_path, class: "btn btn-lg btn-primary" %>
+        <%= link_to "Become a host!", "#", class: "btn btn-lg btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 
-  <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-    Start with AirStorage
-    </button>
-
-    <button type="button" class="btn btn-primary">Become a Host</button>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
