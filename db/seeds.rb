@@ -15,7 +15,6 @@ hosts = Array.new
 users = Array.new
 listings = Array.new
 transactions = Array.new
-json_hash = {:type => 'FeautureCollection', :features => []}
 (1..50).each do
     boston_zipcodes = ["02045","02108","02109","02110","02111","02136","02453"]
     longitude_lst = [ "-70.958632", "-71.008632", "-71.058632", "-71.158632", "-71.258632", "-71.358632"]
@@ -57,40 +56,14 @@ end
 
 Host.import hosts
 User.import users
-#File.open("host.json", "w") { |f| f.write Host.all.to_json }
-# json_hash = {:type => 'FeautureCollection', :features => []}
-# feature_hash = {:type => 'Feature', :geometry => {:type => 'Point',:coordinates => [-77.034084142948, 38.909671288923]},
-#                 :properties => {:phone => '2022347336',
-#                     :address => '1471 P St NW',
-#                     :city => 'Washington DC',
-#                     :country => 'United States',
-#                     :crossStreet => 'at 15th St NW',
-#                     :postalCode => '20005',
-#                     :state => 'D.C.'}
-#                 }
-#json_hash[:features] << feature_hash
-#json_file = File.open("host.json", "w")
-#json_file.write json_hash.to_json
+
 25.times do
     h_id = Host.all.sample.id
     host = Host.find(h_id)
     listings << Listing.new(host_id:h_id, space: rand(3..10), duration: rand(2..26) )
-    feature_hash = {:type => 'Feature', :geometry => {:type => 'Point',:coordinates => [host.longitude, host.latitude]},
-        :properties => {:phone => host.phone_number,
-        :address => host.address,
-        :city => host.city,
-        :country => 'United States',
-        :postalCode => host.zip_code,
-        :state => host.state,
-        :space => listings[-1].space,
-        :duration =>listings[-1].duration
-        }
-    }
-    json_hash[:features] << feature_hash
 end
+
 Listing.import listings
-json_file = File.open("public/listings.json", "w")
-json_file.write json_hash.to_json
 
 15.times do
     listing = Listing.all.sample
