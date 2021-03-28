@@ -43,6 +43,8 @@ transactions = Array.new
     user_longitude = longitude_lst.sample
     user_latitude = lasitude_lst.sample
 
+
+
     hosts << Host.new(name: host_name, email: host_email, password: host_pass, password_confirmation: host_pass,
                       phone_number: host_pn, address: host_address, city: host_city, zip_code: host_zip, state: host_state, 
                       longitude: host_longitude, latitude: host_latitude)
@@ -55,10 +57,12 @@ end
 Host.import hosts
 User.import users
 
-
 25.times do
-    listings << Listing.new(host_id:Host.all.sample.id, space: rand(3..10), duration: rand(2..26) )
+    h_id = Host.all.sample.id
+    host = Host.find(h_id)
+    listings << Listing.new(host_id:h_id, space: rand(3..10), duration: rand(2..26) )
 end
+
 Listing.import listings
 
 15.times do
