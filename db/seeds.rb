@@ -89,7 +89,7 @@ User.import users
     json_hash[:features] << feature_hash
 end
 Listing.import listings
-json_file = File.open("host.json", "w")
+json_file = File.open("public/listings.json", "w")
 json_file.write json_hash.to_json
 
 15.times do
