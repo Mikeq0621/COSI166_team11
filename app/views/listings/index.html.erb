@@ -13,6 +13,8 @@
       rel="stylesheet"
     /> 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <span id='listing-variable' style ='display:none'><%@listing_json%></span>
+    <%= content_tag :div, class: "listings", data: {listings: @listing_json} do %><% end %>
     <style>
       body {
         color: #404040;
@@ -88,6 +90,7 @@
 
       .listings .item:last-child {
         border-bottom: none;
+        margin-bottom: 80px;
       }
       .listings .item .title {
         display: block;
@@ -222,22 +225,27 @@
         zoom: 13,
       });
         
-        var stores = (function() {
-          var stores = null;
-          $.ajax({
-            'async': false,
-            'global': false,
-            'url': "listings.json",
-            'dataType': "json",
-            'success': function(data) {
-              stores = data;
-            }
-          });
-          return stores;
-        })();
-        if (stores == null){
-            f
-        }
+        var listings = $('.listings').data('listings');
+
+        /* Old stuff used for testing */
+        // var stores = (function() {
+        //   var stores = null;
+        //   $.ajax({
+        //     'async': false,
+        //     'global': false,
+        //     'url': "listings.json",
+        //     'dataType': "json",
+        //     'success': function(data) {
+        //       stores = data;
+        //     }
+        //   });
+        //   return stores;
+        // })();
+        
+        //var stores = JSON.parse(data);
+        //if (stores == null){
+        //    f
+        //}
     //   var stores = {
     //     'type': 'FeatureCollection',
     //     'features': [
@@ -448,7 +456,7 @@
        * later to associate each point on the map with a listing
        * in the sidebar.
        */
-      stores.features.forEach(function (store, i) {
+      listings.features.forEach(function (store, i) {
         store.properties.id = i;
       });
 
@@ -462,7 +470,7 @@
          */
         map.addSource('places', {
           'type': 'geojson',
-          'data': stores
+          'data': listings
         });
 
         /**
@@ -470,7 +478,7 @@
          * - The location listings on the side of the page
          * - The markers onto the map
          */
-        buildLocationList(stores);
+        buildLocationList(listings);
         addMarkers();
       });
 
@@ -479,7 +487,7 @@
        **/
       function addMarkers() {
         /* For each feature in the GeoJSON object above: */
-        stores.features.forEach(function (marker) {
+        listings.features.forEach(function (marker) {
           /* Create a div element for the marker. */
           var el = document.createElement('div');
           /* Assign a unique `id` to the marker. */

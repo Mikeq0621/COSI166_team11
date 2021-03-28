@@ -6,11 +6,18 @@ Rails.application.routes.draw do
   resources :hosts
   root 'static_page#home'
   get 'static_page/faq'
-  get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#create'
+  get    '/userlogin',   to: 'sessions#new'
+  post   '/userlogin',   to: 'sessions#create_user'
+  get    '/hostlogin',   to: 'sessions#newhost'
+  post   '/hostlogin',   to: 'sessions#create_host'
   delete '/logout',  to: 'sessions#destroy'
   get '/signup', to: 'users#new'
+
+  get '/userprofile', to: 'users#show'
+  get 'hostprofile', to: 'hosts#show'
+
   get '/search' => 'searches#search', :as => 'search_page'
   delete '/listing/:id', to: 'listings#destroy'
+  post '/rent/:listing_id', to: 'transactions#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

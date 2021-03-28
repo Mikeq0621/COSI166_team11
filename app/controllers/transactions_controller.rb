@@ -9,11 +9,11 @@ class TransactionsController < ApplicationController
     end
 
     def create
-        listing = Listing.find(params[:transaction][:listing_id])
-        user = User.find(params[:transaction][:user_id])
-        transaction = Transaction.new(host_id:listing.host.id,user_id:params[:transaction][:user_id],listing_id:listing.id,price:30.00,duration:20)
+        listing = Listing.find(params[:listing_id])
+        user = current_user.id
+        transaction = Transaction.new(host_id:listing.host.id,user_id:current_user.id,listing_id:listing.id,price:30.00,duration:20)
         if transaction.save
-            redirect_to user
+            redirect_to current_user
         else
             render 'new'
         end

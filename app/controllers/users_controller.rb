@@ -4,7 +4,11 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
+        if params[:id]
+            @user = User.find(params[:id])
+        else
+            @user = current_user
+        end
         @transactions = @user.transactions
     end
 
@@ -24,8 +28,8 @@ class UsersController < ApplicationController
     end
 
     private
-
         def user_params
-            params.require(:user).permit(:name, :email, :phone_number, :password, :password_confirmation)
+            params.require(:user).permit(:name, :email, :phone_number, :password, 
+                                        :password_confirmation, :address, :city, :state, :zip_code)
         end
 end
