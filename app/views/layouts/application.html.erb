@@ -22,6 +22,12 @@
                   <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
                 </div>
               </div>
+              <select name="search_filter" style="width: 25%;">
+                <option value="">Zipcode</option>
+                <option value="city">City</option>
+                <option value="duration">Duration (weeks)</option>
+                <option value="duration">Locations nearby</option>
+              </select>
             <% end %>
             <% if logged_in? %>
               <li><%= link_to "Profile",   "#" %></li>
