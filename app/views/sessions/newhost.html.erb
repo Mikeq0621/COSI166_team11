@@ -1,8 +1,9 @@
 <% provide(:title, "Log in") %>
-<h1>Host Log in</h1>
+
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-6 mx-auto user-form">
+    <h1>Host Log in</h1>
     <%= form_with(url: hostlogin_path, scope: :session, local: true) do |f| %>
 
       <%= f.label :email %>
