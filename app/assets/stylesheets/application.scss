@@ -17,9 +17,11 @@
 @import "bootstrap";
 
 body {
-    padding-top: 60px;
+    padding:20px;
+    
+    
   }
-  
+
   section {
     overflow: auto;
   }
@@ -36,32 +38,18 @@ body {
     margin-bottom: 10px;
   }
 
+  .nav-item{
+    padding-left: 10px;
+    color:black;
+  }
+
+  .logo:hover{
+    text-shadow:2px 2px 5px rgb(155, 155, 155);
+  }
+
   /* typography */
 
-h1, h2, h3, h4, h5, h6 {
-    line-height: 1;
-  }
-  
-  h1 {
-    font-size: 3em;
-    letter-spacing: -2px;
-    margin-bottom: 30px;
-    text-align: center;
-  }
-  
-  h2 {
-    font-size: 1.2em;
-    letter-spacing: -1px;
-    margin-bottom: 30px;
-    text-align: center;
-    font-weight: normal;
-    color: #777;
-  }
-  
-  p {
-    font-size: 1.1em;
-    line-height: 1.7em;
-  }
+
 
 
   /* header */
@@ -88,11 +76,11 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
-  color: #777;
+  color: rgb(0, 0, 0);
 }
 
 footer a {
-  color: rgb(253, 253, 253);
+  color: rgb(0, 0, 0);
 }
 
 footer a:hover {
@@ -116,7 +104,7 @@ footer ul li {
 /* homepage */
 
 #homepage {
-  background-image: url("https://images.pexels.com/photos/242236/pexels-photo-242236.jpeg?cs=srgb&dl=pexels-lorenzo-242236.jpg&fm=jpg");
+  
   background-size:cover
 }
 

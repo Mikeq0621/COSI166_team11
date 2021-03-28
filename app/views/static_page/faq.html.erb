@@ -1,30 +1,43 @@
-<div class="jumbotron", id="faq">
-    <style>
-    #faq {
-        background-image: url("https://images.pexels.com/photos/242236/pexels-photo-242236.jpeg?cs=srgb&dl=pexels-lorenzo-242236.jpg&fm=jpg");
-        background-size: cover
-    }
-    body {
-        background-image: url("https://images.pexels.com/photos/917494/pexels-photo-917494.jpeg?cs=srgb&dl=pexels-efdal-yildiz-917494.jpg&fm=jpg");
-        background-size: cover
-    }
-    </style>
-    <h1>FAQ</h1>
-
-    <ul>
-    <li>
-    <p><b>Q: What is Air Storage?</b></p>
-    <p>A: Air Storage is an app allows your to find any host that meet your need to store your item for a while.</p></li>
-
-    <li>
-    <p><b>Q: How can I find a host for my storage?</b></p>
-    <p>A: You can view a list of hosts, who have different spaces, time available in the listing page. Also you can find
-    a host at your location by searching on the zip code. </p></li>
-
-    <li>
-    <p><b>Q: How much does the storage cost?</b></p>
-    <p>A: Different host arrange their offering prices differently. You can contant hosts for details. </p></li>
-
-    </ul>
-
- </div>
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <div class="row">
+            <div class="col-md-9 faq-box">
+                <h1>FAQs</h1>
+                <div class="accordion" id="faqs">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="q1-header">
+                            <button class="accordion-button"type="button" data-bs-toggle="collapse" data-bs-target="#question1" aria-expanded="false" aria-controls="question1">
+                                What Is AirStorage? <%= bootstrap_icon("caret-down")%>
+                            </button>
+                        </h2>
+                        <div id="question1" class="accordion-collapse collapse show" aria-labelledby="q1-header" data-bs-parent="#faqs">
+                        <div class="accordion-body"> 
+                            <p class="lead">AirStorage is a service that allows for 2 key things</p>  
+                            <ol>
+                                <li>Rent out storage spaces at a cheaper price</li>
+                                <li>Rent out your space for storage</li>
+                            </ol>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="q2-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#question2" aria-expanded="false" aria-controls="question2">
+                                How can I find a Storage Space? <%= bootstrap_icon("caret-down")%>
+                            </button>
+                        </h2>
+                        <div id="question2"class="accordion-collapse collapse show" aria-labelledby="q1-header" data-bs-parent="#faqs" >
+                            <div class="accordion-body">
+                                <p class="lead">Search based off location</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    </body>
+</html>

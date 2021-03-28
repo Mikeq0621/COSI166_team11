@@ -9,52 +9,44 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse", id="navbar">
-      <div class="container">
-        <%= link_to "AirStorage", '/', id: "logo" %>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <%= form_tag('/search', :method => "get",   
-                class: 'navbar-form navbar-left') do %>
-              <div class="input-group">
-                <%= search_field_tag :search, params[:search], placeholder: "Enter a zipcode", class: "form-control", style: "top: 1px;" %>
-                <div class="input-group-btn">
-                  <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
-                </div>
-              </div>
-            <% end %>
-            <%# different layout for user_login and host_login and Non-login%>
-            <% if user_logged_in? %>
-              <li><%= link_to "Profile", userprofile_path %></li>
-              <li><%= link_to "Hosts",   hosts_path %></li>
-              <li><%= link_to "Listings",   listings_path %></li>
-              <li><%= link_to "Transactions",   transactions_path %></li>
-              <li><%= link_to "FAQs",   '/static_page/faq' %></li>
-              <li><%= link_to "Logout", logout_path, method: :delete %></li>
-            <% elsif host_logged_in? %>
-              <li><%= link_to "Profile", hostprofile_path %></li>
-              <li><%= link_to "Users",   users_path %></li>
-              <li><%= link_to "Listings",   listings_path %></li>
-              <li><%= link_to "Transactions",   transactions_path %></li>
-              <li><%= link_to "FAQs",   '/static_page/faq' %></li>
-              <li><%= link_to "Logout", logout_path, method: :delete %></li>
-            <% else %>
-              <li><%= link_to "User Signin",   userlogin_path %></li>
-              <li><%= link_to "Host Signin",   hostlogin_path %></li>
-              <li><%= link_to "FAQs",   '/static_page/faq' %></li>
-            <% end %>
-
-          </ul>
-        </nav>
+  <header>
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <%=  %>  
+        <%= link_to bootstrap_icon("box")+" AirStorage",root_path, class:"navbar-brand logo"%>
+        <ul class ="navbar-nav navbar-right">
+        <%= form_tag('/search',method: :get,class:'navbar-form navbar-left') do%>
+          <div class="input-group">
+             <%= search_field_tag :search, params[:search], placeholder: "Enter a zipcode", class: "form-control", style: "top: 1px;" %>
+             <div class="input-group-btn">
+              <%= button_tag bootstrap_icon("search",width:15,height:15),class:"btn btn-info"%>
+             </div>
+          </div>
+        <%end%>
+          <% if user_logged_in?%>
+           <li><%= link_to "Profile",current_user,class:"nav-item"%></li> 
+            <li><%= link_to "Log Out",logout_path,method: :delete, class:"nav-item btn btn-danger"%></li>
+          <% elsif host_logged_in?%>
+            <%=link_to "Profile",current_host,class:"nav-item"%>
+            <%= link_to "Log Out",logout_path,method: :delete, class:"nav-item btn btn-danger"%>
+          <%else%>
+            <li><%= link_to "User Sign In",userlogin_path,class:"nav-item"%></li>
+            <li><%= link_to "Host Sign In",hostlogin_path,class:"nav-item"%></li>
+            <li class="nav-item"><%= link_to "FAQs",'/static_page/faq', class:"nav-item"%></li>
+          <%end%>
+        </ul>
       </div>
+    </nav>
     </header>
-    <div class="container">
+    <div class="container main">
+   
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
+      <br/>
       <%= yield %>
-      <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
+     
+     
     </div>
   </body>
 </html>

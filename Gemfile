@@ -64,3 +64,9 @@ gem "pry-rails"
 gem 'bcrypt'
 
 gem "bootstrap", "~> 4.6"
+
+gem "bootstrap-icons-helper", "~> 1.0"
+
+gem "bootstrap-icons", "~> 1.0"
+
+gem "jquery-rails", "~> 4.4"

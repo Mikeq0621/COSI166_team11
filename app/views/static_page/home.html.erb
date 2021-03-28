@@ -1,60 +1,23 @@
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
-<script>$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
-</script>
-
-<style>
-body {
-    background-image: url("https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?cs=srgb&dl=pexels-simon-migaj-747964.jpg&fm=jpg");
-    background-size: cover
-}
-</style>
-
-<div class="center jumbotron", id="homepage">
-  <h1>Welcome to AirStorage</h1>
-
-  <h2>
-    AirStorage will allow people to advertise available storage rooms in their homes 
-    and for users to connect and try to find storage space for their things.
-  </h2>
-
-  </div>
-    <div class="col text-center">
-      <% if user_logged_in? %>
-        <%= link_to "Find a host near me", "#", class: "btn btn-lg btn-primary" %>
-      <% elsif host_logged_in? %>
-        <%= link_to "Start to sale my space", "#", class: "btn btn-lg btn-primary" %>
-      <% else %>
-        <%= link_to "Sign up as a User!", new_user_path, class: "btn btn-lg btn-primary" %>
-        <%= link_to "Become a host!", new_host_path , class: "btn btn-lg btn-primary" %>
-      <% end %>
-    </div>
-  </div>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Sign up</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="jumbotron title-box bg-white">
+            <h1 class="display-3 text-center">Welcome to AirStorage</h1>
+            <h4 class="lead text-center"> AirStorage will allow people to advertise available storage rooms in their homes 
+    and for users to connect and try to find storage space for their things. </h4>
+            <div class="row">
+              <div class="col-md-5 mx-auto">
+                <%= link_to "Become a User!",new_user_path,class:"btn btn-primary"%>
+                <%= link_to "Become a Host!",new_host_path,class:"btn btn-primary"%>
+              </div>
+            </div>
+             
+          </div>
         </div>
-        <div class="modal-body">
-            ...
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-        </div>
-    </div>
-    </div>
-</div>
+      </div>
+  </body>
+</html>
