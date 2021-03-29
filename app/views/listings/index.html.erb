@@ -69,6 +69,7 @@
         background: #fff;
         border-bottom: 1px solid #eee;
         height: 100px;
+        width: 500px;
         line-height: 40px;
         padding: 10 10px;
         background-color: #00853e;
@@ -76,7 +77,9 @@
       }
 
       .listings {
+        position : fixed;
         height: 100%;
+        width: 33.33%;
         overflow: auto;
         padding-bottom: 20px;
       }
@@ -481,7 +484,7 @@
         buildLocationList(listings);
         addMarkers();
       });
-
+      
       /**
        * Add a marker to the map for every store listing.
        **/
@@ -524,6 +527,7 @@
               'listing-' + marker.properties.id
             );
             listing.classList.add('active');
+            listing.scrollIntoView({  behavior: 'smooth', block: 'center', inline: 'center' });
           });
         });
       }
@@ -556,10 +560,11 @@
 
           /* Add details to the individual listing. */
           var details = listing.appendChild(document.createElement('div'));
-          details.innerHTML = prop.city;
+            details.innerHTML = prop.name;
+          details.innerHTML += ' &middot; City: ' + prop.city;
           if (prop.phone) {
             details.innerHTML += ' &middot; Phone: ' + prop.phone;
-            details.innerHTML += ' &middot; Space: ' + prop.space + ' boxes';
+            details.innerHTML += '<br />Space: ' + prop.space + ' boxes';
             details.innerHTML += ' &middot; Duration: ' + prop.duration + ' weeks';
           }
 

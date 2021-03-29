@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
         @listings.each do |listing|
              host = Host.find(listing.host_id)
              feature_hash = {:type => 'Feature', :geometry => {:type => 'Point',:coordinates => [host.longitude, host.latitude]},
-                :properties => {:phone => host.phone_number,
+                :properties => {:name => host.name, :phone => host.phone_number,
                 :address => host.address,
                 :city => host.city,
                 :country => 'United States',
