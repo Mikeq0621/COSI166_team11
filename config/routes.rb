@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get    '/hostlogin',   to: 'sessions#newhost'
   post   '/hostlogin',   to: 'sessions#create_host'
   delete '/logout',  to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
 
   get '/userprofile', to: 'users#show'
