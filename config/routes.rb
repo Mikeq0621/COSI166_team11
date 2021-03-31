@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   get 'hostprofile', to: 'hosts#show'
 
   get '/search' => 'searches#search', :as => 'search_page'
+  get '/listing/:id', to: 'listings#show'
   delete '/listing/:id', to: 'listings#destroy'
+  get '/rent/:listing_id', to: 'transactions#create'
   post '/rent/:listing_id', to: 'transactions#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

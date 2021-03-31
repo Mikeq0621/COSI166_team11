@@ -81,7 +81,7 @@
         height: 100%;
         width: 33.33%;
         overflow: auto;
-        padding-bottom: 20px;
+        padding-bottom: 20px; 
       }
 
       .listings .item {
@@ -89,6 +89,7 @@
         border-bottom: 1px solid #eee;
         padding: 10px;
         text-decoration: none;
+        text-align: left;
       }
 
       .listings .item:last-child {
@@ -196,6 +197,27 @@
       .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
         border-bottom-color: #91c949;
       }
+
+      .button {
+          background-color: #4CAF50; /* Green */
+          border: none;
+          color: black;
+          padding: 10px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          cursor: pointer;
+          border-radius: 25px;
+        }
+        .button:hover {background-color: #3e8e41}
+        .button:active {
+            transform: scale(0.98);
+            /* Scaling button to 0.98 to its original size */
+            box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+            /* Lowering the shadow */
+        }
+
     </style>
   </head>
   <body>
@@ -229,230 +251,6 @@
       });
         
         var listings = $('.listings').data('listings');
-
-        /* Old stuff used for testing */
-        // var stores = (function() {
-        //   var stores = null;
-        //   $.ajax({
-        //     'async': false,
-        //     'global': false,
-        //     'url': "listings.json",
-        //     'dataType': "json",
-        //     'success': function(data) {
-        //       stores = data;
-        //     }
-        //   });
-        //   return stores;
-        // })();
-        
-        //var stores = JSON.parse(data);
-        //if (stores == null){
-        //    f
-        //}
-    //   var stores = {
-    //     'type': 'FeatureCollection',
-    //     'features': [
-    //       {
-    //         'type': 'Feature',
-    //         'geometry': {
-    //           'type': 'Point',
-    //           'coordinates': [-77.034084142948, 38.909671288923]
-    //         },
-    //         'properties': {
-    //           'phoneFormatted': '(202) 234-7336',
-    //           'phone': '2022347336',
-    //           'address': '1471 P St NW',
-    //           'city': 'Washington DC',
-    //           'country': 'United States',
-    //           'crossStreet': 'at 15th St NW',
-    //           'postalCode': '20005',
-    //           'state': 'D.C.'
-    //         }
-    //       },
-    //       {
-    //         'type': 'Feature',
-    //         'geometry': {
-    //           'type': 'Point',
-    //           'coordinates': [-77.049766, 38.900772]
-    //         },
-    //         'properties': {
-    //           'phoneFormatted': '(202) 507-8357',
-    //           'phone': '2025078357',
-    //           'address': '2221 I St NW',
-    //           'city': 'Washington DC',
-    //           'country': 'United States',
-    //           'crossStreet': 'at 22nd St NW',
-    //           'postalCode': '20037',
-    //           'state': 'D.C.'
-    //         }
-    //       },
-    //       {
-    //         'type': 'Feature',
-    //         'geometry': {
-    //           'type': 'Point',
-    //           'coordinates': [-77.043929, 38.910525]
-    //         },
-    //         'properties': {
-    //           'phoneFormatted': '(202) 387-9338',
-    //           'phone': '2023879338',
-    //           'address': '1512 Connecticut Ave NW',
-    //           'city': 'Washington DC',
-    //           'country': 'United States',
-    //           'crossStreet': 'at Dupont Circle',
-    //           'postalCode': '20036',
-    //           'state': 'D.C.'
-    //         }
-    //       },
-    //       {
-    //         'type': 'Feature',
-    //         'geometry': {
-    //           'type': 'Point',
-    //           'coordinates': [-77.0672, 38.90516896]
-    //         },
-    //         'properties': {
-    //           'phoneFormatted': '(202) 337-9338',
-    //           'phone': '2023379338',
-    //           'address': '3333 M St NW',
-    //           'city': 'Washington DC',
-    //           'country': 'United States',
-    //           'crossStreet': 'at 34th St NW',
-    //           'postalCode': '20007',
-    //           'state': 'D.C.'
-    //         }
-    //       },
-    //       {
-    //         'type': 'Feature',
-    //         'geometry': {
-    //           'type': 'Point',
-    //           'coordinates': [-77.002583742142, 38.887041080933]
-    //         },
-    //         'properties': {
-    //           'phoneFormatted': '(202) 547-9338',
-    //           'phone': '2025479338',
-    //           'address': '221 Pennsylvania Ave SE',
-    //           'city': 'Washington DC',
-    //           'country': 'United States',
-    //           'crossStreet': 'btwn 2nd & 3rd Sts. SE',
-    //           'postalCode': '20003',
-    //           'state': 'D.C.'
-    //         }
-    //       },
-    //       {
-    //         'type': 'Feature',
-    //         'geometry': {
-    //           'type': 'Point',
-    //           'coordinates': [-76.933492720127, 38.99225245786]
-    //         },
-    //         'properties': {
-    //           'address': '8204 Baltimore Ave',
-    //           'city': 'College Park',
-    //           'country': 'United States',
-    //           'postalCode': '20740',
-    //           'state': 'MD'
-    //         }
-    //       },
-    //       {
-    //         'type': 'Feature',
-    //         'geometry': {
-    //           'type': 'Point',
-    //           'coordinates': [-77.097083330154, 38.980979]
-    //         },
-    //         'properties': {
-    //           'phoneFormatted': '(301) 654-7336',
-    //           'phone': '3016547336',
-    //           'address': '4831 Bethesda Ave',
-    //           'cc': 'US',
-    //           'city': 'Bethesda',
-    //           'country': 'United States',
-    //           'postalCode': '20814',
-    //           'state': 'MD'
-    //         }
-    //       },
-    //       {
-    //         'type': 'Feature',
-    //         'geometry': {
-    //           'type': 'Point',
-    //           'coordinates': [-77.359425054188, 38.958058116661]
-    //         },
-    //         'properties': {
-    //           'phoneFormatted': '(571) 203-0082',
-    //           'phone': '5712030082',
-    //           'address': '11935 Democracy Dr',
-    //           'city': 'Reston',
-    //           'country': 'United States',
-    //           'crossStreet': 'btw Explorer & Library',
-    //           'postalCode': '20190',
-    //           'state': 'VA'
-    //         }
-    //       },
-    //       {
-    //         'type': 'Feature',
-    //         'geometry': {
-    //           'type': 'Point',
-    //           'coordinates': [-77.10853099823, 38.880100922392]
-    //         },
-    //         'properties': {
-    //           'phoneFormatted': '(703) 522-2016',
-    //           'phone': '7035222016',
-    //           'address': '4075 Wilson Blvd',
-    //           'city': 'Arlington',
-    //           'country': 'United States',
-    //           'crossStreet': 'at N Randolph St.',
-    //           'postalCode': '22203',
-    //           'state': 'VA'
-    //         }
-    //       },
-    //       {
-    //         'type': 'Feature',
-    //         'geometry': {
-    //           'type': 'Point',
-    //           'coordinates': [-75.28784, 40.008008]
-    //         },
-    //         'properties': {
-    //           'phoneFormatted': '(610) 642-9400',
-    //           'phone': '6106429400',
-    //           'address': '68 Coulter Ave',
-    //           'city': 'Ardmore',
-    //           'country': 'United States',
-    //           'postalCode': '19003',
-    //           'state': 'PA'
-    //         }
-    //       },
-    //       {
-    //         'type': 'Feature',
-    //         'geometry': {
-    //           'type': 'Point',
-    //           'coordinates': [-75.20121216774, 39.954030175164]
-    //         },
-    //         'properties': {
-    //           'phoneFormatted': '(215) 386-1365',
-    //           'phone': '2153861365',
-    //           'address': '3925 Walnut St',
-    //           'city': 'Philadelphia',
-    //           'country': 'United States',
-    //           'postalCode': '19104',
-    //           'state': 'PA'
-    //         }
-    //       },
-    //       {
-    //         'type': 'Feature',
-    //         'geometry': {
-    //           'type': 'Point',
-    //           'coordinates': [-77.043959498405, 38.903883387232]
-    //         },
-    //         'properties': {
-    //           'phoneFormatted': '(202) 331-3355',
-    //           'phone': '2023313355',
-    //           'address': '1901 L St. NW',
-    //           'city': 'Washington DC',
-    //           'country': 'United States',
-    //           'crossStreet': 'at 19th St',
-    //           'postalCode': '20036',
-    //           'state': 'D.C.'
-    //         }
-    //       }
-    //     ]
-    //   };
 
       /**
        * Assign a unique id to each store. You'll use this `id`
@@ -519,14 +317,21 @@
             createPopUp(marker);
             /* Highlight listing in sidebar */
             var activeItem = document.getElementsByClassName('active');
+            var activeButton = document.getElementsByClassName('button');
             e.stopPropagation();
             if (activeItem[0]) {
+              activeItem[0].style.textAlign = 'left';
               activeItem[0].classList.remove('active');
+              activeButton[0].style.display = 'none';
+              activeButton[0].classList.remove('button');
             }
             var listing = document.getElementById(
               'listing-' + marker.properties.id
             );
             listing.classList.add('active');
+            listing.lastChild.classList.add('button');
+            listing.lastChild.style.display = 'inline-block';
+            listing.style.textAlign = 'center'; 
             listing.scrollIntoView({  behavior: 'smooth', block: 'center', inline: 'center' });
           });
         });
@@ -568,6 +373,22 @@
             details.innerHTML += ' &middot; Duration: ' + prop.duration + ' weeks';
           }
 
+          /* Add button for renting listing */
+            var buttonElem = document.createElement('div');
+            /* Assign a unique `id` to the button. */
+            buttonElem.id = 'button';
+            /* Assign the `marker` class to each button for styling. */
+            buttonElem.href = '/listing/' + 275;
+            buttonElem.innerHTML = 'Rent Space';
+            buttonElem.className = 'button';
+            buttonElem.style.display = 'none';
+
+            buttonElem.onclick = function() { // remove list item here
+                window.location = buttonElem.href;
+            };
+            listing.appendChild(buttonElem);
+            buttonElem.classList.remove('button');
+
           /**
            * Listen to the element and when it is clicked, do four things:
            * 1. Update the `currentFeature` to the store associated with the clicked link
@@ -575,19 +396,29 @@
            * 3. Close all other popups and display popup for clicked store
            * 4. Highlight listing in sidebar (and remove highlight for all other listings)
            **/
+          var prev_activeButton = null;
           link.addEventListener('click', function (e) {
             for (var i = 0; i < data.features.length; i++) {
               if (this.id === 'link-' + data.features[i].properties.id) {
                 var clickedListing = data.features[i];
+                var num = i;
                 flyToStore(clickedListing);
                 createPopUp(clickedListing);
               }
             }
+            // add delete button
             var activeItem = document.getElementsByClassName('active');
+            var activeButton = document.getElementsByClassName('button');
             if (activeItem[0]) {
+              activeItem[0].style.textAlign = 'left';
               activeItem[0].classList.remove('active');
+              activeButton[0].style.display = 'none'; 
+              activeButton[0].classList.remove('button');
             }
             this.parentNode.classList.add('active');
+            this.parentNode.lastChild.classList.add('button');
+            this.parentNode.lastChild.style.display = 'inline-block';
+            this.parentNode.style.textAlign = 'center'; 
           });
         });
       }
