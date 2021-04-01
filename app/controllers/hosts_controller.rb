@@ -11,6 +11,7 @@ class HostsController < ApplicationController
             @host = current_host
           end
         @listings = @host.listings
+        @requests = @host.requests
         @transactions = @host.transactions
     end
 

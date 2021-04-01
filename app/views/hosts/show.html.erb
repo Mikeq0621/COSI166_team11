@@ -61,7 +61,36 @@
                     </table>
                 </div>
                 <%end%>
-
+               
+            </div>
+            <div class="row">
+                 <% if current_host == @host%>
+                    <div class="col-md-4 requests">
+                        <h3>Pending Requests</h3>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Listing ID</th>
+                                    <th scope="col">User</th>
+                                    <th scope="col">Accept/Deny</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% @requests.each do |r|%>
+                                    <tr>
+                                        <td><%= link_to r.listing_id, r.listing%></td>
+                                        <td><%= link_to r.user.name, r.user%></td>
+                                        <td>
+                                            <%= link_to "Accept","/accept/#{r.id}",class:"btn btn-success", method: :delete%>
+                                            <%= link_to "Deny", "/deny/#{r.id}",class:"btn btn-danger", method: :delete%>
+                                        </td>
+                                    </tr>
+                                <%end%>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                <%end%>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
