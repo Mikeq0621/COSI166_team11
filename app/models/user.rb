@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    geocoded_by :full_address
+    after_validation :geocode
     has_secure_password
     has_many :transactions
 
@@ -12,4 +14,9 @@ class User < ApplicationRecord
                       uniqueness: { case_sensitive: false }
     
     validates :phone_number , presence: true, length: { maximum: 10 }, format: { with: VALID_PHONE_NUMBER}
+
+    def full_address
+        [address, city, state, 'USA'].compact.join(', ')
+    end
+
 end
