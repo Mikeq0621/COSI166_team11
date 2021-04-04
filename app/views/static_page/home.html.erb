@@ -26,7 +26,7 @@ body {
   </div>
     <div class="col text-center">
       <% if user_logged_in? %>
-        <%= link_to "Find a host near me", "#", class: "btn btn-lg btn-primary" %>
+        <%= link_to "Find storage near me", search_page_path(:search_filter => 'location'), class: "btn btn-lg btn-primary" %>
       <% elsif host_logged_in? %>
         <%= link_to "Start to sale my space", "#", class: "btn btn-lg btn-primary" %>
       <% else %>
