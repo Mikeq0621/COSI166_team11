@@ -2,8 +2,8 @@ class User < ApplicationRecord
     geocoded_by :full_address
     after_validation :geocode
     has_secure_password
-    has_many :transactions
-    has_many :requests
+    #has_many :transactions
+    #has_many :requests
     # Validates for a legal user signup format
     before_save { self.email = email.downcase }
     validates :name,  presence: true, length: { maximum: 50 }
