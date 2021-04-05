@@ -49,13 +49,13 @@ transactions = Array.new
                       phone_number: host_pn, address: host_address, city: host_city, zip_code: host_zip, state: host_state, 
                       longitude: host_longitude, latitude: host_latitude)
 
-    users << User.new(name: user_name, email: user_email, password: user_pass, password_confirmation: user_pass,
-                        phone_number: user_pn, address: user_address, city: user_city, zip_code: user_zip, state: user_state, 
-                        longitude: user_longitude, latitude: user_latitude)
+    #users << User.new(name: user_name, email: user_email, password: user_pass, password_confirmation: user_pass,
+                        #phone_number: user_pn, address: user_address, city: user_city, zip_code: user_zip, state: user_state, 
+                        #longitude: user_longitude, latitude: user_latitude)
 end
 
 Host.import hosts
-User.import users
+#User.import users
 
 25.times do
     h_id = Host.all.sample.id
@@ -65,9 +65,3 @@ end
 
 Listing.import listings
 
-15.times do
-    listing = Listing.all.sample
-    u_id = User.all.sample.id
-    transactions << Transaction.new(host_id:listing.host_id , user_id: u_id, price: Faker::Commerce.price, duration: rand(2..26),listing_id:listing.id )
-end
-Transaction.import transactions
