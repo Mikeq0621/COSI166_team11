@@ -10,6 +10,7 @@ class UsersController < ApplicationController
             @user = current_user
         end
         @transactions = @user.transactions
+        @requests = @user.requests
     end
 
     def new
