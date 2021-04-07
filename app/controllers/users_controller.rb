@@ -28,6 +28,9 @@ class UsersController < ApplicationController
         end
     end
 
+    def send_email
+        UserMailer.with(user: current_user).welcome.deliver_now
+    end
     private
         def user_params
             params.require(:user).permit(:name, :email, :phone_number, :password, 

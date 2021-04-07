@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
   #
   def welcome
     @greeting = "Hi"
-
-    mail to: current_user.email
+    @user = params[:user]
+    mail to: @user.email, subject:'Welcome to AirStorage'
   end
 end
