@@ -2,7 +2,12 @@ class ListingsController < ApplicationController
 
     def index
         @listings = Listing.all
-        user = User.find(session[:user_id])
+        if user_logged_in?
+            user = User.find(session[:user_id])
+        else
+            user = Host.find(session[:host_id])
+        end
+       
         @latitude = user.latitude
         @longitude = user.longitude
         json_hash = {:type => 'FeautureCollection', :features => []}
