@@ -1,4 +1,4 @@
-# AirStorage Cosi166 Team 11 Stage 3
+# COSI166b Team11 : AirStorage Stage 3
 
 Hello, World! version of our team project.
 
