@@ -27,19 +27,19 @@ Link: https://airstorage.herokuapp.com/
 
 <!-- BUILT USING -->
 ## Built using: 
-    * Ruby 2.7.2
-    * Rails 6.1.3
-    * Bootstrap 3.41
+    Ruby 2.7.2
+    Rails 6.1.3
+    Bootstrap 3.41
 
 ### Gems, APIs, and Libraries:
-    * MapBox
-    * Noticed
-    * Activerecord-import
-    * Json
-    * Better_errors
-    * Pry-rails
-    * Bycrypt
-    * Geocoder
+    MapBox
+    Noticed
+    Activerecord-import
+    Json
+    Better_errors
+    Pry-rails
+    Bycrypt
+    Geocoder
 
 ## Database Schema
     Tables:
