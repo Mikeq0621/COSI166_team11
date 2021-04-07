@@ -27,9 +27,9 @@ Link: https://airstorage.herokuapp.com/
 
 <!-- BUILT USING -->
 ## Built using: 
-    Ruby 2.7.2
-    Rails 6.1.3
-    Bootstrap 3.4.1
+* [Ruby 2.7.2](https://www.ruby-lang.org/en/downloads/)
+* [Rails 6.1.3](https://rubyonrails.org)
+* [Bootstrap 3.4.1](https://getbootstrap.com)
 
 ### Gems, APIs, and Libraries:
     MapBox
@@ -42,26 +42,36 @@ Link: https://airstorage.herokuapp.com/
     Geocoder
 
 ## Database Schema
-    Tables:
+
+<h2> Tables </h2>
     
     Name: Hosts 
-    Columns: integer id, string name, string email, string password, string phone_number, string address, 
-    string city, integer zip_code
+    Columns: integer id, string name, string email, string password_digest, string phone_number, string address, 
+    string city, text zip_code, datetime created_at, datetime updated_at, decimal longitude, decimal latitude, 
+    string state
 
     Name: Users 
-    Columns: integer id, string name, string email, string password, string phone_number
+    Columns: integer id, string name, string email, string password_digest, string phone_number, datetime created_at,
+    datetime updated at, decimal longitude, decimal latitude, string state, string city, string address,
+    text zipcode
 
     Name: Transactions
-    Columns: integer id, integer host_id, integer user_id, float price, integer duration
+    Columns: integer id, integer host_id, integer user_id, float price, integer duration, datetime created_at,
+    datetime updated_at, integer listing_id
 
     Name: Listings
-    Columns: integer id, integer host_id, integer space, integer available_duration
+    Columns: integer id, integer host_id, integer space, integer available_duration, datetime created_at,
+    datetime updated_at
+    
+    Name: Requests
+    Columns: integer id, bigint host_id, bigint listing_id, bigint user_id, available_duration,
+    datetime created_at, datetime updated_at, index index_requests_on_host_id, index index_requests_on_listings_id,
+    index index_requests_on_user_id
 
     Associations:
     Hosts -> Listings (One to Many)
     Hosts -> Transactions is (One to Many)
     Users -> Transactions is (One to Many)
-<br>
 
 
 ## HomePage
