@@ -5,10 +5,12 @@
   </a>
   <h1 align="center">Team 11: AirStorage</h1>
   <p align="center">
-    COSI 166b Term Project Stage 3: Core
+    COSI 166b Term Project Stage 3
     <br/>
   </p>
 </p>
+
+## About AirStorage: 
 
 Hello, World! version of our team project.
 
