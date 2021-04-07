@@ -10,20 +10,38 @@
   </p>
 </p>
 
+<!-- ABOUT AIRSTORAGE -->
 ## About AirStorage: 
 
-Hello, World! version of our team project.
+AirStorage is an user-driven online marketplace for storage space rental services. Members of the website are divided into Users and Hosts. Users can 
+find listings for places offering storage space for their belongings and Hosts can rent out any extra space in their residences for a certain time period. 
 
-Has basic function to display all user and hosts in database. Also has a simple search function on the user's input zipcode in a from in nav bar.
+Currently, visitors to AirStorage can do the following:
+* Create an account or log in as either a User or a Host
+* Hosts can post listings for the storage space(s) they are renting out
+* Users can find search for listings and filter their results based on location, storage space size, and duration
+* Users can rent listings being offered
+* Visitors can view available result options on interactive map
 
-Deploy to heroku: https://airstorage.herokuapp.com/
+Link: https://airstorage.herokuapp.com/
 
-## Requirements: 
-    1. Ruby 2.7.2
-    2. rails 6.1.3
-<br>
+<!-- BUILT USING -->
+## Built using: 
+    * Ruby 2.7.2
+    * Rails 6.1.3
+    * Bootstrap 3.41
 
-## Database creation
+### Gems, APIs, and Libraries:
+    * MapBox
+    * Noticed
+    * Activerecord-import
+    * Json
+    * Better_errors
+    * Pry-rails
+    * Bycrypt
+    * Geocoder
+
+## Database Schema
     Tables:
     
     Name: Hosts 
@@ -45,15 +63,6 @@ Deploy to heroku: https://airstorage.herokuapp.com/
     Users -> Transactions is (One to Many)
 <br>
 
-## Hello World functionalities
-1. Basic layout for home page, faq page, and pages displaying user info.
-
-2. Nav bar _User_, _Hosts_, _Listings_, _Transactions_ will display all users, hosts, listings, and transactions in database. The Listing table contains infomation about spaces each host has, time available, etc. Transcation will be used as association between user and host in further development.
-
-3. Search function in a form in nav bar. Based on the user's input zipcode, it will display a list of hosts that have the same zip code. For demostrations purpose, try search "17070". Since databse is populated on random, some zip code will not have a match in DB.
-
-4. Some links are left blank as a apart of layout. They will be used for future delevelopment purpose.
-<br>
 
 ## HomePage
 ![screen shot](Home.png)
