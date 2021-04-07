@@ -5,7 +5,7 @@
   </a>
   <h2 align="center">COSI 166b Team 11: AirStorage</h3>
   <p align="center">
-    Stage 3 
+    Term Project Stage 3: Core
     <br/>
   </p>
 </p>
