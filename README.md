@@ -29,7 +29,7 @@ Link: https://airstorage.herokuapp.com/
 ## Built using: 
     Ruby 2.7.2
     Rails 6.1.3
-    Bootstrap 3.41
+    Bootstrap 3.4.1
 
 ### Gems, APIs, and Libraries:
     MapBox
