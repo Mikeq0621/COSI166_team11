@@ -3,11 +3,10 @@
   <a href="https://github.com/Mikeq0621/COSI166_team11">
     <img src="AirStorageIcon.png" alt="Logo" width="80" height="80">
   </a>
-
-  <h3 align="center">COSI 166b Team 11: AirStorage</h3>
+  <h2 align="center">COSI 166b Team 11: AirStorage</h3>
 
   <p align="center">
-    Store anything!
+    Stage 3 
     <br/>
   </p>
 </p>
