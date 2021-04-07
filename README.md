@@ -1,4 +1,16 @@
-# COSI166b Team11 : AirStorage Stage 3
+<!-- PROJECT LOGO -->
+<p align="center">
+  <a href="https://github.com/Mikeq0621/COSI166_team11">
+    <img src="AirStorageIcon.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">COSI 166b Team 11: AirStorage</h3>
+
+  <p align="center">
+    Store anything!
+    <br/>
+  </p>
+</p>
 
 Hello, World! version of our team project.
 
