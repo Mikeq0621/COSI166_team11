@@ -20,7 +20,8 @@ Rails.application.routes.draw do
 
   get '/search' => 'searches#search', :as => 'search_page'
   get '/listing/:id', to: 'listings#show'
-  delete '/listing/:id', to: 'listings#destroy'
+  delete '/deletelisting/:listing_id', to: 'listings#destroy'
+  get '/deletelisting/:listing_id', to: 'listings#destroy'
   get '/rent/:listing_id', to: 'requests#create'
   post '/rent/:listing_id', to: 'requests#create'
   delete '/accept/:req_id', to: 'requests#accept'

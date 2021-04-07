@@ -51,10 +51,9 @@ class ListingsController < ApplicationController
     end
 
     def destroy
-        listing = Listing.find(params[:id])
-        host = Host.find(listing.host_id)
+        listing = Listing.find(params[:listing_id])
         listing.destroy
-        redirect_to host
+        redirect_to current_host
     end
     
     
