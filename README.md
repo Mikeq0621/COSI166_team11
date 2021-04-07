@@ -76,9 +76,9 @@ Link: https://airstorage.herokuapp.com/
     Hosts -> Transactions is (One to Many)
     Users -> Transactions is (One to Many)
 
-<!-- URL PATH-->
-## URL PATH
-<b>Home page:</b> / <br>    
+<!-- URL PATHS-->
+## URL Paths
+<b>Home page:</b> /  
 <b>Users urls:</b> /users, /users/new, /users/create, /users/delete, /users/:id <br>
 <b>Hosts urls:</b> /hosts, /hosts/new, /hosts/create, /hosts/delete, /hosts/:id <br>
 <b>Login as user:</b> /userlogin <br>
@@ -86,7 +86,7 @@ Link: https://airstorage.herokuapp.com/
 <b>Display user profile:</b> /userprofile <br>
 <b>Display host profile:</b> /hostprofile <br>
 <b>Listings url:</b> /listings, /listings/new, /listings/create, /listings/delete, /listings/:id
-<b>Transactions url:</b> /transactions, /transactions/new, /transactions/create, /transactions/delete
+<b>Transactions url:</b> /transactions, /transactions/new, /transactions/create, /transactions/delete <br>
 <b>Requests url:</b> <br>
         create a request -> /rent/:listing_id <br>
 	accept a request -> /accept/:req_id <br>
