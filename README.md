@@ -13,6 +13,8 @@
 <!-- ABOUT AIRSTORAGE -->
 ## About AirStorage: 
 
+![screen shot](Home.png)
+
 AirStorage is an user-driven online marketplace for storage space rental services. Members of the website are divided into Users and Hosts. Users can 
 find listings for places offering storage space for their belongings and Hosts can rent out any extra space in their residences for a certain time period. 
 
@@ -41,9 +43,10 @@ Link: https://airstorage.herokuapp.com/
     Bycrypt
     Geocoder
 
+<!-- DATABASE SCHEMA -->
 ## Database Schema
 
-<h2> Tables </h2>
+<b> Tables </b>
     
     Name: Hosts 
     Columns: integer id, string name, string email, string password_digest, string phone_number, string address, 
@@ -73,6 +76,27 @@ Link: https://airstorage.herokuapp.com/
     Hosts -> Transactions is (One to Many)
     Users -> Transactions is (One to Many)
 
+<!-- URL PATH-->
+## URL PATH
+<b>Home page:</b>    
+<b>Users urls:</b> /users, /users/new, /users/create, /users/delete, /users/:id
+<b>Hosts urls:</b> /hosts, /hosts/new, /hosts/create, /hosts/delete, /hosts/:id
+<b>Login as user:</b> /userlogin
+<b>Login as host:</b> /hostlogin
+<b>Display user profile:</b> /userprofile
+<b>Display host profile:</b> /hostprofile
+<b>Listings url:</b> /listings, /listings/new, /listings/create, /listings/delete, /listings/:id
+<b>Transactions url:</b> /transactions, /transactions/new, /transactions/create, /transactions/delete
+<b>Requests url:</b> 
+       create a request -> /rent/:listing_id
+		   accept a request -> /accept/:req_id
+		   decline a request -> /deny/:req_id
+		   
+<b>Search form:</b> /search
+<b>Display search results by different filters:</b> /search?search=3&search_filter=box
+/search?search=3&search_filter=city
+/search?search=3&search_filter=duration
+/search?search=3&search_filter=location
+<b>FAQ page:</b> /static_page/faq
+<b>Logout:</b> /logout
 
-## HomePage
-![screen shot](Home.png)
