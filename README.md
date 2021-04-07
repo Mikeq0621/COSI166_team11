@@ -10,6 +10,24 @@
   </p>
 </p>
 
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-airstorage">About AirStorage</a>
+    </li>
+    <li>
+      <a href="#built-using">Built Using</a>
+      <ul>
+        <li><a href="#gems,-apis,-and-libraries:">Gems, APIs, and Libraries</a></li>
+      </ul>
+    </li>
+    <li><a href="#database-schema">Database Schema</a></li>
+    <li><a href="#url-paths">Url Paths</a></li>
+  </ol>
+</details>
+
 <!-- ABOUT AIRSTORAGE -->
 ## About AirStorage: 
 
@@ -28,7 +46,7 @@ Currently, visitors to AirStorage can do the following:
 Link: https://airstorage.herokuapp.com/
 
 <!-- BUILT USING -->
-## Built using: 
+## Built Using: 
 * [Ruby 2.7.2](https://www.ruby-lang.org/en/downloads/)
 * [Rails 6.1.3](https://rubyonrails.org)
 * [Bootstrap 3.4.1](https://getbootstrap.com)
@@ -87,14 +105,14 @@ Link: https://airstorage.herokuapp.com/
 <b>Display host profile:</b> /hostprofile <br>
 <b>Listings url:</b> /listings, /listings/new, /listings/create, /listings/delete, /listings/:id <br>
 <b>Transactions url:</b> /transactions, /transactions/new, /transactions/create, /transactions/delete <br>
-<b>Requests url:</b> 
+<b>Requests url:</b>  <br>
 create a request -> /rent/:listing_id, <br>
 accept a request -> /accept/:req_id, <br>
 decline a request -> /deny/:req_id	   
 <b>Search form:</b> /search <br>
-<b>Display search results by different filters:</b> 
+<b>Display search results by different filters:</b> <br>
 /search?search=3&search_filter=box, <br>
-/search?search=3&search_filter=city, <br>
+/search?search=3&search_filter=city, <br> 
 /search?search=3&search_filter=duration, <br>
 /search?search=3&search_filter=location <br>
 <b>FAQ page:</b> /static_page/faq <br>
