@@ -4,7 +4,6 @@
     <img src="AirStorageIcon.png" alt="Logo" width="80" height="80">
   </a>
   <h2 align="center">COSI 166b Team 11: AirStorage</h3>
-
   <p align="center">
     Stage 3 
     <br/>
