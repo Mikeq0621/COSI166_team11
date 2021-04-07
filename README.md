@@ -3,7 +3,7 @@
   <a href="https://github.com/Mikeq0621/COSI166_team11">
     <img src="AirStorageIcon.png" alt="Logo" width="80" height="80">
   </a>
-  <h2 align="center">Team 11: AirStorage</h3>
+  <h2 align="center">Team 11: AirStorage</h2>
   <p align="center">
     COSI 166b Term Project Stage 3: Core
     <br/>
