@@ -87,12 +87,12 @@ Link: https://airstorage.herokuapp.com/
 <b>Display host profile:</b> /hostprofile <br>
 <b>Listings url:</b> /listings, /listings/new, /listings/create, /listings/delete, /listings/:id <br>
 <b>Transactions url:</b> /transactions, /transactions/new, /transactions/create, /transactions/delete <br>
-<b>Requests url:</b> <br>
-        create a request -> /rent/:listing_id, <br>
-	accept a request -> /accept/:req_id, <br>
-	decline a request -> /deny/:req_id	   
+<b>Requests url:</b> 
+create a request -> /rent/:listing_id, <br>
+accept a request -> /accept/:req_id, <br>
+decline a request -> /deny/:req_id	   
 <b>Search form:</b> /search <br>
-<b>Display search results by different filters:</b> <br>
+<b>Display search results by different filters:</b> 
 /search?search=3&search_filter=box, <br>
 /search?search=3&search_filter=city, <br>
 /search?search=3&search_filter=duration, <br>
