@@ -20,9 +20,10 @@
     <li>
       <a href="#built-using">Built Using</a>
       <ul>
-        <li><a href="#gems,-apis,-and-libraries:">Gems, APIs, and Libraries</a></li>
+        <li><a href="#gems-apis-and-libraries">Gems, APIs, and Libraries</a></li>
       </ul>
     </li>
+    <li><a href="#navigating-airstorage">Navigating AirStorage</a></li>
     <li><a href="#database-schema">Database Schema</a></li>
     <li><a href="#url-paths">Url Paths</a></li>
   </ol>
@@ -39,7 +40,7 @@ find listings for places offering storage space for their belongings and Hosts c
 Currently, visitors to AirStorage can do the following:
 * Create an account or log in as either a User or a Host
 * Hosts can post listings for the storage space(s) they are renting out
-* Users can find search for listings and filter their results based on location, storage space size, and duration
+* Users can search for listings and filter their results based on location, storage space size, and duration
 * Users can rent listings being offered
 * Visitors can view available result options on interactive map
 
@@ -60,6 +61,26 @@ Link: https://airstorage.herokuapp.com/
     Pry-rails
     Bycrypt
     Geocoder
+
+<!-- NAVIGATING AIRSTORAGE -->
+## Navigating AirStorage
+
+At this moment, we have implemented many of the pages we intend to use in the final release of AirStorage. Prototypes for modifications and additions
+to the views can be found in the "UI_Prototypes" folder in our github repository. <br>
+
+Clicking the website link brings the visitor to the home page, where there is an option to sign up as either an User or Host. If they already have an account,
+they can log in using the option on the header, which also contains the search bar and filter, and links to the member's account, listings, host
+list, FAQ and log out upon a succesful log in. Upon logging in or signing up, the member is brought the home page, which then contains the option to find places 
+to rent for Users and the option to rent space out for Hosts. <br>
+
+The members' profile pages contains their personal details and records for recent transactions and pending requests. The Hosts' profile pages also shows
+their list of listings that they are offering.<br>
+
+![screen shot](AirStorageMap.png) 
+
+Users can find listings being offered by hosts using the search bar or by clicking the Listings link. Both options brings the User to the interactive map, with the 
+latter option showing all listings. The storage spaces being offered are represented using pins and clicking on a pin brings up a relevant renting option. If the 
+User selects that, it brings them to another page to confirm their renting, upon which the rent request is added to the User's and Host's pending requests.
 
 <!-- DATABASE SCHEMA -->
 ## Database Schema
