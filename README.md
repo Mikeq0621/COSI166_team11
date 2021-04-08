@@ -59,7 +59,7 @@ Link: https://airstorage.herokuapp.com/
     Json
     Better_errors
     Pry-rails
-    Bycrypt
+    Bcrypt
     Geocoder
 
 <!-- NAVIGATING AIRSTORAGE -->
