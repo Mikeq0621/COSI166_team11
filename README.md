@@ -66,7 +66,7 @@ Link: https://airstorage.herokuapp.com/
 ## Navigating AirStorage
 
 At this moment, we have implemented many of the pages we intend to use in the final release of AirStorage. Prototypes for modifications and additions
-to the views can be found in the "UI_Prototypes" folder in our github repository. <br>
+to the views can be found in the "UI_Prototypes" folder in our github repository. Instructions for navigating through the site can also be found in the FAQs section.<br>
 
 Clicking the website link brings the visitor to the home page, where there is an option to sign up as either an User or Host. If they already have an account,
 they can log in using the option on the header, which also contains the search bar and filter, and links to the member's account, listings, host
