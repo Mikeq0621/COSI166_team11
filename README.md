@@ -26,6 +26,7 @@
     <li><a href="#navigating-airstorage">Navigating AirStorage</a></li>
     <li><a href="#database-schema">Database Schema</a></li>
     <li><a href="#url-paths">Url Paths</a></li>
+    <li><a href="#deliverables">Deliverables</a></li>
   </ol>
 </details>
 
@@ -139,3 +140,8 @@ decline a request -> /deny/:req_id
 <b>FAQ page:</b> /static_page/faq <br>
 <b>Logout:</b> /logout <br>
 
+<!-- DELIVERABLES-->
+## Deliverables
+* Screen shots of current UI/UX, and planning modifications on UI in UI_Prototype
+* We used ActiveAdmin for the admin UI and controll.
+* Tests in test/models and test/integration
