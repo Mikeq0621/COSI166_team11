@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     geocoded_by :full_address
-    after_validation :geocode
+    before_validation :geocode
     has_secure_password
     has_many :transactions
     has_many :requests
@@ -16,9 +16,18 @@ class User < ApplicationRecord
                       uniqueness: { case_sensitive: false }
     
     validates :phone_number , presence: true, length: { maximum: 20 }, format: { with: VALID_PHONE_NUMBER }
+    
+    validates :address, presence: true
+    validate :found_address_presence
+
+    def found_address_presence
+        if latitude.blank? || longitude.blank?
+            errors.add(:address, " wasn't found.")
+        end
+    end
 
     def full_address
-        [address, city, state, 'USA'].compact.join(', ')
+        [address, city, state, zip_code, 'USA'].compact.join(', ')
     end
 
 end
