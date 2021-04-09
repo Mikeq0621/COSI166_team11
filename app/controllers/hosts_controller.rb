@@ -1,4 +1,5 @@
 class HostsController < ApplicationController
+    skip_before_action :require_login, only: [:new, :create]
 
     def index
         @hosts = Host.all

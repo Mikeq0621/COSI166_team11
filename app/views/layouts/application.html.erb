@@ -9,61 +9,13 @@
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse", id="navbar">
-      <div class="container">
-        <%= link_to "AirStorage", '/', id: "logo" %>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <% unless session[:user_id].nil? %>
-              <%= form_tag('/search', :method => "get",   
-                  class: 'navbar-form navbar-left') do %>
-                <div class="input-group">
-                  <%= search_field_tag :search, params[:search], placeholder: "Enter a zipcode", class: "form-control", style: "top: 1px;" %>
-                  <div class="input-group-btn">
-                    <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
-                  </div>
-                </div>
-                <select name="search_filter" style="width: 25%;">
-                  <option value="">Zipcode</option>
-                  <option value="city">City</option>
-                  <option value="duration">Duration (weeks)</option>
-                  <option value="box">Box size</option>
-                  <option value="location">Locations nearby</option>
-                </select>
-              <% end %>
-            <% end %>
-            <%# different layout for user_login and host_login and Non-login%>
-            <% if user_logged_in? %>
-              <li><%= link_to "Profile", userprofile_path %></li>
-              <li><%= link_to "Hosts",   hosts_path %></li>
-              <li><%= link_to "Listings",   listings_path %></li>
-              <li><%= link_to "Transactions",   transactions_path %></li>
-              <li><%= link_to "FAQs",   '/static_page/faq' %></li>
-              <li><%= link_to "Logout", logout_path, method: :delete %></li>
-            <% elsif host_logged_in? %>
-              <li><%= link_to "Profile", hostprofile_path %></li>
-              <li><%= link_to "Users",   users_path %></li>
-              <li><%= link_to "Listings",   listings_path %></li>
-              <li><%= link_to "Transactions",   transactions_path %></li>
-              <li><%= link_to "FAQs",   '/static_page/faq' %></li>
-              <li><%= link_to "Logout", logout_path, method: :delete %></li>
-            <% else %>
-              <li><%= link_to "User Signin",   userlogin_path %></li>
-              <li><%= link_to "Host Signin",   hostlogin_path %></li>
-              <li><%= link_to "FAQs",   '/static_page/faq' %></li>
-            <% end %>
-
-          </ul>
-        </nav>
-      </div>
-    </header>
     <div class="container">
+      <%= render 'layouts/header'%>
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %>
-      <% debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>
