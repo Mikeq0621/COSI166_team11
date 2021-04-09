@@ -14,8 +14,7 @@
         <%= link_to "AirStorage", '/', id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <%# different layout for user_login and host_login and Non-login%>
-            <% if user_logged_in? %>
+            <% unless session[:user_id].nil? %>
               <%= form_tag('/search', :method => "get",   
                   class: 'navbar-form navbar-left') do %>
                 <div class="input-group">
@@ -32,6 +31,9 @@
                   <option value="location">Locations nearby</option>
                 </select>
               <% end %>
+            <% end %>
+            <%# different layout for user_login and host_login and Non-login%>
+            <% if user_logged_in? %>
               <li><%= link_to "Profile", userprofile_path %></li>
               <li><%= link_to "Hosts",   hosts_path %></li>
               <li><%= link_to "Listings",   listings_path %></li>
