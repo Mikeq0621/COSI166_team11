@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   get '/logout',  to: 'sessions#destroy'
   get '/signup', to: 'users#new'
+  get '/host_signup', to: 'hosts#new'
 
   get '/userprofile', to: 'users#show'
   get 'hostprofile', to: 'hosts#show'
@@ -22,8 +23,8 @@ Rails.application.routes.draw do
   get '/listing/:id', to: 'listings#show'
   delete '/deletelisting/:listing_id', to: 'listings#destroy'
   get '/deletelisting/:listing_id', to: 'listings#destroy'
-  get '/rent/:listing_id', to: 'requests#create'
-  post '/rent/:listing_id', to: 'requests#create'
+  get '/rent/:listing_id', to: 'requests#new'
+  post '/requestlisting', to: 'requests#create'
   delete '/accept/:req_id', to: 'requests#accept'
   get '/accept/:req_id', to: 'requests#accept'
   get '/deny/:req_id', to: 'requests#destroy'
