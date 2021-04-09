@@ -1,0 +1,16 @@
+
+<div class="row">
+    <div class="col-md-5 col-md-offset-3">
+        <h1>Request a Listing</h1>
+        <%= form_with(model:@request,local:true,method: :post) do |f|%>
+            <%= f.hidden_field :listing_id, value: params[:listing_id]%>
+            <%= f.label :boxes%>
+            <%= f.select :boxes,[["1 Box",1],["2 Boxes",2],["3 Boxes",3],["4 Boxes",4],["5 Boxes",5]], class:"form-control"%>
+
+            <%= f.label :duration, "Duration (in weeks)"%>
+            <%= f.text_field :duration, class:"form-control"%>
+
+            <%= f.submit "Request Space", class:"btn btn-primary"%>
+        <%end%>
+    </div>
+</div>

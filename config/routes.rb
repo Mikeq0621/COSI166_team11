@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get '/listing/:id', to: 'listings#show'
   delete '/deletelisting/:listing_id', to: 'listings#destroy'
   get '/deletelisting/:listing_id', to: 'listings#destroy'
-  get '/rent/:listing_id', to: 'requests#create'
+  get '/rent/:listing_id', to: 'requests#new'
   post '/rent/:listing_id', to: 'requests#create'
   delete '/accept/:req_id', to: 'requests#accept'
   get '/accept/:req_id', to: 'requests#accept'
