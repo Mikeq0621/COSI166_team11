@@ -4,12 +4,12 @@ class RequestsController < ApplicationController
         @request = Request.new
     end
     def create
-        listing = Listing.find(params[:listing_id])
         
+        listing = Listing.find(params[:listing_id])
         @request = Request.new(host_id:listing.host_id,listing_id:params[:listing_id],user_id:current_user.id,boxes:params[:boxes].to_i,duration:params[:duration].to_i)
-
+       
         if @request.save
-            puts "boxes: #{params[:boxes]}"
+            
             redirect_to current_user
         else
             redirect_to listing
