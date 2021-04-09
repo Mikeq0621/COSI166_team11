@@ -37,6 +37,28 @@
                     </table>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-4 requests">
+                    <h3>Pending Requests</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Listing ID</th>
+                                <th scope="col">Host name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @requests.each do |r|%>
+                                <tr>
+                                    <td><%= link_to r.listing_id, r.listing%></td>
+                                    <td><%= link_to r.host.name, r.host%></td>
+                                </tr>
+
+                            <%end%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </body>
 </html>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :requests
   get 'sessions/new'
   resources :transactions
   resources :listings
@@ -19,8 +20,13 @@ Rails.application.routes.draw do
 
   get '/search' => 'searches#search', :as => 'search_page'
   get '/listing/:id', to: 'listings#show'
-  delete '/listing/:id', to: 'listings#destroy'
-  get '/rent/:listing_id', to: 'transactions#create'
-  post '/rent/:listing_id', to: 'transactions#create'
+  delete '/deletelisting/:listing_id', to: 'listings#destroy'
+  get '/deletelisting/:listing_id', to: 'listings#destroy'
+  get '/rent/:listing_id', to: 'requests#create'
+  post '/rent/:listing_id', to: 'requests#create'
+  delete '/accept/:req_id', to: 'requests#accept'
+  get '/accept/:req_id', to: 'requests#accept'
+  get '/deny/:req_id', to: 'requests#destroy'
+  delete '/deny/:req_id', to: 'requests#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

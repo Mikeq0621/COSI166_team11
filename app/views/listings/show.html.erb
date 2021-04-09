@@ -12,7 +12,7 @@
                 <% if user_logged_in?%>
                 <%= link_to "Rent Space", "/rent/#{@listing.id}",class:"btn btn-primary", method: :post%>
                 <% elsif current_host == @host %>
-                <%= link_to "Delete Listing","/listing/#{@listing.id}",class:"btn btn-danger",method: :delete%>
+                <%= link_to "Delete Listing","/deletelisting/#{@listing.id}",class:"btn btn-danger",method: :delete%>
                 <% end%>
            </div>  
         </div>

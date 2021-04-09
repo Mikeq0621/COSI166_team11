@@ -2,7 +2,12 @@ class ListingsController < ApplicationController
 
     def index
         @listings = Listing.all
-        user = User.find(session[:user_id])
+        if user_logged_in?
+            user = User.find(session[:user_id])
+        else
+            user = Host.find(session[:host_id])
+        end
+        
         @latitude = user.latitude
         @longitude = user.longitude
         json_hash = {:type => 'FeautureCollection', :features => []}
@@ -46,10 +51,9 @@ class ListingsController < ApplicationController
     end
 
     def destroy
-        listing = Listing.find(params[:id])
-        host = Host.find(listing.host_id)
+        listing = Listing.find(params[:listing_id])
         listing.destroy
-        redirect_to host
+        redirect_to current_host
     end
     
     
