@@ -29,5 +29,8 @@ Rails.application.routes.draw do
   get '/accept/:req_id', to: 'requests#accept'
   get '/deny/:req_id', to: 'requests#destroy'
   delete '/deny/:req_id', to: 'requests#destroy'
+
+  get '/welcomemail', to: 'users#send_email'
+  post '/welcomemail', to:'users#send_email'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

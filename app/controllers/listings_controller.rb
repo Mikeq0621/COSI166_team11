@@ -7,7 +7,6 @@ class ListingsController < ApplicationController
         else
             user = Host.find(session[:host_id])
         end
-        
         @latitude = user.latitude
         @longitude = user.longitude
         json_hash = {:type => 'FeautureCollection', :features => []}

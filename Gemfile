@@ -64,3 +64,5 @@ gem "pry-rails"
 gem 'bootstrap-sass', '3.4.1'
 gem 'bcrypt'
 gem 'geocoder'
+
+gem "noticed", "~> 1.3"

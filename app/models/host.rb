@@ -4,10 +4,13 @@ class Host < ApplicationRecord
     has_secure_password
     has_many :transactions
     has_many :listings
+    
     def full_address
         [address, city, state, zip_code, 'USA'].compact.join(', ')
     end
     has_many :requests
+    has_many :notifications, as: :recipient
+
 
      # Validates for a legal user signup format
      before_save { self.email = email.downcase }
@@ -27,5 +30,6 @@ class Host < ApplicationRecord
              errors.add(:address, " wasn't found.")
          end
      end
+
 
 end
