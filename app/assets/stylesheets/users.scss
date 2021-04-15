@@ -11,7 +11,7 @@ body{
     margin-top:20px;
     color: #1a202c;
     text-align: left;
-    background-color: #e2e8f0;    
+    //background-color: #e2e8f0;    
 }
 .main-body {
     padding: 15px;
@@ -59,4 +59,79 @@ body{
 }
 .shadow-none {
     box-shadow: none!important;
+}
+
+/*Avatar*/
+.hk-sec-wrapper {
+    background: #fff;
+    border-radius: .25rem;
+    margin-bottom: 14px;
+}
+.hk-sec-wrapper .hk-sec-title {
+    display: block;
+    margin-bottom: 10px;
+}
+.mb-40 {
+    margin-bottom: 40px !important;
+}
+.mr-10 {
+    margin-right: 10px !important;
+}
+.avatar {
+    font-size: 1rem;
+    position: relative;
+    display: inline-block;
+    width: 8.875rem;
+    height: 8.875rem;
+}
+
+
+.avatar .avatar-text {
+    font-size: 4rem;
+    padding: 1.5rem;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-transform: uppercase;
+    overflow: hidden;
+    background: #fff;
+    font-weight: 600;
+    color: #00acf0;
+}
+
+.avatar .avatar-text .initial-wrap {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.avatar .avatar-text .initial-wrap > span {
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.avatar .avatar-text:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    background: rgba(178, 230, 250, 0.5);
+}
+
+
+
+.avatar .avatar-text.avatar-text-red,
+.avatar .avatar-text.avatar-text-danger {
+    color: #f83f37;
+}
+
+.avatar .avatar-text.avatar-text-red:before,
+.avatar .avatar-text.avatar-text-danger:before {
+    background: rgba(253, 197, 195, 0.5);
 }

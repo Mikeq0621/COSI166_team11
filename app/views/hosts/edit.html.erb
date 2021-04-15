@@ -1,9 +1,9 @@
-<% provide(:title, 'Sign up') %>
-<h1>User Sign up</h1>
+<% provide(:title, 'Edit Profile') %>
+<h1>Edit Host Profile</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_with(model: @user, local: true) do |f| %>
+    <%= form_with(model: @host, local: true) do |f| %>
       <%= render 'shared/error_messages' %>
     
       <%= f.label :name %>
@@ -27,7 +27,7 @@
       <%= f.label :city, "City" %>
       <%= f.text_field :city, class: 'form-control' %>
 
-      <%= f.label :state, "State" %>
+      <%= f.label :state%>
       <%= f.select :state,[
         ['Alabama', 'AL'],
         ['Alaska', 'AK'],
@@ -82,10 +82,11 @@
         ['Wisconsin', 'WI'],
         ['Wyoming', 'WY']
       ], class:"form-control" , include_blank: true%>
+
       <%= f.label :zip_code, "Zip code" %>
       <%= f.text_field :zip_code, class: 'form-control' %>
 
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
+      <%= f.submit "Update host account", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
