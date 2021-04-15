@@ -24,4 +24,10 @@ class RequestNotification < Noticed::Base
   # def url
   #   post_path(params[:post])
   # end
+
+  deliver_by :database
+  param :listing
+  param :user
+
+  
 end

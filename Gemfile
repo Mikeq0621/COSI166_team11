@@ -60,9 +60,11 @@ gem 'faker'
 gem 'activerecord-import'
 gem 'json'
 gem "better_errors"
-gem "pry-rails"
 gem 'bootstrap-sass', '3.4.1'
 gem 'bcrypt'
 gem 'geocoder'
 
 gem "noticed", "~> 1.3"
+gem 'hirb'
+gem 'awesome_print'
+gem 'pry-byebug'

@@ -13,6 +13,7 @@ class UsersController < ApplicationController
         end
         @transactions = @user.transactions
         @requests = @user.requests
+        @notifications = @user.notifications
     end
 
     def new
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
         if @user.save
             log_in @user
             flash[:success] = "Welcome to AirStorage!"
+            UserMailer.with(user:@user).welcome.deliver_now
             redirect_to root_path
         else
             render 'new'
