@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get '/logout',  to: 'sessions#destroy'
   get '/signup', to: 'users#new'
   get '/host_signup', to: 'hosts#new'
+  get '/host_edit', to: 'hosts#edit'
+  get '/user_edit', to: 'users#edit'
 
   get '/userprofile', to: 'users#show'
   get 'hostprofile', to: 'hosts#show'

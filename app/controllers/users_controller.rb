@@ -19,6 +19,25 @@ class UsersController < ApplicationController
         @user = User.new
     end
      
+    def edit
+        if params[:id]
+            @user = User.find(params[:id])
+          else
+            @user = current_user
+        end
+    end
+
+    def update
+        @user = User.find(params[:id])
+        @user.update(user_params) 
+        if @user.update(user_params)
+            host_log_in @user
+            flash[:success] = "Edit Succesfull!"
+            redirect_to user_path(@user)
+        else
+            render 'edit'
+        end
+    end
     def create
         @user = User.new(user_params)    
         if @user.save
