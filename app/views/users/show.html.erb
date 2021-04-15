@@ -26,7 +26,9 @@
                  <h4><%= @user.name%></h4>
                   <p class="text-secondary mb-1"><%= @user.email%></p>
                   <p class="text-muted font-size-sm"><%= @user.city + ', ' + @user.state%></p>
-                  <%= link_to "Edit Profile", user_edit_path(@user), class:"btn btn-info"%>
+                <% if current_user == @user%>
+                <%= link_to "Edit Profile", user_edit_path(@user), class:"btn btn-info"%>
+                <%end%>
                 </div>
               </div>
             </div>
