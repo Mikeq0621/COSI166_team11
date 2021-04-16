@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 
 <html>
-    <head></head>
+    <head>
+        <style>
+        body{
+            margin-top:20px;
+            color: #1a202c;
+            text-align: left;
+            background-color: #e2e8f0;    
+        }
+    </style>
+    </head>
     <body>
         <div class="row">
-           <div class="listing-info">
-                <h4><strong>Address:</strong> <%= @host.address%> </h4>
-                <h4><strong>Host Name:</strong> <%= link_to @host.name, @host%> </h4>
-                <h4><strong>Space Available:</strong> <%= @listing.space%></h4>
-                <h4><strong>Max Duration:</strong> <%= @listing.duration%></h4>
+            <div class="col-md-4 text-center">
+            <div class="card h-100">
+                <div class="card-body">
+                <h3><%= @listing.host.address%></h3>
+                <h4><%= @listing.host.city%>, <%= @listing.host.zip_code%></h4>
+                <h4><%= link_to @listing.host.name,@listing.host%></h4>
+                <h5><%= bootstrap_icon("box")%> Max Storage <%= @listing.space%> Boxes</h5>
                 <% if user_logged_in?%>
-                <%= link_to "Rent Space", new_request_path(:listing_id => params[:id], :space => @listing.space, :duration => @listing.duration),class:"btn btn-primary"%>
+                    <%= link_to "Rent Space", new_request_path(:listing_id => params[:id], :space => @listing.space, :duration => @listing.duration),class:"btn btn-primary"%>
                 <% elsif current_host == @host %>
-                <%= link_to "Delete Listing","/deletelisting/#{@listing.id}",class:"btn btn-danger",method: :delete%>
-                <div class="card">
-                <h4>Requests</h4>
-                <table class="table">
+                    <%= link_to "Delete Listing","/deletelisting/#{@listing.id}",class:"btn btn-danger",method: :delete%>
+                    <h4>Pending Requests</h4>
+                    <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">Listing ID</th>
@@ -37,8 +47,10 @@
                                 
                     </tbody>
                 </table>
-                <% end%>
-           </div>  
+                <%end%>
+                </div>
+            </div>
+            </div>
         </div>
     </body>
 </html>

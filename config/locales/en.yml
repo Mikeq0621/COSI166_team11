@@ -33,4 +33,4 @@ en:
   hello: "Hello world"
   notifications:
     request_notification:
-      message: "Someone requested to rent out your listing at"
+      message: "New Listing Request for %{address}"

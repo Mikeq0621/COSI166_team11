@@ -161,9 +161,9 @@
           <div class="col-sm-6 mb-3">
             <div class="card h-100">
               <div class="card-body">
-              <h4 class="d-flex align-items-center mb-3"> <%= bootstrap_icon("bell")%> Notifications <span class="badge"><%= @notifications.length%></span></h4>
-                <% @notifications.each do |n|%>
-                    <p><%= n.to_notification.message%></p>
+              <h4 class="d-flex align-items-center mb-3"> <%= bootstrap_icon("bell")%> Notifications <span class="badge"><%= @notifications.unread.length%></span></h4>
+                <% @notifications.unread.each do |n|%>
+                    <p><%= link_to n.to_notification.message,n.to_notification.url%></p>
                 <%end%>
               </div>
             </div>
