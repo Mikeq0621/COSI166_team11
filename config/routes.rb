@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  # get 'password_resets/new'
+  # get 'password_resets/edit'
+
   resources :requests
   get 'sessions/new'
   resources :transactions
   resources :listings
   resources :users
   resources :hosts
+  resources :password_resets, only: [:new, :create, :edit, :update]
   root 'static_page#home'
   get 'static_page/faq'
   get    '/userlogin',   to: 'sessions#new'
@@ -31,6 +35,8 @@ Rails.application.routes.draw do
   get '/accept/:req_id', to: 'requests#accept'
   get '/deny/:req_id', to: 'requests#destroy'
   delete '/deny/:req_id', to: 'requests#destroy'
+
+  post '/resetpassword', to: 'users#reset_password'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
