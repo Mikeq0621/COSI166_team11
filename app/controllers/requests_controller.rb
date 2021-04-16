@@ -9,7 +9,8 @@ class RequestsController < ApplicationController
         @request = Request.new(host_id:listing.host_id,listing_id:params[:listing_id],user_id:current_user.id,boxes:params[:boxes].to_i,duration:params[:duration].to_i)
        
         if @request.save
-            
+            RequestNotification.with({listing:listing, user:current_user}).deliver(listing.host)
+            UserMailer.with({user:current_user,listing:listing}).requested_space.deliver_now
             redirect_to current_user
         else
             redirect_to listing

@@ -14,6 +14,6 @@ class UserMailer < ApplicationMailer
   def requested_space
     @user = params[:user]
     @listing = params[:listing]
-    mail to: @user.email, subject:'Request Confirmation'
+    mail to: @user.email, subject:'Request Confirmation' 
   end
 end

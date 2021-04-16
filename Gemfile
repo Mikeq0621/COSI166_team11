@@ -68,3 +68,4 @@ gem "noticed", "~> 1.3"
 gem 'hirb'
 gem 'awesome_print'
 gem 'pry-byebug'
+gem 'bootstrap-icons-helper'

@@ -3,6 +3,7 @@
 # RequestNotification.with(post: @post).deliver_later(current_user)
 # RequestNotification.with(post: @post).deliver(current_user)
 
+
 class RequestNotification < Noticed::Base
   # Add your delivery methods
   #

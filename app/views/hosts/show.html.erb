@@ -72,7 +72,7 @@
                   <h5 class="mb-0">Address</h5>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                    <%= @host.address + ', ' + @host.city + ', ' + @host.state +  ' ' + @host.zip_code  %>
+                    <%= @host.address  %>
                 </div>
               </div>
             </div>
@@ -158,6 +158,16 @@
             </div>
           </div>
         </div>
+          <div class="col-sm-6 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+              <h4 class="d-flex align-items-center mb-3"> <%= bootstrap_icon("bell")%> Notifications <span class="badge"><%= @notifications.length%></span></h4>
+                <% @notifications.each do |n|%>
+                    <p><%= n.to_notification.message%></p>
+                <%end%>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
         <%end%>
