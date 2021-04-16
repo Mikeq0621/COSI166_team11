@@ -10,7 +10,7 @@
                 <h4><strong>Space Available:</strong> <%= @listing.space%></h4>
                 <h4><strong>Max Duration:</strong> <%= @listing.duration%></h4>
                 <% if user_logged_in?%>
-                <%= link_to "Rent Space", new_request_path(:listing_id => params[:id]),class:"btn btn-primary"%>
+                <%= link_to "Rent Space", new_request_path(:listing_id => params[:id], :space => @listing.space, :duration => @listing.duration),class:"btn btn-primary"%>
                 <% elsif current_host == @host %>
                 <%= link_to "Delete Listing","/deletelisting/#{@listing.id}",class:"btn btn-danger",method: :delete%>
                 <% end%>
