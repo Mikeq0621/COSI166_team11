@@ -44,7 +44,7 @@ class UsersController < ApplicationController
         if @user.save
             log_in @user
             flash[:success] = "Welcome to AirStorage!"
-            UserMailer.with(user:@user).welcome.deliver_now
+            #UserMailer.with(user:@user).welcome.deliver_now
             redirect_to root_path
         else
             render 'new'
