@@ -443,11 +443,12 @@
           link.href = '#';
           link.className = 'title';
           link.id = 'link-' + prop.id;
-          link.innerHTML = prop.address;
+          link.innerHTML = '<font size="4">' +  prop.address;
 
           /* Add details to the individual listing. */
           var details = listing.appendChild(document.createElement('div'));
-            details.innerHTML = prop.name;
+            details.innerHTML = '<font size="3"><strong> Box/week: $' + prop.price;
+            details.innerHTML += '<br/>' +prop.name;
           details.innerHTML += ' &middot; City: ' + prop.city;
           if (prop.phone) {
             details.innerHTML += ' &middot; Phone: ' + prop.phone;

@@ -1,7 +1,10 @@
 
 <div class="row">
     <div class="col-md-5 col-md-offset-3">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <%= content_tag :div, class: "price", data: {price: params[:price]} do %><% end %>
         <h1>Request a Listing</h1>
+        
         <%= form_with(url:"/requestlisting",local:true,method: :post) do |f|%>
             <%= f.label :listing_id%>
             <%= f.hidden_field :listing_id, value: params[:listing_id]%>
@@ -10,7 +13,17 @@
 
             <%= f.label :duration, "Duration (in weeks)"%>
             <%= f.select :duration,num_weeks_array(params[:duration].to_i), {:style => "min-width: 100px;"}, class:"form-control"%>
-            
+            <h4 id="totalPrice"></h4>
+            <script>
+                var price = $('.price').data('price');
+                document.getElementById("totalPrice").innerHTML = '<strong>Total Price: </strong>$' +  price*document.getElementById("duration").value*document.getElementById("boxes").value;
+                document.getElementById('duration').addEventListener('change', function(evt){
+                    document.getElementById("totalPrice").innerHTML = '<strong>Total Price: </strong>$' +  price*document.getElementById("duration").value*document.getElementById("boxes").value;
+                })
+                document.getElementById('boxes').addEventListener('change', function(evt){
+                    document.getElementById("totalPrice").innerHTML = '<strong>Total Price: </strong>$' +  price*document.getElementById("duration").value*document.getElementById("boxes").value;
+                })
+            </script>
             <%= f.submit "Request Space", class:"btn btn-primary"%>
         <%end%>
         <%= debug(params) if Rails.env.development? %>
