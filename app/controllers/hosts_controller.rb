@@ -14,6 +14,7 @@ class HostsController < ApplicationController
         @listings = @host.listings
         @requests = @host.requests
         @transactions = @host.transactions
+        @notifications = @host.notifications
     end
 
     def new

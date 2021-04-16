@@ -13,6 +13,7 @@ class UsersController < ApplicationController
         end
         @transactions = @user.transactions
         @requests = @user.requests
+        @notifications = @user.notifications
     end
 
     def new
@@ -43,12 +44,16 @@ class UsersController < ApplicationController
         if @user.save
             log_in @user
             flash[:success] = "Welcome to AirStorage!"
+            UserMailer.with(user:@user).welcome.deliver_now
             redirect_to root_path
         else
             render 'new'
         end
     end
 
+    def send_email
+        UserMailer.with(user: current_user).welcome.deliver_now
+    end
     private
         def user_params
             params.require(:user).permit(:name, :email, :phone_number, :password, 
