@@ -6,11 +6,11 @@
             <%= f.label :listing_id%>
             <%= f.hidden_field :listing_id, value: params[:listing_id]%>
             <%= f.label :boxes%>
-            <%= f.select :boxes,[["1 Box",1],["2 Boxes",2],["3 Boxes",3],["4 Boxes",4],["5 Boxes",5]], class:"form-control"%>
+            <%= f.select :boxes,num_box_array(params[:space].to_i), {:style => "min-width: 100px;"}, class:"form-control"%>
 
             <%= f.label :duration, "Duration (in weeks)"%>
-            <%= f.text_field :duration, class:"form-control"%>
-
+            <%= f.select :duration,num_weeks_array(params[:duration].to_i), {:style => "min-width: 100px;"}, class:"form-control"%>
+            
             <%= f.submit "Request Space", class:"btn btn-primary"%>
         <%end%>
         <%= debug(params) if Rails.env.development? %>

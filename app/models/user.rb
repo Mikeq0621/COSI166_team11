@@ -1,5 +1,12 @@
 class User < ApplicationRecord
     geocoded_by :full_address
+    before_validation :set_coords_to_nil, :if => :address_changed?
+
+    def set_coords_to_nil
+        self.latitude = nil
+        self.longitude = nil
+    end
+
     before_validation :geocode
     has_secure_password
     has_many :transactions
@@ -18,6 +25,7 @@ class User < ApplicationRecord
     validates :phone_number , presence: true, length: { maximum: 20 }, format: { with: VALID_PHONE_NUMBER }
     
     validates :address, presence: true
+    validates :zip_code, presence: true
     validate :found_address_presence
 
     def found_address_presence
@@ -28,6 +36,11 @@ class User < ApplicationRecord
 
     def full_address
         [address, city, state, zip_code, 'USA'].compact.join(', ')
+    end
+
+    def address_changed?
+        #full_address != self.address
+        true
     end
 
 end
