@@ -29,5 +29,7 @@ class RequestNotification < Noticed::Base
   param :listing
   param :user
 
-  
+  def message
+    t('.message')
+  end
 end
