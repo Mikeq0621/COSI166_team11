@@ -19,7 +19,7 @@
                         <%= f.select :duration,num_weeks_array(52), {:style => "min-width: 200px;"}, class:"form-control"%>
                         <br/>
                         <%= f.label :price, "Price (per box per week)" %>
-                        <%= f.number_field :price, step: 'any', min: '0', class: 'form-control' %>
+                        <%= f.number_field :price, step: '0.01', min: '0', class: 'form-control' %>
                         <br/>
                         <%= f.submit "Post Listing", class:"btn btn-primary"%>
                     <%end%>
