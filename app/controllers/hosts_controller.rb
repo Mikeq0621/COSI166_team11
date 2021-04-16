@@ -14,10 +14,31 @@ class HostsController < ApplicationController
         @listings = @host.listings
         @requests = @host.requests
         @transactions = @host.transactions
+        @notifications = @host.notifications
     end
 
     def new
         @host = Host.new
+    end
+
+    def edit
+        if params[:id]
+            @host = Host.find(params[:id])
+          else
+            @host = current_host
+        end
+    end
+
+    def update
+        @host = Host.find(params[:id])
+        @host.update(user_params) 
+        if @host.update(user_params)
+            host_log_in @host
+            flash[:success] = "Edit Succesfull!"
+            redirect_to host_path(@host)
+        else
+            render 'edit'
+        end
     end
      
     def create

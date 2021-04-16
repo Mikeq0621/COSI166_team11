@@ -28,7 +28,7 @@ body {
       <% if user_logged_in? %>
         <%= link_to "Find storage near me", search_page_path(:search_filter => 'location'), class: "btn btn-lg btn-primary" %>
       <% elsif host_logged_in? %>
-        <%= link_to "Start to sale my space", "#", class: "btn btn-lg btn-primary" %>
+        <%= link_to "Start to sale my space", "/listings/new", class: "btn btn-lg btn-primary" %>
       <% else %>
         <%= link_to "Sign up as a User!", new_user_path, class: "btn btn-lg btn-primary" %>
         <%= link_to "Become a host!", new_host_path , class: "btn btn-lg btn-primary" %>

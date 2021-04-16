@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :require_login, only: [:new, :create, :update]
+    skip_before_action :require_login, only: [:new, :create, :reset_password]
 
     def index
         @users = User.all
@@ -13,28 +13,51 @@ class UsersController < ApplicationController
         end
         @transactions = @user.transactions
         @requests = @user.requests
+        @notifications = @user.notifications
     end
 
     def new
         @user = User.new
     end
      
+    def edit
+        if params[:id]
+            @user = User.find(params[:id])
+        else
+            @user = current_user
+        end
+    end
+
+    def update
+        @user = User.find(params[:id])
+        @user.update(user_params) 
+        if @user.update(user_params)
+            host_log_in @user
+            flash[:success] = "Edit Succesfull!"
+            redirect_to user_path(@user)
+        else
+            render 'edit'
+        end
+    end
+
     def create
         @user = User.new(user_params)    
         if @user.save
             log_in @user
             flash[:success] = "Welcome to AirStorage!"
+            #UserMailer.with(user:@user).welcome.deliver_now
             redirect_to root_path
         else
             render 'new'
         end
     end
-    def update
+
+    def reset_password
         @user = User.find_by(email: (params[:email]))
-        if params[:user][:password].empty?                  # No password entered
+        if params[:password].empty?                  # No password entered
             @user.errors.add(:password, "can't be empty")
             render 'edit'
-          elsif @user.update(params.require(:user).permit(:password, :password_confirmation)) # Success reset
+          elsif @user.update(password: params[:password], password_confirmation: params[:password_confirmation]) # Success reset
             reset_session
             log_in @user
             flash[:success] = "Password has been reset."
@@ -42,6 +65,10 @@ class UsersController < ApplicationController
           else
             render 'edit'                                     # Fail to reset
           end
+    end
+
+    def send_email
+        UserMailer.with(user: current_user).welcome.deliver_now
     end
 
     private
