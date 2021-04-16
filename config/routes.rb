@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  # get 'password_resets/new'
+  # get 'password_resets/edit'
   resources :requests
   get 'sessions/new'
   resources :transactions
   resources :listings
   resources :users
   resources :hosts
+  resources :password_resets, only: [:new, :create, :edit, :update]
   root 'static_page#home'
   get 'static_page/faq'
   get    '/userlogin',   to: 'sessions#new'

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :require_login, only: [:new, :create]
+    skip_before_action :require_login, only: [:new, :create, :update]
 
     def index
         @users = User.all
@@ -28,6 +28,20 @@ class UsersController < ApplicationController
         else
             render 'new'
         end
+    end
+    def update
+        @user = User.find_by(email: (params[:email]))
+        if params[:user][:password].empty?                  # No password entered
+            @user.errors.add(:password, "can't be empty")
+            render 'edit'
+          elsif @user.update(params.require(:user).permit(:password, :password_confirmation)) # Success reset
+            reset_session
+            log_in @user
+            flash[:success] = "Password has been reset."
+            redirect_to @user
+          else
+            render 'edit'                                     # Fail to reset
+          end
     end
 
     private
