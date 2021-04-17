@@ -37,7 +37,7 @@ class ListingsController < ApplicationController
         h_id = current_host.id
         dur = params[:listing][:duration].to_i
         
-        @listing = Listing.new(host_id:h_id,space:params[:listing][:space],duration:dur, price:params[:listing][:price])
+        @listing = Listing.new(host_id:h_id,space:params[:listing][:space],duration:dur, price:params[:listing][:price].round(2))
         if @listing.save
             redirect_to Host.find(h_id)
         else
