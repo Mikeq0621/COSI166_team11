@@ -26,8 +26,8 @@ class RequestsController < ApplicationController
     def accept
         request = Request.find(params[:req_id])
         listing = Listing.find(request.listing_id)
-        
-        transaction = Transaction.new(host_id:listing.host_id,user_id:request.user_id,listing_id:listing.id,price:30.00,duration:20)
+        price = request.boxes*request.duration*listing.price
+        transaction = Transaction.new(host_id:listing.host_id,user_id:request.user_id,listing_id:listing.id,price:price,duration:request.duration, boxes:request.boxes)
         if transaction.save
             listing.space = listing.space.to_i - request.boxes
             listing.save
