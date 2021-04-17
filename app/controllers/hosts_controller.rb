@@ -52,6 +52,12 @@ class HostsController < ApplicationController
         end
     end
 
+    def read_notification
+        n = params[:noti]
+        n.to_notification.mark_as_read!
+        redirect_to n.to_notification.url
+
+    end
     private
     def user_params
         params.require(:host).permit(:name, :email, :phone_number, :password, 
