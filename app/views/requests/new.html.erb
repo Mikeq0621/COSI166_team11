@@ -16,12 +16,12 @@
             <h4 id="totalPrice"></h4>
             <script>
                 var price = $('.price').data('price');
-                document.getElementById("totalPrice").innerHTML = '<strong>Total Price: </strong>$' +  price*document.getElementById("duration").value*document.getElementById("boxes").value;
+                document.getElementById("totalPrice").innerHTML = '<strong>Total Price: </strong>$' +  (price*document.getElementById("duration").value*document.getElementById("boxes").value).toFixed(2);
                 document.getElementById('duration').addEventListener('change', function(evt){
-                    document.getElementById("totalPrice").innerHTML = '<strong>Total Price: </strong>$' +  price*document.getElementById("duration").value*document.getElementById("boxes").value;
+                    document.getElementById("totalPrice").innerHTML = '<strong>Total Price: </strong>$' +  (price*document.getElementById("duration").value*document.getElementById("boxes").value).toFixed(2);
                 })
                 document.getElementById('boxes').addEventListener('change', function(evt){
-                    document.getElementById("totalPrice").innerHTML = '<strong>Total Price: </strong>$' +  price*document.getElementById("duration").value*document.getElementById("boxes").value;
+                    document.getElementById("totalPrice").innerHTML = '<strong>Total Price: </strong>$' +  (price*document.getElementById("duration").value*document.getElementById("boxes").value).toFixed(2);
                 })
             </script>
             <%= f.submit "Request Space", class:"btn btn-primary"%>

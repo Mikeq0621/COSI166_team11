@@ -447,7 +447,7 @@
 
           /* Add details to the individual listing. */
           var details = listing.appendChild(document.createElement('div'));
-            details.innerHTML = '<font size="3"><strong> Box/week: $' + prop.price;
+            details.innerHTML = '<font size="3"><strong> Box/week: $' + prop.price.toFixed(2);
             details.innerHTML += '<br/>' +prop.name;
           details.innerHTML += ' &middot; City: ' + prop.city;
           if (prop.phone) {
