@@ -6,4 +6,8 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.welcome(User.first)
   end
 
+  # http://localhost:3000/rails/mailers/user_mailer/requested_space
+  def requested_space
+    UserMailer.requested_space(User.first,Listing.first)
+  end
 end

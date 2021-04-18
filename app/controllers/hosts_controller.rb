@@ -53,10 +53,9 @@ class HostsController < ApplicationController
     end
 
     def read_notification
-        n = params[:noti]
-        n.to_notification.mark_as_read!
-        redirect_to n.to_notification.url
-
+        user = Host.find(params[:user_id])
+        user.notifications.mark_as_read!
+        redirect_to user
     end
     private
     def user_params

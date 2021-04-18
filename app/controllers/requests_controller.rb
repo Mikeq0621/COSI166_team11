@@ -10,7 +10,7 @@ class RequestsController < ApplicationController
        
         if @request.save
             RequestNotification.with({listing:listing, user:current_user}).deliver(listing.host)
-            UserMailer.with({user:current_user,listing:listing}).requested_space.deliver_now
+            UserMailer.requested_space(current_user,listing).deliver_now 
             redirect_to current_user
         else
             redirect_to listing

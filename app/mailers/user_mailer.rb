@@ -11,9 +11,9 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject:'Welcome to AirStorage'
   end
 
-  def requested_space
-    @user = params[:user]
-    @listing = params[:listing]
+  def requested_space(user,listing)
+    @user = user
+    @listing = listing
     mail to: @user.email, subject:'Request Confirmation' 
   end
 end

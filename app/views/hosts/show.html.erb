@@ -123,8 +123,8 @@
                                 <td><%= link_to r.listing_id, r.listing%></td>
                                 <td><%= link_to r.user.name, r.user%></td>
                                 <td>
-                                    <%= link_to "Accept","/accept/#{r.id}",class:"btn btn-success", method: :delete%>
-                                    <%= link_to "Deny", "/deny/#{r.id}",class:"btn btn-danger", method: :delete%>
+                                    <%= link_to bootstrap_icon("patch-check-fill",fill:"green",width:25,height:25),"/accept/#{r.id}", method: :delete%>
+                                    <%= link_to bootstrap_icon("x-circle-fill",fill:"red",width:25,height:25), "/deny/#{r.id}", method: :delete%>
                                 </td>
                             </tr>
                         <%end%>
@@ -163,8 +163,9 @@
               <div class="card-body">
               <h4 class="d-flex align-items-center mb-3"> <%= bootstrap_icon("bell")%> Notifications <span class="badge"><%= @notifications.unread.length%></span></h4>
                 <% @notifications.unread.each do |n|%>
-                    <p><%= link_to n.to_notification.message,"/read/#{n}",method: :patch%></p>
+                    <p><%= link_to n.to_notification.message,n.to_notification.url%></p>
                 <%end%>
+                <%= link_to "Read All","/readhost/#{@host.id}", class:"btn btn-primary"%>
               </div>
             </div>
           </div>
