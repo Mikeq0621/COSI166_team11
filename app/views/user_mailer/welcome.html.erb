@@ -5,9 +5,19 @@
   </head>
 
   <body>
-    <h1>Welcome to AirStorage, <%= @user.name%></h1>
-    <p>You have succesfully signed up, and now you can start renting spaces!</p>
-    <p>Good Luck!</p>
+    <div class="container">
+      <h4>Dear <%= @user.name%>,</h4>
+      <h2>Welcome to <%=link_to "AirStorage","/" %></h2>
+      <div class="content lead">
+        <p>You have successfully signed up and you can now start renting spaces! <br/> 
+        When you log in, you can click on the listings tab to start viewing spaces near you.</p>
+   
+      </div>
+      
+      
+      
+      <%= link_to "Log In",'/userlogin',class:"btn btn-primary"%>
+    </div>
   </body>
 </html>
 
