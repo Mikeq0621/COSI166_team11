@@ -20,7 +20,8 @@ class ListingsController < ApplicationController
                 :postalCode => host.zip_code,
                 :state => host.state,
                 :space => listing.space,
-                :duration =>listing.duration
+                :duration =>listing.duration,
+                :price =>listing.price
                 }
             }
             json_hash[:features] << feature_hash
@@ -36,7 +37,7 @@ class ListingsController < ApplicationController
         h_id = current_host.id
         dur = params[:listing][:duration].to_i
         
-        @listing = Listing.new(host_id:h_id,space:params[:listing][:space],duration:dur)
+        @listing = Listing.new(host_id:h_id,space:params[:listing][:space],duration:dur, price:params[:listing][:price])
         if @listing.save
             redirect_to Host.find(h_id)
         else

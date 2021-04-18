@@ -283,7 +283,7 @@
         accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl,
         flyTo: {
-            maxZoom: 12 // If you want your result not to go further than a specific zoom
+            zoom: 12 // If you want your result not to go further than a specific zoom
           },
         placeholder: 'Search for address or city', // Placeholder text for the search bar
         //bbox: [-122.30937, 37.84214, -122.23715, 37.89838], // Boundary for Berkeley
@@ -429,82 +429,85 @@
            * which will be used several times below.
            **/
           var prop = store.properties;
+          if (prop.space > 0){
 
-          /* Add a new listing section to the sidebar. */
-          var listings = document.getElementById('listings');
-          var listing = listings.appendChild(document.createElement('div'));
-          /* Assign a unique `id` to the listing. */
-          listing.id = 'listing-' + prop.id;
-          /* Assign the `item` class to each listing for styling. */
-          listing.className = 'item';
+            /* Add a new listing section to the sidebar. */
+            var listings = document.getElementById('listings');
+            var listing = listings.appendChild(document.createElement('div'));
+            /* Assign a unique `id` to the listing. */
+            listing.id = 'listing-' + prop.id;
+            /* Assign the `item` class to each listing for styling. */
+            listing.className = 'item';
 
-          /* Add the link to the individual listing created above. */
-          var link = listing.appendChild(document.createElement('a'));
-          link.href = '#';
-          link.className = 'title';
-          link.id = 'link-' + prop.id;
-          link.innerHTML = prop.address;
+            /* Add the link to the individual listing created above. */
+            var link = listing.appendChild(document.createElement('a'));
+            link.href = '#';
+            link.className = 'title';
+            link.id = 'link-' + prop.id;
+            link.innerHTML = '<font size="4">' +  prop.address;
 
-          /* Add details to the individual listing. */
-          var details = listing.appendChild(document.createElement('div'));
-            details.innerHTML = prop.name;
-          details.innerHTML += ' &middot; City: ' + prop.city;
-          if (prop.phone) {
-            details.innerHTML += ' &middot; Phone: ' + prop.phone;
-            details.innerHTML += '<br />Space: ' + prop.space + ' boxes';
-            details.innerHTML += ' &middot; Duration: ' + prop.duration + ' weeks';
+            /* Add details to the individual listing. */
+            var details = listing.appendChild(document.createElement('div'));
+              details.innerHTML = '<font size="3"><strong> Box/week: $' + prop.price.toFixed(2);
+              details.innerHTML += '<br/>' +prop.name;
+            details.innerHTML += ' &middot; City: ' + prop.city;
+            if (prop.phone) {
+              details.innerHTML += ' &middot; Phone: ' + prop.phone;
+              details.innerHTML += '<br />Space: ' + prop.space + ' boxes';
+              details.innerHTML += ' &middot; Duration: ' + prop.duration + ' weeks';
+            }
+
+            /* Add button for renting listing */
+              var buttonElem = document.createElement('div');
+              /* Assign a unique `id` to the button. */
+              buttonElem.id = 'button';
+              /* Assign the `marker` class to each button for styling. */
+              buttonElem.href = '/listing/' + prop.listing_id;
+              buttonElem.innerHTML = 'Request Space';
+              buttonElem.className = 'button';
+              buttonElem.style.display = 'none';
+
+              buttonElem.onclick = function() { // remove list item here
+                  window.location = buttonElem.href;
+              };
+              listing.appendChild(buttonElem);
+              buttonElem.classList.remove('button');
+
+            /**
+            * Listen to the element and when it is clicked, do four things:
+            * 1. Update the `currentFeature` to the store associated with the clicked link
+            * 2. Fly to the point
+            * 3. Close all other popups and display popup for clicked store
+            * 4. Highlight listing in sidebar (and remove highlight for all other listings)
+            **/
+          if (prop.distance) {
+            var roundedDistance = Math.round(prop.distance * 10) / 10;
+            details.innerHTML += '<br /><strong>' + roundedDistance + ' miles away</strong>';
           }
-
-          /* Add button for renting listing */
-            var buttonElem = document.createElement('div');
-            /* Assign a unique `id` to the button. */
-            buttonElem.id = 'button';
-            /* Assign the `marker` class to each button for styling. */
-            buttonElem.href = '/listing/' + prop.listing_id;
-            buttonElem.innerHTML = 'Request Space';
-            buttonElem.className = 'button';
-            buttonElem.style.display = 'none';
-
-            buttonElem.onclick = function() { // remove list item here
-                window.location = buttonElem.href;
-            };
-            listing.appendChild(buttonElem);
-            buttonElem.classList.remove('button');
-
-          /**
-           * Listen to the element and when it is clicked, do four things:
-           * 1. Update the `currentFeature` to the store associated with the clicked link
-           * 2. Fly to the point
-           * 3. Close all other popups and display popup for clicked store
-           * 4. Highlight listing in sidebar (and remove highlight for all other listings)
-           **/
-        if (prop.distance) {
-          var roundedDistance = Math.round(prop.distance * 10) / 10;
-          details.innerHTML += '<br /><strong>' + roundedDistance + ' miles away</strong>';
-        }
-          link.addEventListener('click', function (e) {
-            for (var i = 0; i < data.features.length; i++) {
-              if (this.id === 'link-' + data.features[i].properties.id) {
-                var clickedListing = data.features[i];
-                var num = i;
-                flyToStore(clickedListing);
-                createPopUp(clickedListing);
+            link.addEventListener('click', function (e) {
+              for (var i = 0; i < data.features.length; i++) {
+                if (this.id === 'link-' + data.features[i].properties.id) {
+                  var clickedListing = data.features[i];
+                  var num = i;
+                  flyToStore(clickedListing);
+                  createPopUp(clickedListing);
+                }
               }
-            }
-            // add delete button
-            var activeItem = document.getElementsByClassName('active');
-            var activeButton = document.getElementsByClassName('button');
-            if (activeItem[0]) {
-              activeItem[0].style.textAlign = 'left';
-              activeItem[0].classList.remove('active');
-              activeButton[0].style.display = 'none'; 
-              activeButton[0].classList.remove('button');
-            }
-            this.parentNode.classList.add('active');
-            this.parentNode.lastChild.classList.add('button');
-            this.parentNode.lastChild.style.display = 'inline-block';
-            this.parentNode.style.textAlign = 'center'; 
-          });
+              // add delete button
+              var activeItem = document.getElementsByClassName('active');
+              var activeButton = document.getElementsByClassName('button');
+              if (activeItem[0]) {
+                activeItem[0].style.textAlign = 'left';
+                activeItem[0].classList.remove('active');
+                activeButton[0].style.display = 'none'; 
+                activeButton[0].classList.remove('button');
+              }
+              this.parentNode.classList.add('active');
+              this.parentNode.lastChild.classList.add('button');
+              this.parentNode.lastChild.style.display = 'inline-block';
+              this.parentNode.style.textAlign = 'center'; 
+            });
+          }
         });
       }
 
