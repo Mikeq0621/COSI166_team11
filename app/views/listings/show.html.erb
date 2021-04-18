@@ -12,17 +12,18 @@
     </style>
     </head>
     <body>
-        <div class="row">
-
-
-           <div class="listing-info">
-                <h4><strong>Address:</strong> <%= @host.address%> </h4>
-                <h4><strong>Host Name:</strong> <%= link_to @host.name, @host%> </h4>
-                <h4><strong>Space Available:</strong> <%= @listing.space%></h4>
-                <h4><strong>Max Duration:</strong> <%= @listing.duration%></h4>
+    
+       <div class="row">
+            <div class="col-md-4 text-center">
+            <div class="card h-100">
+                <div class="card-body">
+                <h3><%= @listing.host.address%></h3>
+                <h4><%= @listing.host.city%>, <%= @listing.host.zip_code%></h4>
+                <h4><%= link_to @listing.host.name,@listing.host%></h4>
+                <h5><%= bootstrap_icon("box")%> Max Storage <%= @listing.space%> Boxes</h5>
                 <h4><strong>Price per Box/Week:</strong> $<%= '%.2f' % @listing.price%></h4>
-                <% if user_logged_in? && @listing.space > 0 %>
-                <%= link_to "Rent Space", new_request_path(:listing_id => params[:id], :space => @listing.space, :duration => @listing.duration, :price => @listing.price),class:"btn btn-primary"%>
+                <% if user_logged_in?%>
+                    <%= link_to "Rent Space", new_request_path(:listing_id => params[:id], :space => @listing.space, :duration => @listing.duration),class:"btn btn-primary"%>
                 <% elsif current_host == @host %>
                     <%= link_to "Delete Listing","/deletelisting/#{@listing.id}",class:"btn btn-danger",method: :delete%>
                     <h4>Pending Requests</h4>
@@ -40,7 +41,7 @@
                                 <td><%= link_to r.listing_id, r.listing%></td>
                                 <td><%= link_to r.user.name, r.user%></td>
                                 <td>
-                                    <%= link_to bootstrap_icon("patch-check-fill",fill:"green",width:25,height:25),"/accept/#{r.id}", method: :delete%>
+                                     <%= link_to bootstrap_icon("patch-check-fill",fill:"green",width:25,height:25),"/accept/#{r.id}", method: :delete%>
                                     <%= link_to bootstrap_icon("x-circle-fill",fill:"red",width:25,height:25), "/deny/#{r.id}", method: :delete%>
                                 </td>
                             </tr>
