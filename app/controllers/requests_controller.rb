@@ -10,7 +10,7 @@ class RequestsController < ApplicationController
        
         if @request.save
             RequestNotification.with({listing:listing, user:current_user}).deliver(listing.host)
-            UserMailer.requested_space(current_user,listing).deliver_now 
+            UserMailer.requested_space(current_user,@request).deliver_now 
 
             redirect_to current_user
         else
@@ -21,6 +21,8 @@ class RequestsController < ApplicationController
     def destroy
         request = Request.find(params[:req_id]) 
         request.destroy
+        redirect_to current_host
+        UserMailer.request_decision(request.user,request,"deny").deliver_now
         #if accept -> create transaction and delete the request
         #else just delete the request
     end
@@ -33,6 +35,7 @@ class RequestsController < ApplicationController
         if transaction.save
             listing.space = listing.space.to_i - request.boxes
             listing.save
+            UserMailer.request_decision(request.user,request,"accept").deliver_now
             redirect_to current_host
         end
         request.destroy

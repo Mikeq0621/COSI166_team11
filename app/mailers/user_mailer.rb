@@ -11,9 +11,18 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject:'Welcome to AirStorage'
   end
 
-  def requested_space(user,listing)
+  def requested_space(user,request)
     @user = user
-    @listing = listing
+    @request = request
+    @price= @request.boxes * @request.listing.price * @request.duration
     mail to: @user.email, subject:'Request Confirmation' 
+  end
+
+  def request_decision(user,request,decision)
+    @user = user
+    @request = request
+    @dec = decision
+    @price= @request.boxes * @request.listing.price * @request.duration
+    mail to: @user.email, subject:'Request Decision'
   end
 end
