@@ -48,6 +48,7 @@ class ListingsController < ApplicationController
     def show
         @listing = Listing.find(params[:id])
         @host = Host.find(@listing.host_id)
+        @requests = @listing.requests
     end
 
     def destroy

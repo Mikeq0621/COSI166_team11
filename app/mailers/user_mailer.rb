@@ -5,15 +5,15 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.welcome.subject
   #
-  def welcome
+  def welcome(user)
     @greeting = "Hi"
-    @user = params[:user]
-    mail to: @user.email, subject:'Welcome to AirStorage'
+    @user = user
+    mail to: user.email, subject:'Welcome to AirStorage'
   end
 
-  def requested_space
-    @user = params[:user]
-    @listing = params[:listing]
-    mail to: @user.email, subject:'Request Confirmation'
+  def requested_space(user,listing)
+    @user = user
+    @listing = listing
+    mail to: @user.email, subject:'Request Confirmation' 
   end
 end

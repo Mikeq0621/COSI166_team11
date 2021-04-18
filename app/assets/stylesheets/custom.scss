@@ -101,11 +101,12 @@ footer {
 
 /* homepage */
 
-#homepage {
-    background-image: url("https://images.pexels.com/photos/242236/pexels-photo-242236.jpeg?cs=srgb&dl=pexels-lorenzo-242236.jpg&fm=jpg");
-    background-size:cover
-}
 
+
+.home{
+  background-color:rgba(255, 255, 255, 0.678);
+  padding: 100px;
+}
 /* forms */
 
 
@@ -124,4 +125,18 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
+
+.nav-item{
+  font-size: larger;
   
+}
+
+#homepage{
+  background-color: white;
+}
+
+.listing-info{
+  padding: 5px;
+  text-align: center;
+  background-color: white;
+}

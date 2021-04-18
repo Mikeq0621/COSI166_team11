@@ -45,7 +45,8 @@ class UsersController < ApplicationController
         if @user.save
             log_in @user
             flash[:success] = "Welcome to AirStorage!"
-            #UserMailer.with(user:@user).welcome.deliver_now
+            UserMailer.welcome(current_user).deliver_now
+
             redirect_to root_path
         else
             render 'new'
@@ -68,7 +69,7 @@ class UsersController < ApplicationController
     end
 
     def send_email
-        UserMailer.with(user: current_user).welcome.deliver_now
+        UserMailer.welcome(current_user).deliver_now
     end
 
     private

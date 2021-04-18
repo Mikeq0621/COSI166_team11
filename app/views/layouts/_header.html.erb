@@ -21,23 +21,19 @@
             <% end %>
             <%# different layout for user_login and host_login and Non-login%>
             <% if user_logged_in? %>
-              <li><%= link_to "Profile", userprofile_path %></li>
-              <li><%= link_to "Hosts",   hosts_path %></li>
-              <li><%= link_to "Listings",   listings_path %></li>
-              <li><%= link_to "Transactions",   transactions_path %></li>
-              <li><%= link_to "FAQs",   '/static_page/faq' %></li>
-              <li><%= link_to "Logout", logout_path, method: :delete %></li>
+              <li class="nav-item"><%= link_to bootstrap_icon("person-circle")+" Profile", userprofile_path %></li>
+              <li class="nav-item"><%= link_to bootstrap_icon("archive")+" Listings",   listings_path %></li>
+              <li class="nav-item"><%= link_to bootstrap_icon("question-circle")+" FAQs",   '/static_page/faq' %></li>
+              <li class="nav-item"><%= link_to bootstrap_icon("x-square")+" Logout", logout_path, method: :delete %></li>
             <% elsif host_logged_in? %>
-              <li><%= link_to "Profile", hostprofile_path %></li>
-              <li><%= link_to "Users",   users_path %></li>
-              <li><%= link_to "Listings",   listings_path %></li>
-              <li><%= link_to "Transactions",   transactions_path %></li>
-              <li><%= link_to "FAQs",   '/static_page/faq' %></li>
-              <li><%= link_to "Logout", logout_path, method: :delete %></li>
+              <li class="nav-item"><%= link_to bootstrap_icon("person-circle")+" Profile", hostprofile_path %></li>
+              <li class="nav-item"><%= link_to bootstrap_icon("archive")+" Listings",   listings_path %></li>
+              <li class="nav-item"><%= link_to bootstrap_icon("question-circle")+" FAQs",   '/static_page/faq' %></li>
+              <li class="nav-item"><%= link_to bootstrap_icon("x-square")+" Logout", logout_path, method: :delete %></li>
             <% else %>
-              <li><%= link_to "User Signin",   userlogin_path %></li>
-              <li><%= link_to "Host Signin",   hostlogin_path %></li>
-              <li><%= link_to "FAQs",   '/static_page/faq' %></li>
+              <li class="nav-item"><%= link_to bootstrap_icon("box-arrow-in-right")+" Sign In - User",   userlogin_path %></li>
+              <li class="nav-item"><%= link_to bootstrap_icon("box-arrow-in-right")+" Sign In - Host",   hostlogin_path %></li>
+              <li class="nav-item"><%= link_to bootstrap_icon("question-circle")+" FAQs",   '/static_page/faq' %></li>
             <% end %>
 
           </ul>

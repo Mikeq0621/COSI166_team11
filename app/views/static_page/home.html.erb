@@ -10,12 +10,13 @@
 
 <style>
 body {
-    background-image: url("https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?cs=srgb&dl=pexels-simon-migaj-747964.jpg&fm=jpg");
+    background-image: url("assets/airstorage_homebkg.png");
     background-size: cover
 }
 </style>
 
-<div class="center jumbotron", id="homepage">
+<div class="home">
+  <div class="center jumbotron", id="homepage">
   <h1>Welcome to AirStorage</h1>
 
   <h2>
@@ -28,7 +29,7 @@ body {
       <% if user_logged_in? %>
         <%= link_to "Find storage near me", search_page_path(:search_filter => 'location'), class: "btn btn-lg btn-primary" %>
       <% elsif host_logged_in? %>
-        <%= link_to "Start to sale my space", "/listings/new", class: "btn btn-lg btn-primary" %>
+        <%= link_to "Start to rent my space", "/listings/new", class: "btn btn-lg btn-primary" %>
       <% else %>
         <%= link_to "Sign up as a User!", new_user_path, class: "btn btn-lg btn-primary" %>
         <%= link_to "Become a host!", new_host_path , class: "btn btn-lg btn-primary" %>
@@ -38,23 +39,6 @@ body {
 
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Sign up</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            ...
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-        </div>
-    </div>
-    </div>
+    
+  </div>
 </div>

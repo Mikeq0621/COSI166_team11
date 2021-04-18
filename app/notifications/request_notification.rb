@@ -3,6 +3,7 @@
 # RequestNotification.with(post: @post).deliver_later(current_user)
 # RequestNotification.with(post: @post).deliver(current_user)
 
+
 class RequestNotification < Noticed::Base
   # Add your delivery methods
   #
@@ -29,7 +30,16 @@ class RequestNotification < Noticed::Base
   param :listing
   param :user
 
+  def to_database
+    {
+      params:params
+    }
+  end
   def message
-    t('.message')
+    t('.message',address:params[:listing].host.address)
+  end
+
+  def url
+    listing_path(params[:listing])
   end
 end

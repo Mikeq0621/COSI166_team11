@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 
 <html>
-    <head></head>
+    <head>
+        <style>
+        body{
+            margin-top:20px;
+            color: #1a202c;
+            text-align: left;
+            background-color: #e2e8f0;    
+        }
+    </style>
+    </head>
     <body>
         <div class="row">
+
+
            <div class="listing-info">
                 <h4><strong>Address:</strong> <%= @host.address%> </h4>
                 <h4><strong>Host Name:</strong> <%= link_to @host.name, @host%> </h4>
@@ -13,9 +24,34 @@
                 <% if user_logged_in? && @listing.space > 0 %>
                 <%= link_to "Rent Space", new_request_path(:listing_id => params[:id], :space => @listing.space, :duration => @listing.duration, :price => @listing.price),class:"btn btn-primary"%>
                 <% elsif current_host == @host %>
-                <%= link_to "Delete Listing","/deletelisting/#{@listing.id}",class:"btn btn-danger",method: :delete%>
-                <% end%>
-           </div>  
+                    <%= link_to "Delete Listing","/deletelisting/#{@listing.id}",class:"btn btn-danger",method: :delete%>
+                    <h4>Pending Requests</h4>
+                    <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Listing ID</th>
+                            <th scope="col">User</th>
+                            <th scope="col">Accept/Deny</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @requests.each do |r|%>
+                            <tr>
+                                <td><%= link_to r.listing_id, r.listing%></td>
+                                <td><%= link_to r.user.name, r.user%></td>
+                                <td>
+                                    <%= link_to bootstrap_icon("patch-check-fill",fill:"green",width:25,height:25),"/accept/#{r.id}", method: :delete%>
+                                    <%= link_to bootstrap_icon("x-circle-fill",fill:"red",width:25,height:25), "/deny/#{r.id}", method: :delete%>
+                                </td>
+                            </tr>
+                        <%end%>
+                                
+                    </tbody>
+                </table>
+                <%end%>
+                </div>
+            </div>
+            </div>
         </div>
     </body>
 </html>
