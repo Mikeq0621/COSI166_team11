@@ -27,6 +27,7 @@
                  <h4><%= @host.name%></h4>
                   <p class="text-secondary mb-1"><%= @host.email%></p>
                   <p class="text-muted font-size-sm"><%= @host.city + ', ' + @host.state%></p>
+                  
                     <% if current_host == @host%>
                     <%= link_to "Add New Listing", "/listings/new", class:"btn btn-primary"%>
                     <%= link_to "Edit Profile", host_edit_path(@host), class:"btn btn-info"%>
@@ -35,6 +36,15 @@
               </div>
             </div>
           </div>
+
+          <% if user_logged_in?%>
+          <p>Send Message to Host:</p>
+                  <%= form_with(url:"/sendmessage",local:true,method: :post) do |f|%>
+                    <%= f.hidden_field :host_id,value:@host.id%>
+                    <%= f.text_field :message%>
+                    <%= f.submit "Send Message",class:"btn btn-primary"%>
+                  <%end%>
+            <%end%>
         </div>
          <% if current_host == @host%>
         <div class="col-md-8">

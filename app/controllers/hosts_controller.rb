@@ -46,6 +46,7 @@ class HostsController < ApplicationController
         if @host.save
             host_log_in @host
             flash[:success] = "Welcome to AirStorage (Host mode)!"
+            HostMailer.welcome(@host).deliver_now
             redirect_to root_path
         else
             render 'new'
@@ -55,6 +56,14 @@ class HostsController < ApplicationController
     def read_notification
         user = Host.find(params[:user_id])
         user.notifications.mark_as_read!
+        redirect_to user
+    end
+
+    def send_message
+        user = current_user
+        host = Host.find(params[:host_id])
+        message = params[:message]
+        HostMailer.user_message(user,host,message).deliver_now
         redirect_to user
     end
     private

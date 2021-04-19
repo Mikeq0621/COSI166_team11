@@ -13,6 +13,7 @@ class TransactionsController < ApplicationController
         user = current_user.id
         transaction = Transaction.new(host_id:listing.host.id,user_id:current_user.id,listing_id:listing.id,price:30.00,duration:20)
         if transaction.save
+            
             redirect_to current_user
         else
             render 'new'

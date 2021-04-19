@@ -1,4 +1,4 @@
-    <header class="navbar navbar-fixed-top navbar-inverse", id="navbar">
+    <header class="navbar navbar-fixed-top navbar-default", id="navbar">
       <div class="container">
         <%= link_to "AirStorage", '/', id: "logo" %>
         <nav>
@@ -30,6 +30,22 @@
               <li class="nav-item"><%= link_to bootstrap_icon("archive")+" Listings",   listings_path %></li>
               <li class="nav-item"><%= link_to bootstrap_icon("question-circle")+" FAQs",   '/static_page/faq' %></li>
               <li class="nav-item"><%= link_to bootstrap_icon("x-square")+" Logout", logout_path, method: :delete %></li>
+              
+              <li class="nav-item">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <%=bootstrap_icon("bell")+"#{current_host.notifications.unread.length}"%>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <% current_host.notifications.unread.each do |n|%>
+                          <li><%= link_to n.to_notification.message,n.to_notification.url%></li>
+                        <%end%>
+                        <li role="separator" class="divider"></li>
+                        <li><%= link_to "Read All","/readhost/#{current_host.id}", class:"btn btn-primary"%></li>
+                    </ul>
+                </div>
+
+              </li>
             <% else %>
               <li class="nav-item"><%= link_to bootstrap_icon("box-arrow-in-right")+" Sign In - User",   userlogin_path %></li>
               <li class="nav-item"><%= link_to bootstrap_icon("box-arrow-in-right")+" Sign In - Host",   hostlogin_path %></li>
