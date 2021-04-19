@@ -303,7 +303,7 @@
                             </div>
                           </div>
                           <div>
-                            <h3 class="txt-bold">Filter by Price ($)</h3>
+                            <h3 class="txt-bold">Max Price/Box ($)</h3>
                             <div class = "select-container center">
                               <select id="price-filter" onchange="filterAll()" class="select filter-option">
                                 <option value="0"></option>
@@ -654,7 +654,7 @@
       function filterByDuration(value, fListings) {
         if (value > 0) {
           for (var key in fListings.features) {
-            if (fListings.features[key].properties.duration > value) {
+            if (fListings.features[key].properties.duration < value) {
               delete fListings.features[key];
             }
           }
@@ -664,7 +664,7 @@
       function filterByBoxSize(value, fListings) {
         if (value > 0) {
           for (var key in fListings.features) {
-            if (fListings.features[key].properties.space > value) {
+            if (fListings.features[key].properties.space < value) {
               delete fListings.features[key]
             }
           }
@@ -675,7 +675,6 @@
         if (value > 0) {
           for (var key in fListings.features) {
             if (fListings.features[key].properties.price > value) {
-              //alert(listings.features[key].properties.city) 
               delete fListings.features[key]
             }
           }
