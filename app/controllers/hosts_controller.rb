@@ -46,6 +46,7 @@ class HostsController < ApplicationController
         if @host.save
             host_log_in @host
             flash[:success] = "Welcome to AirStorage (Host mode)!"
+            HostMailer.welcome(@host).deliver_now
             redirect_to root_path
         else
             render 'new'

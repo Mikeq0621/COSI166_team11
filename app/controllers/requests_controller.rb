@@ -11,7 +11,7 @@ class RequestsController < ApplicationController
         if @request.save
             RequestNotification.with({listing:listing, user:current_user}).deliver(listing.host)
             UserMailer.requested_space(current_user,@request).deliver_now 
-
+            HostMailer.request_notification(@request).deliver_now
             redirect_to current_user
         else
             redirect_to listing
@@ -36,6 +36,7 @@ class RequestsController < ApplicationController
             listing.space = listing.space.to_i - request.boxes
             listing.save
             UserMailer.request_decision(request.user,request,"accept").deliver_now
+            HostMailer.transaction(transaction).deliver_now
             redirect_to current_host
         end
         request.destroy
