@@ -36,12 +36,15 @@
               </div>
             </div>
           </div>
+
+          <% if user_logged_in?%>
           <p>Send Message to Host:</p>
                   <%= form_with(url:"/sendmessage",local:true,method: :post) do |f|%>
                     <%= f.hidden_field :host_id,value:@host.id%>
                     <%= f.text_field :message%>
                     <%= f.submit "Send Message",class:"btn btn-primary"%>
                   <%end%>
+            <%end%>
         </div>
          <% if current_host == @host%>
         <div class="col-md-8">
