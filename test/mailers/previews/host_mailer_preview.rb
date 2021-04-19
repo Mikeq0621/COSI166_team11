@@ -12,4 +12,8 @@ class HostMailerPreview < ActionMailer::Preview
     def transaction
         HostMailer.transaction(Transaction.first)
     end
+
+    def message
+        HostMailer.user_message(User.first,Host.first,"I have a question about your place")
+    end
 end

@@ -19,4 +19,10 @@ class HostMailer < ApplicationMailer
         @transaction = transaction
         mail to: @host.email, subject:"Transaction Confirmation"
     end
+
+    def user_message(user,host,message)
+        @user = user
+        @message = message
+        mail to:host.email,subject:"Message from #{@user.name}"
+    end
 end

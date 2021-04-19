@@ -58,6 +58,14 @@ class HostsController < ApplicationController
         user.notifications.mark_as_read!
         redirect_to user
     end
+
+    def send_message
+        user = current_user
+        host = Host.find(params[:host_id])
+        message = params[:message]
+        HostMailer.user_message(user,host,message).deliver_now
+        redirect_to user
+    end
     private
     def user_params
         params.require(:host).permit(:name, :email, :phone_number, :password, 
