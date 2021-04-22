@@ -92,7 +92,7 @@
                             <td><%=l.host.name %></td>
                             <td>
                                 <%= link_to "Create Request","/admin_request/#{l.id}",class:"btn btn-primary"%>
-                                <%= link_to "Create Transaction","#",class:"btn btn-info"%>
+                                <%= link_to "Create Transaction","/admin_transaction/#{l.id}",class:"btn btn-info"%>
                             </td>
                         </tr>
                     <%end%>
@@ -100,6 +100,53 @@
             </table>
             <%= link_to "Create Listing","/admin_listing",class:"btn btn-primary"%>
         </div>
-        
+        <div class="row">
+            <h3>All Transactions</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Host</th>
+                        <th>User</th>
+                        <th>Listing</th>
+                        <th>Price</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%@transactions.each do |t| %>
+                        <tr>
+                            <td><%= t.host.name%></td>
+                            <td><%= t.user.name%></td>
+                            <td><%= t.listing.id%></td>
+                            <td><%= t.price%></td>
+                            <td><%= t.duration%></td>
+                        </tr>
+                    <%end%>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <h3>Active Requests</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Host</th>
+                        <th>User</th>
+                        <th>Listing</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%@requests.each do |r|%>
+                        <tr>
+                            <td><%=r.host.name %></td>
+                            <td><%= r.user.name%></td>
+                            <td><%= r.listing.id%></td>
+                            <td><%= r.duration%></td>
+                        </tr>
+                    <%end%>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

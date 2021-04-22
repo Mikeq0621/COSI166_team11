@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   post '/admin_listing',to:'admins#create_listing'
   get '/admin_request/:listing_id', to: 'admins#new_request'
   post '/admin_request', to: 'admins#create_request'
+  get '/admin_transaction/:listing_id', to:'admins#new_transaction'
+  post '/admin_transaction', to:'admins#create_transaction'
+  
   resources :requests
   get 'sessions/new'
   resources :transactions
