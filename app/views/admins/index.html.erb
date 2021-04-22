@@ -31,7 +31,7 @@
                             <td><%=u.address %></td>
                             <td><%=u.city %></td>
                             <td><%=u.zip_code %></td>
-                            <td><%= link_to "Delete","#",class:"btn btn-danger"%>
+                            <td><%= link_to "Delete","/removeuser/#{u.id}",class:"btn btn-danger",method: :delete%>
                                 <%= link_to "Edit","#",class:"btn btn-warning"%>
                             </td>
                         </tr>
@@ -65,7 +65,7 @@
                             <td><%=u.city %></td>
                             <td><%=u.zip_code %></td>
                             <td>
-                                <%= link_to "Delete","#",class:"btn btn-danger"%>
+                                <%= link_to "Delete","/removehost/#{u.id}",class:"btn btn-danger",method: :delete%>
                                 <%= link_to "Edit","#",class:"btn btn-warning"%>
                             </td>
                         </tr>
@@ -98,7 +98,7 @@
                     <%end%>
                 </tbody>
             </table>
-            <%= link_to "Create Listing","#",class:"btn btn-primary"%>
+            <%= link_to "Create Listing","/admin_listing",class:"btn btn-primary"%>
         </div>
         
     </body>

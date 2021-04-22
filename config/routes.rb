@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   resources :admins 
   get '/adminlogin', to: 'sessions#newadmin'
   post '/adminlogin', to: 'sessions#create_admin'
+  delete '/removehost/:host_id',to: 'admins#delete_host'
+  delete '/removeuser/:user_id',to: 'admins#delete_user'
+  get '/removehost/:host_id',to: 'admins#delete_host'
+  get '/removeuser/:user_id',to: 'admins#delete_user'
+  get '/admin_listing', to: 'admins#new_listing'
+  post '/admin_listing',to:'admins#create_listing'
   resources :requests
   get 'sessions/new'
   resources :transactions

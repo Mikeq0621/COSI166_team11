@@ -9,9 +9,9 @@ class User < ApplicationRecord
 
     before_validation :geocode
     has_secure_password
-    has_many :transactions
-    has_many :requests
-    has_many :notifications, as: :recipient
+    has_many :transactions,dependent: :destroy
+    has_many :requests,dependent: :destroy
+    has_many :notifications, as: :recipient,dependent: :destroy
     # Validates for a legal user signup format
     before_save { self.email = email.downcase }
     validates :name,  presence: true, length: { maximum: 50 }
@@ -43,4 +43,7 @@ class User < ApplicationRecord
         true
     end
 
+    def to_s
+        name
+    end
 end
