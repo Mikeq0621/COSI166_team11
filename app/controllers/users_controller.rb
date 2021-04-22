@@ -43,11 +43,15 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)    
         if @user.save
-            log_in @user
-            flash[:success] = "Welcome to AirStorage!"
-            UserMailer.welcome(current_user).deliver_now
-
-            redirect_to root_path
+            if admin_logged_in?
+                redirect_to admins_path
+            else
+                log_in @user
+                flash[:success] = "Welcome to AirStorage!"
+                UserMailer.welcome(current_user).deliver_now
+                redirect_to root_path
+            end
+           
         else
             render 'new'
         end

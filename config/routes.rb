@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/removeuser/:user_id',to: 'admins#delete_user'
   get '/admin_listing', to: 'admins#new_listing'
   post '/admin_listing',to:'admins#create_listing'
+  get '/admin_request/:listing_id', to: 'admins#new_request'
+  post '/admin_request', to: 'admins#create_request'
   resources :requests
   get 'sessions/new'
   resources :transactions

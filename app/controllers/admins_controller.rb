@@ -44,5 +44,23 @@ class AdminsController < ApplicationController
         
     end
 
+    def new_request
+        @user_names = Array.new
+        User.all.each do |u| 
+            @user_names << u
+        end
+    end
+
+    def create_request
+        listing = Listing.find(params[:listing_id])
+        user = User.find_by(name:params[:user])
+        request = Request.new(host_id:listing,listing_id:listing.id,user_id:user,boxes:params[:boxes],duration:params[:duration])
+        if request.save 
+            redirect_to admins_path
+        else
+            render 'new_request'
+        end
+    end
+
     
 end

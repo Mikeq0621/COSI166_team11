@@ -38,7 +38,7 @@
                     <%end%>
                 </tbody>
             </table>
-            <%= link_to "Create User","#",class:"btn btn-primary"%>
+            <%= link_to "Create User",new_user_path,class:"btn btn-primary"%>
         </div>
         <div class="row">
             <h3>All Hosts</h3>
@@ -72,7 +72,7 @@
                     <%end%>
                 </tbody>
             </table>
-            <%= link_to "Create Host","#",class:"btn btn-primary"%>
+            <%= link_to "Create Host",new_host_path,class:"btn btn-primary"%>
         </div>
         
         <div class="row">
@@ -91,7 +91,7 @@
                             <td><%=l.id %></td>
                             <td><%=l.host.name %></td>
                             <td>
-                                <%= link_to "Create Request","#",class:"btn btn-primary"%>
+                                <%= link_to "Create Request","/admin_request/#{l.id}",class:"btn btn-primary"%>
                                 <%= link_to "Create Transaction","#",class:"btn btn-info"%>
                             </td>
                         </tr>
