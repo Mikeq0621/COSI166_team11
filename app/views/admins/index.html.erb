@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Admin Page</h1> 
+        <div class="row">
+        
+        </div>
+        <div class="row">
+            <h3>All Users</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Zip Code</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @users.each do |u|%>
+                        <tr>
+                            <td><%=u.name %></td>
+                            <td><%=u.email %></td>
+                            <td><%=u.phone_number %></td>
+                            <td><%=u.address %></td>
+                            <td><%=u.city %></td>
+                            <td><%=u.zip_code %></td>
+                            <td><%= link_to "Delete","#",class:"btn btn-danger"%>
+                                <%= link_to "Edit","#",class:"btn btn-warning"%>
+                            </td>
+                        </tr>
+                    <%end%>
+                </tbody>
+            </table>
+            <%= link_to "Create User","#",class:"btn btn-primary"%>
+        </div>
+        <div class="row">
+            <h3>All Hosts</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Zip Code</th>
+                        <th scope="col">Actions</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @hosts.each do |u|%>
+                        <tr>
+                            <td><%=u.name %></td>
+                            <td><%=u.email %></td>
+                            <td><%=u.phone_number %></td>
+                            <td><%=u.address %></td>
+                            <td><%=u.city %></td>
+                            <td><%=u.zip_code %></td>
+                            <td>
+                                <%= link_to "Delete","#",class:"btn btn-danger"%>
+                                <%= link_to "Edit","#",class:"btn btn-warning"%>
+                            </td>
+                        </tr>
+                    <%end%>
+                </tbody>
+            </table>
+            <%= link_to "Create Host","#",class:"btn btn-primary"%>
+        </div>
+        
+        <div class="row">
+            <h3>All Listings</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Listing ID</th>
+                        <th scope="col">Host Name</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @listings.each do |l|%>
+                        <tr>
+                            <td><%=l.id %></td>
+                            <td><%=l.host.name %></td>
+                            <td>
+                                <%= link_to "Create Request","#",class:"btn btn-primary"%>
+                                <%= link_to "Create Transaction","#",class:"btn btn-info"%>
+                            </td>
+                        </tr>
+                    <%end%>
+                </tbody>
+            </table>
+            <%= link_to "Create Listing","#",class:"btn btn-primary"%>
+        </div>
+        
+    </body>
+</html>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   # get 'password_resets/new'
   # get 'password_resets/edit'
-
+  resources :admins 
+  get '/adminlogin', to: 'sessions#newadmin'
+  post '/adminlogin', to: 'sessions#create_admin'
   resources :requests
   get 'sessions/new'
   resources :transactions
