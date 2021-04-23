@@ -44,10 +44,15 @@ class HostsController < ApplicationController
     def create
         @host = Host.new(user_params)    
         if @host.save
-            host_log_in @host
-            flash[:success] = "Welcome to AirStorage (Host mode)!"
-            HostMailer.welcome(@host).deliver_now
-            redirect_to root_path
+            if admin_logged_in?
+                redirect_to admins_path
+            else
+                host_log_in @host
+                flash[:success] = "Welcome to AirStorage (Host mode)!"
+                HostMailer.welcome(@host).deliver_now
+                redirect_to root_path 
+            end
+            
         else
             render 'new'
         end

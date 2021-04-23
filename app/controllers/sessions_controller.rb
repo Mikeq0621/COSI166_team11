@@ -7,6 +7,9 @@ class SessionsController < ApplicationController
   def newhost
   end
 
+  def newadmin
+
+  end
   def create_user
     # Find the signed up user in DB
     user = User.find_by(email: params[:session][:email].downcase)
@@ -37,6 +40,17 @@ class SessionsController < ApplicationController
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'newhost'
+    end
+  end
+
+  def create_admin
+    admin = Admin.find_by(email: params[:session][:email].downcase)
+    if admin && admin.authenticate(params[:session][:password])
+      flash[:success] = 'Admin Logged in'
+      admin_log_in(admin)
+      redirect_to '/admins'
+    else
+      render 'newadmin'
     end
   end
 

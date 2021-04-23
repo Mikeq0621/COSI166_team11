@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <div class="row">
+    <div class="col-md-5 col-md-offset-3">
+        
+        <h1>Create Request</h1>
+        
+        <%= form_with(url:"/admin_request",local:true,method: :post) do |f|%>
+            <%= f.label :listing_id%>
+            <%= f.hidden_field :listing_id, value: params[:listing_id]%>
+            <%= f.label :user%>
+            <%= f.select :user,User.all,{:style => "min-width: 100px;"}, class:"form-control"%>
+            <%= f.label :boxes%>
+            <%= f.select :boxes,num_box_array(25), {:style => "min-width: 100px;"}, class:"form-control"%>
+
+            <%= f.label :duration, "Duration (in weeks)"%>
+            <%= f.select :duration,num_weeks_array(52), {:style => "min-width: 100px;"}, class:"form-control"%>
+        
+            <%= f.submit "Create Request", class:"btn btn-primary"%>
+        <%end%>
+        
+    </div>
+</div>
+    </body>
+</html>

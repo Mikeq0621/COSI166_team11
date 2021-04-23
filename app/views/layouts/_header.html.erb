@@ -46,6 +46,9 @@
                 </div>
 
               </li>
+            <% elsif admin_logged_in?%>
+              <li class="nav-item"><%= link_to "Admin Home", '/admins'%></li>
+              <li class="nav-item"><%= link_to bootstrap_icon("x-square")+" Logout", logout_path, method: :delete %></li>
             <% else %>
               <li class="nav-item"><%= link_to bootstrap_icon("box-arrow-in-right")+" Sign In - User",   userlogin_path %></li>
               <li class="nav-item"><%= link_to bootstrap_icon("box-arrow-in-right")+" Sign In - Host",   hostlogin_path %></li>
