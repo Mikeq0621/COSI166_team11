@@ -52,7 +52,8 @@ class AdminsController < ApplicationController
         listing = Listing.find(params[:listing_id])
         user = User.find_by(name:params[:user])
         request = Request.new(host_id:listing.host.id,listing_id:listing.id,user_id:user.id,boxes:params[:boxes],duration:params[:duration])
-        if request.save 
+        if request.save
+            RequestNotification.with({listing:listing, user:user}).deliver(listing.host)
             redirect_to admins_path
         else
             flash[:danger] = request.errors.full_messages
