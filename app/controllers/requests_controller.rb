@@ -18,8 +18,13 @@ class RequestsController < ApplicationController
         end
     end
 
-    def destroy
-        request = Request.find(params[:req_id]) 
+    def destroy(req=nil)
+        if !req
+          request = Request.find(params[:req_id])
+        else
+          request = req
+        end
+
         request.destroy
         redirect_to current_host
         UserMailer.request_decision(request.user,request,"deny").deliver_now
@@ -32,12 +37,20 @@ class RequestsController < ApplicationController
         listing = Listing.find(request.listing_id)
         price = request.boxes*request.duration*listing.price
         transaction = Transaction.new(host_id:listing.host_id,user_id:request.user_id,listing_id:listing.id,price:price,duration:request.duration, boxes:request.boxes)
-        if transaction.save
-            listing.space = listing.space.to_i - request.boxes
-            listing.save
-            UserMailer.request_decision(request.user,request,"accept").deliver_now
-            HostMailer.transaction(transaction).deliver_now
-            redirect_to current_host
+
+        # If requests more boxes than available, destory the request
+        if listing.space < request.boxes
+          destroy(request)
+          flash[:danger] = 'Not enough spaces, request denied automatically.'
+        else
+            if transaction.save
+                flash[:success] = 'Request Accepted.'
+                listing.space = listing.space.to_i - request.boxes
+                listing.save
+                UserMailer.request_decision(request.user,request,"accept").deliver_now
+                HostMailer.transaction(transaction).deliver_now
+                redirect_to current_host
+            end
         end
         request.destroy
     end
