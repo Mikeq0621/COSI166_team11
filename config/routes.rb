@@ -49,7 +49,10 @@ Rails.application.routes.draw do
   get '/deny/:req_id', to: 'requests#destroy'
   delete '/deny/:req_id', to: 'requests#destroy'
   get '/readhost/:user_id', to:'hosts#read_notification'
-  post '/resetpassword', to: 'users#reset_password'
+  get '/user_reset', to: 'password_resets#user_reset'
+  post '/user_resetpassword', to: 'users#reset_password'
+  get '/host_reset', to: 'password_resets#host_reset'
+  post '/host_resetpassword', to: 'hosts#reset_password'
   post '/sendmessage',to: 'hosts#send_message'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
