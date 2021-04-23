@@ -1,5 +1,5 @@
 class HostsController < ApplicationController
-    skip_before_action :require_login, only: [:new, :create]
+    skip_before_action :require_login, only: [:new, :create, :reset_password]
 
     def index
         @hosts = Host.all
@@ -70,6 +70,23 @@ class HostsController < ApplicationController
         message = params[:message]
         HostMailer.user_message(user,host,message).deliver_now
         redirect_to user
+    end
+
+    def reset_password
+        @host = Host.find_by(email: (params[:email]))
+        if params[:password].empty?                  # No password entered
+            @host.errors.add(:password, "can't be empty")
+            flash[:danger] = "Password cannot be empty"
+            redirect_to new_password_reset_url
+        elsif @host.update(password: params[:password], password_confirmation: params[:password_confirmation]) # Success reset
+            reset_session
+            host_log_in @host
+            flash[:success] = "Password has been reset."
+            redirect_to @host
+        else
+            flash[:danger] = "Password does not match"
+            redirect_to new_password_reset_url                                  # Fail to reset
+        end
     end
     private
     def user_params
