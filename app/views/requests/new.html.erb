@@ -13,7 +13,7 @@
 
             <%= f.label :duration, "Duration (in weeks)"%>
             <%= f.select :duration,num_weeks_array(params[:duration].to_i), {:style => "min-width: 100px;"}, class:"form-control"%>
-            <h4 id="totalPrice"></h4>
+            <h4 id="totalPrice"> </h4>
             <script>
                 var price = $('.price').data('price');
                 document.getElementById("totalPrice").innerHTML = '<strong>Total Price: </strong>$' +  (price*document.getElementById("duration").value*document.getElementById("boxes").value).toFixed(2);
