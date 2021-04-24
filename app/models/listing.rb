@@ -1,5 +1,5 @@
 class Listing < ApplicationRecord
     belongs_to :host
-    has_many :transactions
-    has_many :requests
+    has_many :transactions,dependent: :destroy
+    has_many :requests,dependent: :destroy
 end

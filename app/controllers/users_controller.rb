@@ -43,11 +43,15 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)    
         if @user.save
-            log_in @user
-            flash[:success] = "Welcome to AirStorage!"
-            UserMailer.welcome(current_user).deliver_now
-
-            redirect_to root_path
+            if admin_logged_in?
+                redirect_to admins_path
+            else
+                log_in @user
+                flash[:success] = "Welcome to AirStorage!"
+                UserMailer.welcome(current_user).deliver_now
+                redirect_to root_path
+            end
+           
         else
             render 'new'
         end
@@ -57,15 +61,17 @@ class UsersController < ApplicationController
         @user = User.find_by(email: (params[:email]))
         if params[:password].empty?                  # No password entered
             @user.errors.add(:password, "can't be empty")
-            render 'edit'
-          elsif @user.update(password: params[:password], password_confirmation: params[:password_confirmation]) # Success reset
+            flash[:danger] = "Password cannot be empty"
+            redirect_to new_password_reset_url
+        elsif @user.update(password: params[:password], password_confirmation: params[:password_confirmation]) # Success reset
             reset_session
             log_in @user
             flash[:success] = "Password has been reset."
             redirect_to @user
-          else
-            render 'edit'                                     # Fail to reset
-          end
+        else
+            flash[:danger] = "Password does not match"
+            redirect_to new_password_reset_url                                    # Fail to reset
+        end
     end
 
     def send_email

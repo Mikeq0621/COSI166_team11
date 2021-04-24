@@ -8,14 +8,14 @@ class Host < ApplicationRecord
     end
     before_validation :geocode
     has_secure_password
-    has_many :transactions
-    has_many :listings
+    has_many :transactions,dependent: :destroy
+    has_many :listings,dependent: :destroy
     
     def full_address
         [address, city, state, zip_code, 'USA'].compact.join(', ')
     end
-    has_many :requests
-    has_many :notifications, as: :recipient
+    has_many :requests,dependent: :destroy
+    has_many :notifications, as: :recipient,dependent: :destroy
 
 
      # Validates for a legal user signup format
@@ -44,6 +44,8 @@ class Host < ApplicationRecord
         true
     end
 
-
+    def to_s
+        name
+    end
 
 end

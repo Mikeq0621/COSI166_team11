@@ -1,7 +1,20 @@
 Rails.application.routes.draw do
   # get 'password_resets/new'
   # get 'password_resets/edit'
-
+  resources :admins 
+  get '/adminlogin', to: 'sessions#newadmin'
+  post '/adminlogin', to: 'sessions#create_admin'
+  delete '/removehost/:host_id',to: 'admins#delete_host'
+  delete '/removeuser/:user_id',to: 'admins#delete_user'
+  get '/removehost/:host_id',to: 'admins#delete_host'
+  get '/removeuser/:user_id',to: 'admins#delete_user'
+  get '/admin_listing', to: 'admins#new_listing'
+  post '/admin_listing',to:'admins#create_listing'
+  get '/admin_request/:listing_id', to: 'admins#new_request'
+  post '/admin_request', to: 'admins#create_request'
+  get '/admin_transaction/:listing_id', to:'admins#new_transaction'
+  post '/admin_transaction', to:'admins#create_transaction'
+  
   resources :requests
   get 'sessions/new'
   resources :transactions
@@ -36,7 +49,10 @@ Rails.application.routes.draw do
   get '/deny/:req_id', to: 'requests#destroy'
   delete '/deny/:req_id', to: 'requests#destroy'
   get '/readhost/:user_id', to:'hosts#read_notification'
-  post '/resetpassword', to: 'users#reset_password'
+  get '/user_reset', to: 'password_resets#user_reset'
+  post '/user_resetpassword', to: 'users#reset_password'
+  get '/host_reset', to: 'password_resets#host_reset'
+  post '/host_resetpassword', to: 'hosts#reset_password'
   post '/sendmessage',to: 'hosts#send_message'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
