@@ -686,7 +686,7 @@
             marker_child.style.visibility = "visible";
             var filter_bool = filter($("#duration-filter").val(), $("#box-filter").val(),
             $("#price-filter").val(), $("#distance-filter").val(), listings.features[j].properties);
-            if (filter_bool){
+            if (filter_bool && listing_child instanceof Node){
               listings_list.removeChild(listing_child);
               marker_child.style.visibility = "hidden";
             }
@@ -707,12 +707,11 @@
         
         buildLocationList(listings);
         listings_list = document.getElementById('listings');
-        var marker_child = document.getElementById('marker-' + listings.features[0].properties.id);
         var i = 0;
         for(var child=listings_list.firstChild; child!==null; child=child.nextSibling) {
+            var marker_child = document.getElementById('marker-' + listings.features[i].properties.id);
             marker_child.style.visibility = "visible";
             i = i+ 1;
-            marker_child = document.getElementById('marker-' + listings.features[i].properties.id);
         }
       });
       applyFilters.addEventListener("click", () => {
