@@ -683,12 +683,15 @@
             var listing_child = document.getElementById('listing-' + listings.features[j].properties.id);
             var marker_child = document.getElementById('marker-' + listings.features[j].properties.id);
             var popUps = document.getElementsByClassName('mapboxgl-popup');
-            marker_child.style.visibility = "visible";
+            //marker_child.style.visibility = "visible";
+            marker_child.style.display= 'inline';
             var filter_bool = filter($("#duration-filter").val(), $("#box-filter").val(),
             $("#price-filter").val(), $("#distance-filter").val(), listings.features[j].properties);
-            if (filter_bool && listing_child instanceof Node){
+            if (filter_bool && listing_child instanceof Node && marker_child instanceof Node){
               listings_list.removeChild(listing_child);
-              marker_child.style.visibility = "hidden";
+              //marker_child.style.visibility = "hidden";
+              marker_child.style.display= 'none';
+              //marker_child.remove();
             }
         }
       }
@@ -710,7 +713,8 @@
         var i = 0;
         for(var child=listings_list.firstChild; child!==null; child=child.nextSibling) {
             var marker_child = document.getElementById('marker-' + listings.features[i].properties.id);
-            marker_child.style.visibility = "visible";
+            //marker_child.style.visibility = "visible";
+            marker_child.style.display= 'inline';
             i = i+ 1;
         }
       });
