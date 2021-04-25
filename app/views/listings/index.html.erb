@@ -561,18 +561,15 @@
             link.href = '#';
             link.className = 'title';
             link.id = 'link-' + prop.id;
-            link.innerHTML = '<font size="4">' +  prop.address;
+            link.innerHTML = '<font size="4">' +  prop.address + ', ' + prop.city;
 
             /* Add details to the individual listing. */
             var details = listing.appendChild(document.createElement('div'));
               details.innerHTML = '<font size="3"><strong> Box/week: $' + prop.price.toFixed(2);
-              details.innerHTML += '<br/>' +prop.name;
-            details.innerHTML += ' &middot; City: ' + prop.city;
-            if (prop.phone) {
-              details.innerHTML += ' &middot; Phone: ' + prop.phone;
+              details.innerHTML += '<br/> Host: ' +prop.name;
               details.innerHTML += '<br />Space: ' + prop.space + ' boxes';
               details.innerHTML += ' &middot; Duration: ' + prop.duration + ' weeks';
-            }
+            
 
             /* Add button for renting listing */
               var buttonElem = document.createElement('div');
@@ -680,9 +677,12 @@
         
         buildLocationList(listings);
         listings_list = document.getElementById('listings');
+        var popUps = document.getElementsByClassName('mapboxgl-popup');
+        while (popUps[0])popUps[0].remove();
         for(var j=0; j < listings.features.length; j = j+1) {
             var listing_child = document.getElementById('listing-' + listings.features[j].properties.id);
             var marker_child = document.getElementById('marker-' + listings.features[j].properties.id);
+            var popUps = document.getElementsByClassName('mapboxgl-popup');
             marker_child.style.visibility = "visible";
             var filter_bool = filter($("#duration-filter").val(), $("#box-filter").val(),
             $("#price-filter").val(), $("#distance-filter").val(), listings.features[j].properties);
