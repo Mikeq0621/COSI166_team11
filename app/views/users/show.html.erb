@@ -35,7 +35,7 @@
           </div>
         </div>
 
-        <% if current_host == @host%>
+        <% if current_user == @user%>
         <div class="col-md-8">
           <div class="card mb-3">
             <div class="card-body">
@@ -86,7 +86,6 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                    <th scope="col">Listing ID</th>
                                     <th scope="col">Host</th>
                                     <th scope="col">Boxes</th>
                                     <th scope="col">Duration</th>
@@ -96,11 +95,11 @@
                             <tbody>
                                 <% @transactions.each do |t|%>
                                  <tr>
-                                    <th scope="row"><%= link_to t.listing_id,t.listing%></th>
                                     <td><%= t.host.name%></td>
                                     <td><%= t.boxes%></td>
                                     <td><%= t.duration%> weeks</td>
                                     <td>$<%=t.price%></td>
+                                    <th scope="row"><%= link_to 'View Details',t , class:"btn-outline-primary"%></th>
                                  </tr>
                                 <%end%>
                         </tbody>
@@ -116,15 +115,18 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Listing ID</th>
                                 <th scope="col">Host name</th>
+                                <th scope="col">Boxes</th>
+                                <th scope="col">Duration</th>
                             </tr>
                         </thead>
                         <tbody>
                             <% @requests.each do |r|%>
                                 <tr>
-                                    <td><%= link_to r.listing_id, r.listing%></td>
-                                    <td><%= link_to r.host.name, r.host%></td>
+                                    <td><%= r.host.name%></td>
+                                    <td><%= r.boxes%></td>
+                                    <td><%= r.duration%> weeks</td>
+                                    <th scope="row"><%= link_to 'View Listing',r.listing , class:"btn-outline-primary"%></th>
                                 </tr>
                             <%end%>
                         </tbody>

@@ -95,7 +95,6 @@
                     <table class="table">
                         <thead>
                             <tr>    
-                                <th scope="col">Listing ID</th>
                                 <th scope="col">Space Available</th>
                                 <th scope="col">Duration</th>
                             </tr>
@@ -104,9 +103,9 @@
                         <tbody>
                             <% @listings.each do |l|%>
                                 <tr>    
-                                    <th scope="row"><%= link_to l.id, l%></th>
                                     <td><%= l.space%> Boxes</td>
                                     <td><%= l.duration%> Weeks</td>
+                                    <th scope="row"><%= link_to 'View Listing', l%></th>
                                 </tr>
                             <%end%>
                         </tbody>
@@ -122,7 +121,6 @@
                  <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Listing ID</th>
                             <th scope="col">User</th>
                             <th scope="col">Accept/Deny</th>
                         </tr>
@@ -130,12 +128,12 @@
                     <tbody>
                         <% @requests.each do |r|%>
                             <tr>
-                                <td><%= link_to r.listing_id, r.listing%></td>
                                 <td><%= link_to r.user.name, r.user%></td>
                                 <td>
                                     <%= link_to bootstrap_icon("patch-check-fill",fill:"green",width:25,height:25),"/accept/#{r.id}", method: :delete%>
                                     <%= link_to bootstrap_icon("x-circle-fill",fill:"red",width:25,height:25), "/deny/#{r.id}", method: :delete%>
                                 </td>
+                                <th scope="row"><%= link_to 'View Listing', r.listing%></th>
                             </tr>
                         <%end%>
                                 
@@ -153,7 +151,7 @@
                 <table class="table">   
                     <thead>
                         <tr>
-                            <th scope="col">Listing ID</th>
+                            
                             <th scope="col">Renter</th>
                             <th scope="col">Boxes</th>
                             <th scope="col">Duration</th>
@@ -163,11 +161,11 @@
                     <tbody>
                         <% @transactions.each do |t|%>
                          <tr>
-                            <th scope="row"><%= link_to t.listing_id,t.listing%></th>
                             <td><%= t.user.name%></td>
                             <td><%= t.boxes%></td>
                             <td><%= t.duration%> weeks</td>
                             <td>$<%=t.price%></td>
+                            <th scope="row"><%= link_to 'View Details',t , class:"btn-outline-primary"%></th>
                          </tr>
                         <%end%>
                     </tbody>

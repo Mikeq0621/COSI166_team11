@@ -8,6 +8,11 @@ class TransactionsController < ApplicationController
         @transaction = Transaction.new
     end
 
+    def show
+        @transaction = Transaction.find(params[:id])
+        @host = Host.find(@transaction.host_id)
+    end
+
     def create
         listing = Listing.find(params[:listing_id])
         user = current_user.id

@@ -2,6 +2,10 @@
 
 <html>
     <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        
+
         <style>
         body{
             margin-top:20px;
@@ -10,6 +14,7 @@
             background-color: #e2e8f0;    
         }
     </style>
+    
     </head>
     <body>
     
@@ -20,17 +25,18 @@
                 <h3><%= @listing.host.address%></h3>
                 <h4><%= @listing.host.city%>, <%= @listing.host.zip_code%></h4>
                 <h4><%= link_to @listing.host.name,@listing.host%></h4>
-                <h5><%= bootstrap_icon("box")%> Max Storage <%= @listing.space%> Boxes</h5>
+                <h5><%= bootstrap_icon("box")%> Max Storage: <%= @listing.space%> Boxes</h5>
+                <h5>Max Duration: <%= @listing.duration%> Weeks</h5>
                 <h4><strong>Price per Box/Week:</strong> $<%= '%.2f' % @listing.price%></h4>
                 <% if user_logged_in?%>
                     <%= link_to "Rent Space", new_request_path(:listing_id => params[:id], :space => @listing.space, :duration => @listing.duration , :price => @listing.price),class:"btn btn-primary"%>
                 <% elsif current_host == @host %>
+                    <%= link_to "Edit Listing", "/editlisting/#{@listing.id}",class:"btn btn-info",remote: true%>
                     <%= link_to "Delete Listing","/deletelisting/#{@listing.id}",class:"btn btn-danger",method: :delete%>
                     <h4>Pending Requests</h4>
                     <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Listing ID</th>
                             <th scope="col">User</th>
                             <th scope="col">Accept/Deny</th>
                         </tr>
@@ -38,7 +44,6 @@
                     <tbody>
                         <% @requests.each do |r|%>
                             <tr>
-                                <td><%= link_to r.listing_id, r.listing%></td>
                                 <td><%= link_to r.user.name, r.user%></td>
                                 <td>
                                      <%= link_to bootstrap_icon("patch-check-fill",fill:"green",width:25,height:25),"/accept/#{r.id}", method: :delete%>

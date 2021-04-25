@@ -34,12 +34,15 @@ Rails.application.routes.draw do
   get '/host_signup', to: 'hosts#new'
   get '/host_edit', to: 'hosts#edit'
   get '/user_edit', to: 'users#edit'
+  get '/editlisting/:listing_id', to: 'listings#edit'
 
   get '/userprofile', to: 'users#show'
   get 'hostprofile', to: 'hosts#show'
 
   get '/search' => 'searches#search', :as => 'search_page'
   get '/listing/:id', to: 'listings#show'
+  post '/listing/:id', to: 'listings#show'
+  get '/transaction/:id', to: 'transactions#show'
   delete '/deletelisting/:listing_id', to: 'listings#destroy'
   get '/deletelisting/:listing_id', to: 'listings#destroy'
   get '/rent/:listing_id', to: 'requests#new'
