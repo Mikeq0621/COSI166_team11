@@ -680,17 +680,16 @@
         
         buildLocationList(listings);
         listings_list = document.getElementById('listings');
-        var i = 0;
-        for(var child=listings_list.firstChild; child!==null; child=child.nextSibling) {
-            var marker_child = document.getElementById('marker-' + listings.features[i].properties.id);
+        for(var j=0; j < listings.features.length; j = j+1) {
+            var listing_child = document.getElementById('listing-' + listings.features[j].properties.id);
+            var marker_child = document.getElementById('marker-' + listings.features[j].properties.id);
             marker_child.style.visibility = "visible";
             var filter_bool = filter($("#duration-filter").val(), $("#box-filter").val(),
-            $("#price-filter").val(), $("#distance-filter").val(), listings.features[i].properties);
+            $("#price-filter").val(), $("#distance-filter").val(), listings.features[j].properties);
             if (filter_bool){
-              listings_list.removeChild(child);
+              listings_list.removeChild(listing_child);
               marker_child.style.visibility = "hidden";
             }
-            i = i+ 1;
         }
       }
 
@@ -713,7 +712,7 @@
         for(var child=listings_list.firstChild; child!==null; child=child.nextSibling) {
             marker_child.style.visibility = "visible";
             i = i+ 1;
-          marker_child = document.getElementById('marker-' + listings.features[i].properties.id);
+            marker_child = document.getElementById('marker-' + listings.features[i].properties.id);
         }
       });
       applyFilters.addEventListener("click", () => {
