@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+        body{
+            margin-top:20px;
+            color: #1a202c;
+            text-align: left;
+            background-color: #e2e8f0;    
+        }
+    </style>
+    </head>
+    <body>
+    
+       <div class="row">
+            <div class="col-md-4 text-center">
+            <div class="card h-100">
+                <div class="card-body">
+                <h3><%= @transaction.host.address%></h3>
+                <h4><%= @host.city%>, <%= @host.zip_code%></h4>
+                <h4><%= link_to @host.name,@host%></h4>
+                <h5><%= bootstrap_icon("box")%> Storage: <%= @transaction.boxes%> Boxes</h5>
+                <h5> Duration: <%= @transaction.duration%> Weeks</h5>
+                <h4><strong>Price:</strong> $<%= '%.2f' % @transaction.price%></h4>
+                </div>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>

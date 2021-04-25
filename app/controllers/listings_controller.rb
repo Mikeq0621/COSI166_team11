@@ -51,6 +51,22 @@ class ListingsController < ApplicationController
         @requests = @listing.requests
     end
 
+    def edit
+        @listing = Listing.find(params[:listing_id])
+    end
+
+    def update
+        @listing = Listing.find(params[:id])
+        @listing.update(duration:params[:listing][:duration], price:params[:listing][:price], space:params[:listing][:space]) 
+        if @listing.update(duration:params[:listing][:duration], price:params[:listing][:price], space:params[:listing][:space]) 
+            flash[:success] = "Edit Succesfull!"
+            #session.delete(:return_to)
+            redirect_to listing_path(@listing)
+        else
+            render 'edit'
+        end
+    end
+
     def destroy
         listing = Listing.find(params[:listing_id])
         listing.destroy
