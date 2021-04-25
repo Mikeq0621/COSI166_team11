@@ -683,14 +683,12 @@
             var listing_child = document.getElementById('listing-' + listings.features[j].properties.id);
             var marker_child = document.getElementById('marker-' + listings.features[j].properties.id);
             var popUps = document.getElementsByClassName('mapboxgl-popup');
-            //marker_child.style.visibility = "visible";
-            marker_child.style.display= 'inline';
+            marker_child.style.visibility = "visible";
             var filter_bool = filter($("#duration-filter").val(), $("#box-filter").val(),
             $("#price-filter").val(), $("#distance-filter").val(), listings.features[j].properties);
             if (filter_bool && listing_child instanceof Node && marker_child instanceof Node){
               listings_list.removeChild(listing_child);
-              //marker_child.style.visibility = "hidden";
-              marker_child.style.display= 'none';
+              marker_child.style.visibility = "hidden";
               //marker_child.remove();
             }
         }
@@ -702,7 +700,6 @@
         $("#price-filter").val(5.00)
         $("#distance-filter").val(10)
         $("#listings").empty();
-        //buildLocationList(listings)
         var listings_list = document.getElementById('listings');
         while (listings_list.firstChild) {
           listings_list.removeChild(listings_list.firstChild);
@@ -711,10 +708,9 @@
         buildLocationList(listings);
         listings_list = document.getElementById('listings');
         var i = 0;
-        for(var child=listings_list.firstChild; child!==null; child=child.nextSibling) {
+        for(var j=0; j < listings.features.length; j = j+1) {
             var marker_child = document.getElementById('marker-' + listings.features[i].properties.id);
-            //marker_child.style.visibility = "visible";
-            marker_child.style.display= 'inline';
+            marker_child.style.visibility = "visible";
             i = i+ 1;
         }
       });
