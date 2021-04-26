@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
 
     def index
-        @listings = Listing.all
+        @listings = Listing.where("space > 0")
         if user_logged_in?
             user = User.find(session[:user_id])
         else
