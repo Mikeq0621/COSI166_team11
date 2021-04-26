@@ -25,6 +25,7 @@
                 <h3 style="color:green;">Host</h3>
                 <div class="mt-3">
                  <h4><%= @host.name%></h4>
+                 <h5><%= stars_icons(avg_rating(@host)) %></h5>
                   <p class="text-secondary mb-1"><%= @host.email%></p>
                   <p class="text-muted font-size-sm"><%= @host.city + ', ' + @host.state%></p>
                   
@@ -36,17 +37,49 @@
               </div>
             </div>
           </div>
-
-          <% if user_logged_in?%>
+        <% if host_logged_in?%>
+          <h3>Reviews</h3>
+          <% @reviews.each do |r|%>
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <h5><%= r.user.name%></h5>
+                    <p><%= stars_icons(r.stars)%></p>
+                    <p class="lead"><%= r.comment%></p>
+                  </div>
+                </div>
+            <%end%>
+        <%end%>
+        <% if user_logged_in?%>
           <p>Send Message to Host:</p>
                   <%= form_with(url:"/sendmessage",local:true,method: :post) do |f|%>
                     <%= f.hidden_field :host_id,value:@host.id%>
                     <%= f.text_field :message%>
                     <%= f.submit "Send Message",class:"btn btn-primary"%>
                   <%end%>
-            <%end%>
+            
+          
         </div>
+        <div class="col-md-4 mb-3">
+          <h3>Reviews</h3>
+          <% if relationship_to_host(@host,current_user)%>
+            <%= link_to "Write a Review","/write_review/#{@host.id}",class:"btn btn-primary"%>
+          <%end%>
+            <div class="mb-3"></div>
+            <% @reviews.each do |r|%>
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <h5><%= r.user.name%></h5>
+                    <p><%= stars_icons(r.stars)%></p>
+                    <p class="lead"><%= r.comment%></p>
+                  </div>
+                </div>
+            <%end%>
+            
+          <%end%>
+        </div>
+        
          <% if current_host == @host%>
+        
         <div class="col-md-8">
           <div class="card mb-3">
             <div class="card-body">

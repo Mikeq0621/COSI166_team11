@@ -59,5 +59,7 @@ Rails.application.routes.draw do
   post '/host_resetpassword', to: 'hosts#reset_password'
   post '/sendmessage',to: 'hosts#send_message'
 
+  get '/write_review/:host_id', to: 'reviews#new'
+  post '/write_review/:host_id', to: 'reviews#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
