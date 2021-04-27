@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_22_005625) do
+ActiveRecord::Schema.define(version: 2021_04_25_214826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.string "author_type"
+    t.bigint "author_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+  end
 
   create_table "admins", force: :cascade do |t|
     t.string "email"
@@ -69,6 +83,17 @@ ActiveRecord::Schema.define(version: 2021_04_22_005625) do
     t.index ["host_id"], name: "index_requests_on_host_id"
     t.index ["listing_id"], name: "index_requests_on_listing_id"
     t.index ["user_id"], name: "index_requests_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "host_id"
+    t.integer "stars"
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["host_id"], name: "index_reviews_on_host_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|

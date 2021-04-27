@@ -10,7 +10,7 @@ class Host < ApplicationRecord
     has_secure_password
     has_many :transactions,dependent: :destroy
     has_many :listings,dependent: :destroy
-    
+    has_many :reviews, dependent: :destroy
     def full_address
         [address, city, state, zip_code, 'USA'].compact.join(', ')
     end
