@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+
+h1{
+    font-family: 'Krona One', sans-serif;
+}
+
+.home{
+    background-image: url('airstorage_homebkg.png');
+    background-size: cover;
+}
+
+.title-box{
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+}
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+   
+    background-color: rgb(255, 255, 255);
+   
+
+}
+
+a{
+    text-decoration: none;
+}
+.report-section{
+    text-align: center;
+    
+    padding: 20px;
+}
+
+.report-section:hover{
+    background-color: rgba(184, 184, 184, 0.459);
+}
+.sections{
+    background-color: rgb(255, 255, 255);
+    
+    margin: 0 auto;
+}
