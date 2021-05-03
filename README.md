@@ -1,11 +1,15 @@
 <!-- PROJECT LOGO -->
 <p align="center">
-  <a href="https://github.com/Mikeq0621/COSI166_team11">
-    <img src="AirStorageIcon.png" alt="Logo" width="80" height="80">
+  <a href="https://mikeq0621.github.io/COSI166_team11/">
+    <img src="./app/assets/images/AirStorageIcon2.png" alt="Logo" width="80" height="80">
   </a>
   <h1 align="center">Team 11: AirStorage</h1>
   <p align="center">
-    COSI 166b Term Project Stage 3
+    COSI 166b Term Project
+    <br>
+    <a href="https://airstorage.herokuapp.com/">Heroku Deployment</a>
+    <br>
+    <a href="https://github.com/Mikeq0621/COSI166_team11">Github Repository</a>
     <br/>
   </p>
 </p>
@@ -18,7 +22,7 @@
       <a href="#about-airstorage">About AirStorage</a>
     </li>
     <li>
-      <a href="#built-using">Built Using</a>
+      <a href="#dependencies">Dependencies</a>
       <ul>
         <li><a href="#gems-apis-and-libraries">Gems, APIs, and Libraries</a></li>
       </ul>
@@ -31,27 +35,29 @@
 </details>
 
 <!-- ABOUT AIRSTORAGE -->
-## About AirStorage: 
+# About AirStorage: 
 
-![screen shot](Home.png)
+![screen shot](./app/assets/images/Homepage.png)
 
 AirStorage is an user-driven online marketplace for storage space rental services. Members of the website are divided into Users and Hosts. Users can 
-find listings for places offering storage space for their belongings and Hosts can rent out any extra space in their residences for a certain time period. 
+find listings for places offering storage space for their belongings and Hosts can rent out any extra space in their residences for a certain time period with price of their choice.
 
-Currently, visitors to AirStorage can do the following:
+Basic Functionalities:
 * Create an account or log in as either a User or a Host
-* Hosts can post listings for the storage space(s) they are renting out
+* Both Users and Hosts can edit their profile
 * Users can search for listings and filter their results based on location, storage space size, and duration
-* Users can rent listings being offered
-* Visitors can view available result options on interactive map
+* Users can choose a rental space from a map containing nearby options
+* Users can apply to a host for an available rental option
+* Hosts can post their storage space(s) 
+* Hosts will get a email notification when some user request a rental option
+* Hosts can choose to accept or deny a request from user
+* Hosts can edit information about listed spaces
 
-Link: https://airstorage.herokuapp.com/
-
-<!-- BUILT USING -->
-## Built Using: 
+<!-- DEPENDENCIES -->
+# Dependencies: 
 * [Ruby 2.7.2](https://www.ruby-lang.org/en/downloads/)
 * [Rails 6.1.3](https://rubyonrails.org)
-* [Bootstrap 3.4.1](https://getbootstrap.com)
+* [Bootstrap 5.0.0](https://getbootstrap.com)
 
 ### Gems, APIs, and Libraries:
     MapBox
@@ -62,6 +68,9 @@ Link: https://airstorage.herokuapp.com/
     Pry-rails
     Bcrypt
     Geocoder
+
+[More about Gems](./docs/OTHER_GEMS.md) 
+_TODO: Add more about gems_
 
 <!-- NAVIGATING AIRSTORAGE -->
 ## Navigating AirStorage
