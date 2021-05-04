@@ -29,6 +29,7 @@
     </li>
     <li><a href="#navigating-airstorage">Navigating AirStorage</a></li>
     <ul>
+        <li><a href="#profile">Profile</a></li>
         <li><a href="#map-listings">Map Listings</a></li>
       </ul>
     <li><a href="#database-schema">Database Schema</a></li>
@@ -80,6 +81,12 @@ For detailed information about interesting gems in this application, please chec
 # Navigating AirStorage
 
 We implemented two parallel systems for users and hosts. Signing in as a user or a host would provide you different functionalities. Any user or host can use the links in navigation bar to redirect through the application.<br>
+
+### Profile
+
+A user or host profile are fairly similar. A user can see pending requests (that is requests for space that have not beeen accepted/denied)and previous transactions, as well as edit their profile. A host profile can do all those things, with the addition of being able to add/view listings, and the ability to accept or deny requests. Below is an image of what an average Host Profile page would look like.
+
+![Review System](./app/assets/images/Profile.png)
 
 If signed in a user, you can view all existing rental options by clicking _Listings_ in navigation bar. You will be redirected to a map displaying all available rental options nearby. You can also filter the search results with multiple cretirions. You can choose to apply for some rental options that suit you the best. As a user, you have the option to leave your host a review upon a successful transaction.
 
