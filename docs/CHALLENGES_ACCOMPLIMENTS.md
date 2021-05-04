@@ -21,3 +21,7 @@
  * Being able to send notifications and emails to user/hosts
  * Being able to utlize GeoCoder to get user/host locations 
  * Being able to implement a review/rating system for hosts
+
+# Minor Challenges
+ * Various issues with database schema: we had to add new columns and configurations to our database and it caused for a lot of migrations 
+ * Ran into a lot of minor bugs in our project, set us back as we couldn't work on new features
