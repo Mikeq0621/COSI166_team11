@@ -1,9 +1,9 @@
 name: AirStorage
 blurb: AirStorage is a service that allows people to rent out areas of their home for storage purposes and for people to rent those areas posted
-course: Cosi 166b
+course: CS166b
 semester: Spring 2021
 github: https://github.com/Mikeq0621/COSI166_team11
 application: https://airstorage.herokuapp.com/
 presentation:https://docs.google.com/presentation/d/163d_slStIm3P-epz2jP8wYSH3KxiXDxCr70Bb2w_RAw/edit?usp=sharing
-image: 
+image: https://ibb.co/P9nw0M4
 team: Jasmyne Jean-Remy, Shi Qiu, Federico Berlfein, Aichuk Tripura
