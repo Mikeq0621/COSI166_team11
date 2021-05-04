@@ -28,6 +28,9 @@
       </ul>
     </li>
     <li><a href="#navigating-airstorage">Navigating AirStorage</a></li>
+    <ul>
+        <li><a href="#map-listings">Map Listings</a></li>
+      </ul>
     <li><a href="#database-schema">Database Schema</a></li>
     <li><a href="#url-paths">Url Paths</a></li>
     <li><a href="#deliverables">Deliverables</a></li>
@@ -91,6 +94,9 @@ their list of listings that they are offering.<br>
 Users can find listings being offered by hosts using the search bar or by clicking the Listings link. Both options brings the User to the interactive map, with the 
 latter option showing all listings. The storage spaces being offered are represented using pins and clicking on a pin brings up a relevant renting option. If the 
 User selects that, it brings them to another page to confirm their renting, upon which the rent request is added to the User's and Host's pending requests.
+
+### Map Listings
+
 
 <!-- DATABASE SCHEMA -->
 ## Database Schema
