@@ -88,7 +88,7 @@ A user or host profile are fairly similar. A user can see pending requests (that
 
 ![Review System](./app/assets/images/Profile.png)
 
-If signed in a user, you can view all existing rental options by clicking _Listings_ in navigation bar. You will be redirected to a map displaying all available rental options nearby. You can also filter the search results with multiple cretirions. You can choose to apply for some rental options that suit you the best. As a user, you have the option to leave your host a review upon a successful transaction.
+If signed in as user, you can view all existing rental options by clicking _Listings_ in navigation bar. You will be redirected to a map displaying all available rental options nearby. You can also filter the search results with multiple cretirions. You can choose to apply for some rental options that suit you the best. As a user, you have the option to leave your host a review upon a successful transaction.
 
 ![Review System](./app/assets/images/Review.png) 
 
