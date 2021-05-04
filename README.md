@@ -106,7 +106,7 @@ The Map API allows the user to search and browse through available listings base
 
 You can clearly see all 4 features on the image below.
 
-![screen shot](./app/assets/images/AirStorageFinalMap.png) 
+![screen shot](./app/assets/images/AirStorageFinalMap2.png) 
 
 
 <!-- DATABASE SCHEMA -->
