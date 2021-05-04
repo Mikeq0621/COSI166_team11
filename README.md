@@ -11,6 +11,7 @@
     <br>
     <a href="https://github.com/Mikeq0621/COSI166_team11">Github Repository</a>
     <br/>
+    <a href="https://mikeq0621.github.io/COSI166_team11/">Github Page</a>
   </p>
 </p>
 
