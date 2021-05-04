@@ -89,7 +89,7 @@ to rent for Users and the option to rent space out for Hosts. <br>
 The members' profile pages contains their personal details and records for recent transactions and pending requests. The Hosts' profile pages also shows
 their list of listings that they are offering.<br>
 
-![screen shot](./app/assets/images/AirStorageMap.png) 
+![screen shot](AirStorageMap.png) 
 
 Users can find listings being offered by hosts using the search bar or by clicking the Listings link. Both options brings the User to the interactive map, with the 
 latter option showing all listings. The storage spaces being offered are represented using pins and clicking on a pin brings up a relevant renting option. If the 
@@ -106,7 +106,7 @@ The Map API allows the user to search and browse through available listings base
 
 You can clearly see all 4 features on the image below.
 
-![screen shot](AirStorageFinalMap.png) 
+![screen shot](./app/assets/images/AirStorageFinalMap.png) 
 
 
 <!-- DATABASE SCHEMA -->
