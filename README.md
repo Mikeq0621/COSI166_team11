@@ -169,7 +169,7 @@ You can clearly see all 4 features on the image below.
 
 * Improve on duration time of rental options
 
-  In current version, we simply used the duration weeks for any rental options. In further developments, we are planning the change the durtation into beginning data and endding data. And add some functionality to close the transaction once it reaches the endding time. In current version, it relies on the host to maually edit their rental options to update on a finished transaction, which is not ideal in for a real application.
+  In current version, we simply used the duration weeks for any rental options. In further developments, we are planning the change the durtation into beginning data and ending data. And add some functionality to close the transaction once it reaches the endding time. In current version, it relies on the host to maually edit their rental options to update on a finished transaction, which is not ideal in for a real application.
 
 * More Ajax implementation
 
@@ -179,8 +179,8 @@ For detailed further improvments, please check:
 [More improvements](./docs/IMPROVEMENTS.md) 
 
 
-<!-- TEAM-MEMBER -->
-# Team member
+<!-- TEAM-MEMBERs -->
+# Team members
 * Jasmyne Jean-Remy Email: jasmynej14@brandeis.edu
 * Federico Berlfein Email: berlfeinf@brandeis.edu
 * Aichuk Tripura Email: aichuktripura@brandeis.edu
