@@ -28,6 +28,9 @@
       </ul>
     </li>
     <li><a href="#navigating-airstorage">Navigating AirStorage</a></li>
+    <ul>
+        <li><a href="#map-listings">Map Listings</a></li>
+      </ul>
     <li><a href="#database-schema">Database Schema</a></li>
     <li><a href="#development-and-testing">Development and Testing</a></li>
     <li><a href="#team-member">Team member</a></li>
@@ -58,7 +61,7 @@ Basic Functionalities:
 # Dependencies: 
 * [Ruby 2.7.2](https://www.ruby-lang.org/en/downloads/)
 * [Rails 6.1.3](https://rubyonrails.org)
-* [Bootstrap 5.0.0](https://getbootstrap.com)
+* [Bootstrap 3.4.1](https://getbootstrap.com)
 
 ### Gems, APIs, and Libraries:
     MapBox
@@ -88,6 +91,20 @@ If signed in as a host, you can review the detailed information about your liste
 
 Some other general functionalities includes editing the personal information in profile and resetting the password.
 
+### Map Listings
+
+The Map API allows the user to search and browse through available listings based on their preferences. This functionality consists of 4 main features:
+
+* Listings catalog on the left, sorted by proximity. When item is clicked, the map on the right flies to the approppiate and gives user option to request space.
+* Interactive map on the right on screen, available listings are red markers, which when clicked on take you to the listing on the Listings catalog.
+* Filter button allows the user to filter listings by available space, duration, price, and distance.
+* Search bar on the top right of the map, allows the user to search for a specific address/city and re-sorts listings accordingly. 
+
+You can clearly see all 4 features on the image below.
+
+![screen shot](./app/assets/images/AirStorageFinalMap2.png) 
+
+
 <!-- DATABASE SCHEMA -->
 # Database Schema
 
@@ -106,7 +123,7 @@ Some other general functionalities includes editing the personal information in 
 
     
     Name: Requests
-
+    
 
     Associations:
 _TODO: FINISH SCHEMAS_
