@@ -2,7 +2,7 @@
   <a href="https://mikeq0621.github.io/COSI166_team11/">
     <img src="../app/assets/images/AirStorageIcon2.png" alt="Logo" width="80" height="80">
   </a>
-  <h1 align="center">Team 11: AirStorage: Interesting gems</h1>
+  <h1 align="center">Team 11: AirStorage: Challenges and accomplishment</h1>
   <p align="center">
     COSI 166b Term Project
     <br>
@@ -17,3 +17,5 @@
 # Map functionality
 
 # Transactions
+
+# Ajax in displaying price

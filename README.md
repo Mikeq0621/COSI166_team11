@@ -61,7 +61,7 @@ Basic Functionalities:
 # Dependencies: 
 * [Ruby 2.7.2](https://www.ruby-lang.org/en/downloads/)
 * [Rails 6.1.3](https://rubyonrails.org)
-* [Bootstrap 3.4.1](https://getbootstrap.com)
+* [Bootstrap 5.0.0](https://getbootstrap.com)
 
 ### Gems, APIs, and Libraries:
     MapBox
@@ -111,39 +111,63 @@ You can clearly see all 4 features on the image below.
 <b> Major models </b>
 
     Host
-    Contain Host objects and personal informations, such as email, name, phone number and address.
+    Contains Host objects and personal informations, such as email, name, phone number, address and so on.
 
     Users 
-    Contain User objects and personal informations, such as email, name, phone number and address.
+    Contains User objects and personal informations, such as email, name, phone number, address and so on.
 
     Transactions
+    Transaction -> User (is One to Many)
+    Transaction -> Host (is One to Many)
+    Contains a listing_id, user_id and host_id. It represents a successful connection between a host's rental option to a user's request.
+
+    Listings
+    Listing -> Host (is One to Many)
+    Contains a host_id, price, durations and etc. It represents a rental space option offered by a host.
+
+    Requests
+    Request contains a listing_id, a host_id and a user_id. It represents a record of one user applying a rental option to a host.
+  
+<b> Other models </b>
+
+    Reviews, Notifications, Admins
 
 
-    Name: Listings
-
-    
-    Name: Requests
-    
-
-    Associations:
-_TODO: FINISH SCHEMAS_
 <!-- DEVELOPMENT and TESTING-->
 # Development and testing
 
-### Development
+## Development
   We devided and developed our application from pieces of small functionalities, such as sign-in/sign-up system, creating rental option listings, displaying rental option on map, transaction system with user requests, search filters in map results and etc. 
-  <br>
-  The most challenging part would be the map functionalities and search filters. (transactions? requests?)
-  We switched from Google Map API to Mapbox Gems as we implementing the map function. We managed to display all nearby rental options on the map with a pin icon. Upon clicking some individual listing, the map would zoom in to that location and centralize that pin for users.
+
+  The most challenging part would be the map functionalities and search filters. (transactions? requests? maybe)
   
+  * Map function
+
+    In the first approach, we failed to implement map search function with Google Map API. Switching from Google Map API to Mapbox Gems, we managed to display all nearby rental options on the map with a pin icon. Upon clicking some individual listing, the map would zoom in to that location and centralize that pin for users.
+  
+  * Search filter
+
+    In early stages, our search filter can only search on one single field, such as box size and duration time. In the final deployment, we incorperated the search filter into the map. Furthermore, the search filter can now apply to multiple search critirions. User can perform a more specific search on multiple critions.
+  
+  The application has the automatic deployment to Heroku with github master branch updates.
+
   For more details discussion, please check:
-  [Challenges and accomplishments](./docs/CHALLENGES_ACCOMPLIMENTS.md) 
+  [Challenges and accomplishments](./docs/CHALLENGES_ACCOMPLIMENTS.md)
 
-### Testing
-<br>
+## Testing
+  We implemented some mini-tests for each function controller and models. We tested validation for user and hosts model, the proper functions of mailer notification. We also incorporated integration test for general user/host sign-in, and authorized functionalities, such as viewing the listings and creating transactions after sign-in.
 
 
-### Improvements
+## Improvements
+
+* Improve on duration time of rental options
+
+  In current version, we simply used the duration weeks for any rental options. In further developments, we are planning the change the durtation into beginning data and endding data. And add some functionality to close the transaction once it reaches the endding time. In current version, it relies on the host to maually edit their rental options to update on a finished transaction, which is not ideal in for a real application.
+
+* More Ajax implementation
+
+  We are also look forward to implement in-line editing for user/host profile editing and host's rental option editing. So far we failed to implement those editing with Ajax, but just used another form to update related fields.
+
 For detailed further improvments, please check:
 [More improvements](./docs/IMPROVEMENTS.md) 
 
