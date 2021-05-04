@@ -104,7 +104,7 @@ You can clearly see all 4 features on the image below.
 
 ![User search result](./app/assets/images/Search_results.png) 
 
-
+[More about Mapping](./docs/Listings.md) 
 <!-- DATABASE SCHEMA -->
 # Database Schema
 
