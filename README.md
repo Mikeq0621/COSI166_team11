@@ -119,11 +119,22 @@ User selects that, it brings them to another page to confirm their renting, upon
     Columns: integer id, bigint host_id, bigint listing_id, bigint user_id, available_duration,
     datetime created_at, datetime updated_at, index index_requests_on_host_id, index index_requests_on_listings_id,
     index index_requests_on_user_id
-
+    
+    Name: Reviews
+    Columns: integer id, bigint user_id,bigint host_id,integer stars,string comment,datetime created_at, datetime updated_at, index ["host_id"] index_reviews_on_host_id, index ["user_id"] index_reviews_on_user_id
+    
+    Name: Notifications
+    Columns: string recipient_type, bigint recipient_id, string type, jsonb params, datetime read_at,datetime created_at, datetime updated_at,index ["read_at"] name: "index_notifications_on_read_at",index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
+    
     Associations:
     Hosts -> Listings (One to Many)
+    Hosts -> Notifications (One to Many)
+    Hosts -> Reviews (One to Many)
+    Hosts -> Requests (One to Many)
+    Listing -> Requests (One to Many)
     Hosts -> Transactions is (One to Many)
     Users -> Transactions is (One to Many)
+    Users -> Requests (One to Many)
 
 <!-- URL PATHS-->
 ## URL Paths
@@ -151,6 +162,5 @@ decline a request -> /deny/:req_id
 
 <!-- DELIVERABLES-->
 ## Deliverables
-* Screen shots of current UI/UX, and planning modifications on UI in UI_Prototype
-* We used ActiveAdmin for the admin UI and controll.
+* Final Delieverables are in the folder marked "final deliverables"
 * Tests in test/models and test/integration
