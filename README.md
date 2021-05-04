@@ -83,7 +83,7 @@ We implemented two parallel systems for users and hosts. Signing in as a user or
 
 If signed in a user, you can view all existing rental options by clicking _Listings_ in navigation bar. You will be redirected to a map displaying all available rental options nearby. You can also filter the search results with multiple cretirions. You can choose to apply for some rental options that suit you the best. As a user, you have the option to leave your host a review upon a successful transaction.
 
-![User search result](./app/assets/images/Search_results.png) 
+![Review System](./app/assets/images/Review.png) 
 
 If signed in as a host, you can review the detailed information about your listed spaces, as well as any request to rent this space. You can also decided to accept or deny the request. Once a user request your listed spaces, you will get a email notification as a reminder.
 
@@ -102,7 +102,7 @@ The Map API allows the user to search and browse through available listings base
 
 You can clearly see all 4 features on the image below.
 
-![screen shot](./app/assets/images/AirStorageFinalMap2.png) 
+![User search result](./app/assets/images/Search_results.png) 
 
 
 <!-- DATABASE SCHEMA -->
