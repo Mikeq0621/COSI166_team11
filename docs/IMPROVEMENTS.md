@@ -23,4 +23,7 @@ We noticed this problem in the last two weeks, when we finished all essential tr
 This improvement is closely related to change of duration time field. If we managed to implement the starting and endding data, then it would be reasonale to implement some further functionalities to deal with some finished transcations. The system would close those transactions and update the rental options automatically. One other problem would be dealing with real time flow in our application. So far our transaction system is static in the sense of time flow, we should think of a way to deal with time changes in our app.
 
 # Payment system
-We had a price relating to a rental option. It would be reasonalbe to add a payment system, yet the challenge is that a real payment system would be hard to test, and with more risk if the our application contains any valued personal informations.
+We had a price relating to a rental option. It would be reasonable to add a payment system, yet the challenge is that a real payment system would be hard to test, and with more risk if the our application contains any valued personal informations.
+
+# Message System
+Although there is a feautre that allows for a user to send an email message through the website, we would have liked to have implemented an in-app messaging system so users and hosts could chat with each other
