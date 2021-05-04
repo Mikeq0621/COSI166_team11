@@ -14,6 +14,7 @@
   </p>
 </p>
 
-# Use of Mapbox
+# General Functionality
+The listings map is one of the main features of our website. It is the only tool that connects users to hosts, so its functionality was a key part of this app. The general functionality of the map heavily relies on javascript and ajax. When a user of host enters the Listings tab in our website, the map will center around the current users location, and show them nearby available listings for storage as red markers. Simiarly, the listings catalog on the left shows the available listings sorted by distance. The red markers in the map are all linked to a listing item on the catalog on the left. Each listing item and marker have listeners that, in the case the user clicks on either one, it will scroll through the listings catalog on the left and highlight the appropiate listing, as well as fly to its corresponding marker on the map. This is all done with Ajax so the user does not have to refresh the page, and changes are made on the spot. Marker and listing items can be "active" or not, so when a user clicks a different item, previous items becomes inactive and only the clicked item becomes active.
 
 
