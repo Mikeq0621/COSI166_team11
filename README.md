@@ -57,7 +57,7 @@ Basic Functionalities:
 # Dependencies: 
 * [Ruby 2.7.2](https://www.ruby-lang.org/en/downloads/)
 * [Rails 6.1.3](https://rubyonrails.org)
-* [Bootstrap 5.0.0](https://getbootstrap.com)
+* [Bootstrap 3.4.1](https://getbootstrap.com)
 
 ### Gems, APIs, and Libraries:
     MapBox
