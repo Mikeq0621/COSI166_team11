@@ -20,6 +20,7 @@
 # More Accomplishments  
  * Being able to send notifications and emails to user/hosts
  * Being able to utlize GeoCoder to get user/host locations 
+ * Converting the user/host address to longitude and latitude, and searching based on real address distance
  * Being able to implement a review/rating system for hosts
 
 # Minor Challenges
