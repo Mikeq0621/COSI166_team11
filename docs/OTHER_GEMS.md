@@ -16,6 +16,8 @@
 
 # Mapbox
 
-# Noticed
+# <a href="https://github.com/excid3/noticed">Noticed<a>
+<p> Noticed was used to send notifications to Hosts whenever someone requested to rent out their listing</p>
+<p> With Noticed, we were able to send notifications to the database in order to properly display them </p>
 
 # Geocoder
