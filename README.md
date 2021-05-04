@@ -144,7 +144,7 @@ You can clearly see all 4 features on the image below.
 # Development and testing
 
 ## Development
-  We devided and developed our application from pieces of small functionalities, such as sign-in/sign-up system, creating rental option listings, displaying rental option on map, transaction system with user requests, search filters in map results and etc. 
+  We devided and developed our application from pieces of small functionalities, such as sign-in/sign-up system, creating rental option listings, displaying rental option on map, transaction system with user requests, search filters in map results and etc. For each functionality, we developed on a branch and merged to master after testing it fully functional. We also collaborated on some more diffcult functionalities, such as filters and interactive maps.
 
   The most challenging part would be the map functionalities and search filters. (transactions? requests? maybe)
   
