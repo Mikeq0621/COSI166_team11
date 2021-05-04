@@ -29,8 +29,8 @@
     </li>
     <li><a href="#navigating-airstorage">Navigating AirStorage</a></li>
     <li><a href="#database-schema">Database Schema</a></li>
-    <li><a href="#url-paths">Url Paths</a></li>
-    <li><a href="#deliverables">Deliverables</a></li>
+    <li><a href="#development-and-testing">Development and Testing</a></li>
+    <li><a href="#team-member">Team member</a></li>
   </ol>
 </details>
 
@@ -48,6 +48,7 @@ Basic Functionalities:
 * Users can search for listings and filter their results based on location, storage space size, and duration
 * Users can choose a rental space from a map containing nearby options
 * Users can apply to a host for an available rental option
+* Users can leave a review for a host
 * Hosts can post their storage space(s) 
 * Hosts will get a email notification when some user request a rental option
 * Hosts can choose to accept or deny a request from user
@@ -69,88 +70,70 @@ Basic Functionalities:
     Bcrypt
     Geocoder
 
+For detailed information about interesting gems in this application, please check:
 [More about Gems](./docs/OTHER_GEMS.md) 
-_TODO: Add more about gems_
 
 <!-- NAVIGATING AIRSTORAGE -->
-## Navigating AirStorage
+# Navigating AirStorage
 
-At this moment, we have implemented many of the pages we intend to use in the final release of AirStorage. Prototypes for modifications and additions
-to the views can be found in the "UI_Prototypes" folder in our github repository. Instructions for navigating through the site can also be found in the FAQs section.<br>
+We implemented two parallel systems for users and hosts. Signing in as a user or a host would provide you different functionalities. Any user or host can use the links in navigation bar to redirect through the application.<br>
 
-Clicking the website link brings the visitor to the home page, where there is an option to sign up as either an User or Host. If they already have an account,
-they can log in using the option on the header, which also contains the search bar and filter, and links to the member's account, listings, host
-list, FAQ and log out upon a succesful log in. Upon logging in or signing up, the member is brought the home page, which then contains the option to find places 
-to rent for Users and the option to rent space out for Hosts. <br>
+If signed in a user, you can view all existing rental options by clicking _Listings_ in navigation bar. You will be redirected to a map displaying all available rental options nearby. You can also filter the search results with multiple cretirions. You can choose to apply for some rental options that suit you the best. As a user, you have the option to leave your host a review upon a successful transaction.
 
-The members' profile pages contains their personal details and records for recent transactions and pending requests. The Hosts' profile pages also shows
-their list of listings that they are offering.<br>
+![User search result](./app/assets/images/Search_results.png) 
 
-![screen shot](AirStorageMap.png) 
+If signed in as a host, you can review the detailed information about your listed spaces, as well as any request to rent this space. You can also decided to accept or deny the request. Once a user request your listed spaces, you will get a email notification as a reminder.
 
-Users can find listings being offered by hosts using the search bar or by clicking the Listings link. Both options brings the User to the interactive map, with the 
-latter option showing all listings. The storage spaces being offered are represented using pins and clicking on a pin brings up a relevant renting option. If the 
-User selects that, it brings them to another page to confirm their renting, upon which the rent request is added to the User's and Host's pending requests.
+![Host listing](./app/assets/images/Host_listing.png) 
+
+Some other general functionalities includes editing the personal information in profile and resetting the password.
 
 <!-- DATABASE SCHEMA -->
-## Database Schema
+# Database Schema
 
-<b> Tables </b>
-    
-    Name: Hosts 
-    Columns: integer id, string name, string email, string password_digest, string phone_number, string address, 
-    string city, text zip_code, datetime created_at, datetime updated_at, decimal longitude, decimal latitude, 
-    string state
+<b> Major models </b>
 
-    Name: Users 
-    Columns: integer id, string name, string email, string password_digest, string phone_number, datetime created_at,
-    datetime updated at, decimal longitude, decimal latitude, string state, string city, string address,
-    text zipcode
+    Host
+    Contain Host objects and personal informations, such as email, name, phone number and address.
 
-    Name: Transactions
-    Columns: integer id, integer host_id, integer user_id, float price, integer duration, datetime created_at,
-    datetime updated_at, integer listing_id
+    Users 
+    Contain User objects and personal informations, such as email, name, phone number and address.
+
+    Transactions
+
 
     Name: Listings
-    Columns: integer id, integer host_id, integer space, integer available_duration, datetime created_at,
-    datetime updated_at
+
     
     Name: Requests
-    Columns: integer id, bigint host_id, bigint listing_id, bigint user_id, available_duration,
-    datetime created_at, datetime updated_at, index index_requests_on_host_id, index index_requests_on_listings_id,
-    index index_requests_on_user_id
+
 
     Associations:
-    Hosts -> Listings (One to Many)
-    Hosts -> Transactions is (One to Many)
-    Users -> Transactions is (One to Many)
+_TODO: FINISH SCHEMAS_
+<!-- DEVELOPMENT and TESTING-->
+# Development and testing
 
-<!-- URL PATHS-->
-## URL Paths
-<b>Home page:</b> /  
-<b>Users urls:</b> /users, /users/new, /users/create, /users/delete, /users/:id <br>
-<b>Hosts urls:</b> /hosts, /hosts/new, /hosts/create, /hosts/delete, /hosts/:id <br>
-<b>Login as user:</b> /userlogin <br>
-<b>Login as host:</b> /hostlogin <br>
-<b>Display user profile:</b> /userprofile <br>
-<b>Display host profile:</b> /hostprofile <br>
-<b>Listings url:</b> /listings, /listings/new, /listings/create, /listings/delete, /listings/:id <br>
-<b>Transactions url:</b> /transactions, /transactions/new, /transactions/create, /transactions/delete <br>
-<b>Requests url:</b>  <br>
-create a request -> /rent/:listing_id, <br>
-accept a request -> /accept/:req_id, <br>
-decline a request -> /deny/:req_id	   
-<b>Search form:</b> /search <br>
-<b>Display search results by different filters:</b> <br>
-/search?search=3&search_filter=box, <br>
-/search?search=3&search_filter=city, <br> 
-/search?search=3&search_filter=duration, <br>
-/search?search=3&search_filter=location <br>
-<b>FAQ page:</b> /static_page/faq <br>
-<b>Logout:</b> /logout <br>
+### Development
+  We devided and developed our application from pieces of small functionalities, such as sign-in/sign-up system, creating rental option listings, displaying rental option on map, transaction system with user requests, search filters in map results and etc. 
+  <br>
+  The most challenging part would be the map functionalities and search filters. (transactions? requests?)
+  We switched from Google Map API to Mapbox Gems as we implementing the map function. We managed to display all nearby rental options on the map with a pin icon. Upon clicking some individual listing, the map would zoom in to that location and centralize that pin for users.
+  
+  For more details discussion, please check:
+  [Challenges and accomplishments](./docs/CHALLENGES_ACCOMPLIMENTS.md) 
 
-<!-- DELIVERABLES-->
-## Deliverables
-* Screen shots of current UI/UX, and planning modifications on UI in UI_Prototype
-* We used ActiveAdmin for the admin UI and controll.
-* Tests in test/models and test/integration
+### Testing
+<br>
+
+
+### Improvements
+For detailed further improvments, please check:
+[More improvements](./docs/IMPROVEMENTS.md) 
+
+
+<!-- TEAM-MEMBER -->
+# Team member
+* Jasmyne Jean-Remy Email: jasmynej14@brandeis.edu
+* Federico Berlfein Email: berlfeinf@brandeis.edu
+* Aichuk Tripura Email: aichuktripura@brandeis.edu
+* Shi Qiu Email: mikeq@brandeis.edu
