@@ -35,7 +35,7 @@
       </ul>
     <li><a href="#database-schema">Database Schema</a></li>
     <li><a href="#development-and-testing">Development and Testing</a></li>
-    <li><a href="#team-member">Team members</a></li>
+    <li><a href="#team-members">Team members</a></li>
   </ol>
 </details>
 
