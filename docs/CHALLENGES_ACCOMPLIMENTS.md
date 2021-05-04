@@ -15,7 +15,7 @@
 </p>
 
 # Map functionality
-      There were intially some issues with implementing JavaScript in order to have a fully functional map. (ex. getting map markers to pop up, allowing the map           filters to dynamically edit the map). Overall, the map is one of the biggest accomplishmets of the project  
+<p> There were intially some issues with implementing JavaScript in order to have a fully functional map. (ex. getting map markers to pop up, allowing the map           filters to dynamically edit the map). Overall, the map is one of the biggest accomplishmets of the project  </p>
 
 # More Accomplishments  
  * Being able to send notifications and emails to user/hosts
