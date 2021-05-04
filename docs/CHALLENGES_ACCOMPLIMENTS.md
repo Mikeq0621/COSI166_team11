@@ -15,7 +15,9 @@
 </p>
 
 # Map functionality
+      There were intially some issues with implementing JavaScript in order to have a fully functional map. (ex. getting map markers to pop up, allowing the map           filters to dynamically edit the map). Overall, the map is one of the biggest accomplishmets of the project  
 
-# Transactions
-
-# Ajax in displaying price
+# More Accomplishments  
+ * Being able to send notifications and emails to user/hosts
+ * Being able to utlize GeoCoder to get user/host locations 
+ * Being able to implement a review/rating system for hosts
